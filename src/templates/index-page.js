@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import styled, { keyframes } from "styled-components"
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 
 import wallpaper from '../img/wallpaper.jpg'
+import wallpaper_mobile from '../img/wallpaper_mobile.jpg'
 import federations from '../img/federations.png'
 
 const WallpaperContainer = styled.div`
@@ -22,8 +24,10 @@ const WallpaperContainer = styled.div`
   grid-template-rows: 52% 29% 18%;
   grid-template-areas: "federationsContainer . ." "headerMain headerMain headerMain" " scrollDown scrollDown scrollDown";
   grid-template-columns: 50% 35% 15%;
+  background-image: url(${wallpaper_mobile});
   @media only screen and (min-width: 1088px) {
-    grid-template-rows: 35% 40% 25%;
+    grid-template-rows: 40% 34% 21%;
+    background-image: url(${wallpaper});
   }
 `
 
@@ -55,14 +59,31 @@ const SpanBigSlim = styled.span`
   position: relative;
   font-weight: 200;
   color: #339933;
-  font-size: 1.9em;
+  font-size: 1.95em;
   letter-spacing: 0.9px;
+  @media only screen and (min-width: 1088px) {
+    font-size: 2.15em;
+  }
 `
 const SpanStyled = styled.span`
   letter-spacing: 1px;
   left: -1px;
   font-size: 1em;
   font-weight: ${props => props.weight};
+  white-space: pre;
+  @media only screen and (min-width: 1088px) {
+    white-space: normal;
+    font-size: 1.1em;
+  }
+`
+
+const SpanStyledBottom = styled(SpanStyled)`
+  position: relative;
+  top: -15px;
+  @media only screen and (min-width: 1088px) {
+    top: 0px;
+    left: 4px;
+  }
 `
 
 const HeaderMain = styled.h1`
@@ -77,6 +98,7 @@ const HeaderMain = styled.h1`
   background: radial-gradient(circle at center,hsla(0,0%,98%,.9),transparent 100%);
   align-self: end;
   text-align: center;
+  white-space: pre-wrap;
   &:strong {
     color: #339933 !important;
   }
@@ -154,6 +176,12 @@ const SectionMain = styled.section`
 
 `
 
+let bichon = false;
+
+setTimeout(() => {
+  bichon = true;
+}, 5000)
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -164,16 +192,23 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
-    <WallpaperContainer style={{
-        backgroundImage: `url(${wallpaper})`
-      }}>
+    <WallpaperContainer>
       <FederationsContainer>
         <ImgFederations src={federations}  />
       </FederationsContainer>
       <HeaderMain>
         <SpanBigSlim>Petit & Blanc</SpanBigSlim><br/>
-        <SpanStyled weight="100">hodowla psów rasowych</SpanStyled><br/>
-        <SpanStyled weight="400" style={{position: 'relative', top: -15}}>bichon frise</SpanStyled>
+        <SpanStyled weight="100">
+        {
+          `hodowla psów rasowych`
+        }
+        </SpanStyled>
+            <SpanStyledBottom weight="400">
+            {
+          `
+bichon frise`
+            }
+            </SpanStyledBottom>
       </HeaderMain>
       <ScrollDown onClick={() => {
         const windowHeight = window.innerHeight;

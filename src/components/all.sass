@@ -163,3 +163,17 @@ html, body
     color: white !important
   &:hover
     background-color: transparent !important
+
+.slide-right-enter
+  transform: translateX(50%)
+
+.slide-right-enter-active
+  transform: translateX(0px)
+  transition: transform 150ms linear
+
+.slide-right-exit
+  transform: translateX(0px)
+
+.slide-right-exit-active
+  transform: translateX(50%)
+  transition: transform 150ms linear
