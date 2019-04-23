@@ -13,9 +13,9 @@ const NavStyled = styled.nav`
   background-color: #339933;
   height: 60px;
   z-index: 100;
-  transition: all .3s;
   color: white;
   font-size: 1.1em;
+  transition: all .4s;
 `
 
 const NavContainer = styled.div`
@@ -73,14 +73,14 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <NavStyled
-        style={typeof window !== 'undefined' && window.innerHeight < window.scrollY ? {backgroundColor: 'rgb(245,245,245)', color: '#339933', boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'} : {}}
+        style={typeof window !== 'undefined' && window.scrollY > 0.5 * window.innerHeight ? {backgroundColor: 'rgb(245,245,245)', color: '#339933', boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'} : {}}
         role="navigation"
         aria-label="main-navigation">
         <NavContainer>
           <NavBrand>
             <StyledLink to="/" title="Logo">
               {
-                typeof window !== 'undefined' && window.innerHeight < window.scrollY ?
+                typeof window !== 'undefined' && window.scrollY > 0.5 * window.innerHeight ?
                 <img src={logo_green} alt="Petitet Blanc Logo" style={{ width: "auto", height: '40px' }} />
                 :
                 <img src={logo_white} alt="Petitet Blanc Logo" style={{ width: "auto", height: '40px' }} />

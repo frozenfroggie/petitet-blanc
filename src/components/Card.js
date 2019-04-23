@@ -12,6 +12,7 @@ const CardContainer = styled.div`
 
 const CardStyled = styled.div`
   position: relative;
+  top: -20px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -21,7 +22,7 @@ const CardStyled = styled.div`
   background-position: center;
   background-size: cover;
   border-radius: 5px;
-  transition: all .5s;
+  transition: all .7s;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 `
 
