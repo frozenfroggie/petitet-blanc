@@ -10,7 +10,7 @@ import federations from '../img/federations.png'
 
 const WallpaperBlurredContainer = styled.div`
   position: fixed;
-  top: 50px;
+  top: 60px;
   width: 100%;
   height: 100vh;
   z-index: 97;

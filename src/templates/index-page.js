@@ -23,7 +23,7 @@ const WallpaperContainer = styled.div`
   width: 100%;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 52% 29% 18%;
+  grid-template-rows: 52% 29% 19%;
   grid-template-areas: "federationsContainer . ." "headerMain headerMain headerMain" " scrollDown scrollDown scrollDown";
   grid-template-columns: 50% 35% 15%;
   transition: all .2s;
@@ -127,7 +127,7 @@ const scrollDownAnimation = keyframes`
 const ScrollDown = styled.div`
   grid-area: scrollDown;
   position: relative;
-  top: -20px;
+  top: -10px;
   left: 50%;
   width: 30px;
   height: 50px;
