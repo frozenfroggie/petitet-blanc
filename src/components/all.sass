@@ -80,8 +80,10 @@ $black: #2b2523
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
+  position: relative
+  top: 100vh
   padding: 3rem 0rem 0rem
-  background-color: transparent
+  background-color: $primary
 
 //Menu overrides
 $menu-item-color: $white-ter
@@ -129,6 +131,7 @@ html, body
     color: white
 
 .navbar-menu
+  width: calc(100% - 300px)
   @media only screen and (min-width: 1088px)
     display: flex
     justify-content: flex-end
@@ -158,9 +161,11 @@ html, body
     width: 100%
 
 .navbar-item
-  color: $primary
+  position: relative
+  top: 3px
+  color: inherit
   @media only screen and (min-width: 1088px)
-    color: white !important
+    color: inherit !important
   &:hover
     background-color: transparent !important
 
@@ -177,3 +182,22 @@ html, body
 .slide-right-exit-active
   transform: translateX(50%)
   transition: transform 150ms linear
+
+
+.slide-bottom-enter
+  transform: translateY(10%)
+  opacity: 0
+
+.slide-bottom-enter-active
+  transform: translateY(0px)
+  transition: transform 200ms linear, opacity 200ms
+  opacity: 1
+
+.slide-bottom-exit
+  transform: translateY(0px)
+  opacity: 1
+
+.slide-bottom-exit-active
+  transform: translateY(-10%)
+  transition: transform 200ms linear, opacity 200ms
+  opacity: 0

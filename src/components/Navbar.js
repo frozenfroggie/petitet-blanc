@@ -4,6 +4,7 @@ import styled from "styled-components"
 
 import github from "../img/github-icon.svg";
 import logo_white from "../img/logo_white.png";
+import logo_green from "../img/logo_green.png";
 
 const NavStyled = styled.nav`
   top: 0px;
@@ -11,7 +12,10 @@ const NavStyled = styled.nav`
   width: 100vw;
   background-color: #339933;
   height: 60px;
-  z-index: 100
+  z-index: 100;
+  transition: all .3s;
+  color: white;
+  font-size: 1.1em;
 `
 
 const NavContainer = styled.div`
@@ -69,17 +73,25 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <NavStyled
+        style={typeof window !== 'undefined' && window.innerHeight < window.scrollY ? {backgroundColor: 'rgb(245,245,245)', color: '#339933', boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'} : {}}
         role="navigation"
         aria-label="main-navigation">
         <NavContainer>
           <NavBrand>
             <StyledLink to="/" title="Logo">
-              <img src={logo_white} alt="Petitet Blanc Logo" style={{ width: "auto", height: '40px' }} />
+              {
+                typeof window !== 'undefined' && window.innerHeight < window.scrollY ?
+                <img src={logo_green} alt="Petitet Blanc Logo" style={{ width: "auto", height: '40px' }} />
+                :
+                <img src={logo_white} alt="Petitet Blanc Logo" style={{ width: "auto", height: '40px' }} />
+              }
+
             </StyledLink>
             {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
+              style={typeof window !== 'undefined' && window.innerHeight < window.scrollY ? {color: '#339933'} : {}}
               onClick={() => this.toggleHamburger()}
             >
               <span />
