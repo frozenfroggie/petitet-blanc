@@ -157,14 +157,13 @@ const ScrollDown = styled.div`
 
 const Section = styled.section`
   position: relative;
-  top: -50vh;
-  margin: 50px 0px;
+  /* top: -50vh; */
+  /* margin: 50px 0px; */
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
 `
 
 const SectionMain = styled.section`
@@ -185,7 +184,7 @@ export const IndexPageTemplate = ({
   showDog,
   blur
 }) => (
-  <div>
+  <div id="aboutDescription">
     <WallpaperContainer style={
       blur === 0 ? {
         opacity: 1,
@@ -214,7 +213,7 @@ bichon frise`
       <ScrollDown onClick={() => {
         const windowHeight = window.innerHeight;
         window.scrollTo({
-          top: 0.5 * windowHeight,
+          top: windowHeight,
           behavior: 'smooth'
           });
         }}>
@@ -265,21 +264,71 @@ class IndexPage extends React.Component {
     super(props);
     this.state = {
       showDog: [false, false, false, false],
-      blur: 0
+      blur: 0,
+      currentDog: 0,
+      minX: 0,
+      minY: 0,
+      swipeDet: {
+        sX: 0,
+        sY: 0,
+        eX: 0,
+        eY: 0
+      }
     }
   }
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll);
+    window.addEventListener('wheel', this.onWheel);
+    this.detectSwipe('aboutDescription', this.swipeDetected);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('wheel', this.onWheel)
   }
-  onScroll = () => {
-    const { innerHeight, scrollY } = window;
+  onWheel = (e) => {
+    let delta;
+
+    if (e.wheelDelta) {
+      delta = e.wheelDelta;
+    } else {
+      delta = -1 * e.deltaY;
+    }
+    console.log(this.state.currentDog)
+    if (delta < 0){
+      // console.log(window.pageYOffset, window.innerHeight)
+      this.showNextDog()
+    } else if (delta > 0){
+      console.log("UP");
+      this.showPreviousDog()
+    }
+    e.preventDefault();
+  }
+  showNextDog = () => {
+    if(this.state.currentDog + 1 <= 4) {
+      const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+      window.scrollTo({
+         top: (this.state.currentDog + 1) * innerHeight,
+         behavior: 'smooth'
+       })
+    }
+  }
+  showPreviousDog = () => {
+    const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    window.scrollTo({
+      top: (this.state.currentDog - 1) * innerHeight,
+      behavior: 'smooth'
+    })
+  }
+  onScroll = (e) => {
+    // console.log(e)
+    const { scrollY } = window;
+    const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
     const showDogLen = this.state.showDog.length;
     let showDogCopy = Object.assign([], this.state.showDog);
+    let currentDog = 0;
     for(let i = 0; i < showDogLen; i++) {
-      if(scrollY >= (i + 1) * innerHeight - (0.5 * innerHeight)) {
+      if(scrollY >= (i + 1) * innerHeight) {
+        currentDog = i + 1;
         showDogCopy[i] = true;
       } else {
         showDogCopy[i] = false;
@@ -289,13 +338,79 @@ class IndexPage extends React.Component {
     if(scrollY > 0.25 * innerHeight) {
       this.setState({
         blur: 5,
-        showDog: showDogCopy
+        showDog: showDogCopy,
+        currentDog
       })
     } else {
       this.setState({
         blur: 0,
-        showDog: showDogCopy
+        showDog: showDogCopy,
+        currentDog
       })
+    }
+  }
+  detectSwipe = (elementId, func) => {
+    let swipe_det = {};
+    swipe_det.sX = 0; swipe_det.sY = 0; swipe_det.eX = 0; swipe_det.eY = 0;
+    const min_x = 30;  //min x swipe for horizontal swipe
+    // const max_x = 30;  //max x difference for horizontal swipe
+    const min_y = 30;  //min y swipe for vertical swipe
+    // const max_y = 60;
+    let direcX = 0;
+    let direcY = 0;
+    let element = document.getElementById(elementId);
+    console.log(element)
+    if(!element)
+      return;
+    element.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      swipe_det.sX = t.screenX;
+      swipe_det.sY = t.screenY;
+      e.preventDefault();
+    }, false);
+    element.addEventListener('touchmove', (e) => {
+      const horizontalSwipe = ((swipe_det.eX - min_x > swipe_det.sX) ||
+      (swipe_det.eX + min_x < swipe_det.sX)) && (swipe_det.eX > 0);
+      const verticalSwipe = ((swipe_det.eY - min_y > swipe_det.sY) ||
+      (swipe_det.eY + min_y < swipe_det.sY)) && (swipe_det.eY > 0);
+      console.log(horizontalSwipe, verticalSwipe)
+      if (horizontalSwipe || verticalSwipe) {
+        e.preventDefault();
+      }
+      const t = e.touches[0];
+      swipe_det.eX = t.screenX;
+      swipe_det.eY = t.screenY;
+    }, false);
+    element.addEventListener('touchend', () => {
+      //horizontal detection
+      const shouldSwipeHorizontally = ((swipe_det.eX - min_x > swipe_det.sX) ||
+      (swipe_det.eX + min_x < swipe_det.sX)) && (swipe_det.eX > 0);
+      const shouldSwipeVertically = ((swipe_det.eY - min_y > swipe_det.sY) ||
+      (swipe_det.eY + min_y < swipe_det.sY)) && (swipe_det.eY > 0);
+      if (shouldSwipeHorizontally) {
+        if(swipe_det.eX > swipe_det.sX) direcX = -1;
+        else direcX = 1;
+      } else if (shouldSwipeVertically) {
+        if(swipe_det.eY > swipe_det.sY) direcY = -1;
+        else direcY = 1;
+      }
+
+      if (direcX !== 0 || direcY !== 0) {
+        if (typeof func == 'function') func(direcX, direcY);
+      }
+      direcX = 0;
+      direcY = 0;
+      swipe_det.sY = 0;
+      swipe_det.eY = 0;
+      swipe_det.sX = 0;
+      swipe_det.eX = 0;
+    }, false);
+  }
+  swipeDetected = (directionX, directionY) => {
+    if(directionY > 0) {
+      this.showNextDog();
+    } else if(directionY < 0) {
+      this.showPreviousDog();
     }
   }
   render() {
