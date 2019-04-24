@@ -37,9 +37,9 @@ const WallpaperBlurredComponent = class extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll)
   }
-  onScroll = () => {
+  onScroll = (e) => {
     const { innerHeight, scrollY } = window;
-    console.log(innerHeight, scrollY)
+    // console.log(e)
     if(scrollY > 0.25 * innerHeight) {
       this.setState({
         blur: 5
