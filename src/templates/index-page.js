@@ -305,10 +305,11 @@ class IndexPage extends React.Component {
   }
   showNextDog = () => {
     if(this.state.currentDog + 1 <= 4) {
-      const innerHeight = Math.max(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+      const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
       console.log(document.documentElement.clientHeight)
       console.log(window.screen.height)
       console.log(window.innerHeight)
+      // alert(document.documentElement.clientHeight, window.screen.height, window.innerHeight)
       window.scrollTo({
          top: (this.state.currentDog + 1) * innerHeight,
          behavior: 'smooth'
@@ -316,7 +317,7 @@ class IndexPage extends React.Component {
     }
   }
   showPreviousDog = () => {
-    const innerHeight = Math.max(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
     window.scrollTo({
       top: (this.state.currentDog - 1) * innerHeight,
       behavior: 'smooth'
@@ -325,7 +326,7 @@ class IndexPage extends React.Component {
   onScroll = (e) => {
     // console.log(e)
     const { scrollY } = window;
-    const innerHeight = Math.max(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
     const showDogLen = this.state.showDog.length;
     let showDogCopy = Object.assign([], this.state.showDog);
     let currentDog = 0;
