@@ -187,12 +187,15 @@ const ScrollDown = styled.div`
 const Section = styled.section`
   z-index: 10000;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   /* border: 1px solid blue; */
   /* background-color: blue; */
   /* transform: rotate(90deg) translate(50vh, 50vh); */
-  transform: rotate(90deg) translateX(-100vh);
+  transform: rotate(90deg) translateX(-200vh);
+  margin-top: 100vh;
   transform-origin: left bottom;
+  /* background-color: red; */
+  /* border: 1px solid blue; */
 `
 
 const SectionMain = styled.section`
