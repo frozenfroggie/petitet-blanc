@@ -211,9 +211,10 @@ bichon frise`
         </SpanStyledBottom>
       </HeaderMain>
       <ScrollDown onClick={() => {
-        const windowHeight = window.innerHeight;
+        const innerHeight = window.innerHeight;
+        console.log(innerHeight)
         window.scrollTo({
-          top: windowHeight,
+          top: innerHeight,
           behavior: 'smooth'
           });
         }}>
@@ -305,10 +306,12 @@ class IndexPage extends React.Component {
   }
   showNextDog = () => {
     if(this.state.currentDog + 1 <= 4) {
-      const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+      // const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
       console.log(document.documentElement.clientHeight)
       console.log(window.screen.height)
       console.log(window.innerHeight)
+      console.log(window.visualViewport.height)
+      const innerHeight = window.visualViewport.height;
       // alert(document.documentElement.clientHeight, window.screen.height, window.innerHeight)
       window.scrollTo({
          top: (this.state.currentDog + 1) * innerHeight,
@@ -317,7 +320,8 @@ class IndexPage extends React.Component {
     }
   }
   showPreviousDog = () => {
-    const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    // const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    const innerHeight = window.visualViewport.height;
     window.scrollTo({
       top: (this.state.currentDog - 1) * innerHeight,
       behavior: 'smooth'
@@ -326,7 +330,8 @@ class IndexPage extends React.Component {
   onScroll = (e) => {
     // console.log(e)
     const { scrollY } = window;
-    const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    // const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    const innerHeight = window.visualViewport.height;
     const showDogLen = this.state.showDog.length;
     let showDogCopy = Object.assign([], this.state.showDog);
     let currentDog = 0;
