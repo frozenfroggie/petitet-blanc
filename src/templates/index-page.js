@@ -14,14 +14,14 @@ import wallpaper from '../img/wallpaper.jpg'
 import wallpaper_mobile from '../img/wallpaper_mobile.jpg'
 import federations from '../img/federations.png'
 
+/* position: fixed; */
 
 const WallpaperContainer = styled.div`
-  z-index: 99;
-  position: fixed;
+  /* background-color: blue; */
+  z-index: 1000;
   top: 0px;
   height: 100vh;
-  width: 100%;
-  overflow: hidden;
+  width: 100vw;
   display: grid;
   grid-template-rows: 52% 29% 19%;
   grid-template-areas: "federationsContainer . ." "headerMain headerMain headerMain" " scrollDown scrollDown scrollDown";
@@ -155,22 +155,59 @@ const ScrollDown = styled.div`
   }
 `
 
+// const Section = styled.section`
+//   /* position: relative; */
+//   /* top: -50vh; */
+//   /* margin: 50px 0px; */
+//   width: 100vh;
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   transform: rotate(90deg);
+//   transform-origin: right top;
+//   border: 1px dotted blue;
+// `
+//
+// const SectionMain = styled.section`
+//   z-index: 98;
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+//   width: 100vh;
+//   height: 100vw;
+//   border: 1px solid red;
+//   /* background-color: red; */
+//   transform: rotate(-90deg) translateY(-50vw);
+//   transform-origin: right top;
+//   overflow-y: auto;
+//   overflow-x: hidden;
+// `
+
 const Section = styled.section`
-  position: relative;
-  /* top: -50vh; */
-  /* margin: 50px 0px; */
+  z-index: 10000;
+  width: 100vw;
   height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* border: 1px solid blue; */
+  /* background-color: blue; */
+  /* transform: rotate(90deg) translate(50vh, 50vh); */
+  transform: rotate(90deg) translateX(-100vh);
+  transform-origin: left bottom;
 `
 
 const SectionMain = styled.section`
-  z-index: 98;
-  position: relative;
-  top: 100vh;
-  width: 100vw;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+  width: 100vh;
+  height: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: rotate(-90deg) translateY(-100vh);
+  transform-origin: right top;
 `
 
 export const IndexPageTemplate = ({
@@ -184,47 +221,47 @@ export const IndexPageTemplate = ({
   showDog,
   blur
 }) => (
-  <div id="aboutDescription">
-    <WallpaperContainer style={
-      blur === 0 ? {
-        opacity: 1,
-        transform: 'translateY(0%)'
-      } : {
-        opacity: 0,
-        transform: 'translateY(-10%)'
-      }}>
-      <FederationsContainer>
-        <ImgFederations src={federations}  />
-      </FederationsContainer>
-      <HeaderMain>
-        <SpanBigSlim>Petit & Blanc</SpanBigSlim><br/>
-        <SpanStyled weight="100">
-        {
-          `hodowla psów rasowych`
-        }
-        </SpanStyled>
-        <SpanStyledBottom weight="400">
-        {
-        `
-bichon frise`
-        }
-        </SpanStyledBottom>
-      </HeaderMain>
-      <ScrollDown onClick={() => {
-        const innerHeight = window.innerHeight;
-        console.log(innerHeight)
-        window.scrollTo({
-          top: innerHeight,
-          behavior: 'smooth'
-          });
-        }}>
-        <a href="#thanks"><span></span></a>
-      </ScrollDown>
-    </WallpaperContainer>
     <SectionMain>
+      <Section>
+        <WallpaperContainer style={
+          blur === 0 ? {
+            opacity: 1,
+            transform: 'translateY(0%)'
+          } : {
+            opacity: 0,
+            transform: 'translateY(-10%)'
+          }}>
+          <FederationsContainer>
+            <ImgFederations src={federations}  />
+          </FederationsContainer>
+          <HeaderMain>
+            <SpanBigSlim>Petit & Blanc</SpanBigSlim><br/>
+            <SpanStyled weight="100">
+            {
+              `hodowla psów rasowych`
+            }
+            </SpanStyled>
+            <SpanStyledBottom weight="400">
+            {
+            `
+    bichon frise`
+            }
+            </SpanStyledBottom>
+          </HeaderMain>
+          <ScrollDown onClick={() => {
+            const innerHeight = window.innerHeight;
+            console.log(innerHeight)
+            window.scrollTo({
+              top: innerHeight,
+              behavior: 'smooth'
+              });
+            }}>
+            <a href="#thanks"><span></span></a>
+          </ScrollDown>
+        </WallpaperContainer>
+      </Section>
       {
         showDog.map((shouldShowCard, idx) => (
-          <div className="container" key={idx}>
             <Section>
               <Card
                 img={require(`../img/dog${idx + 1}.jpg`)}
@@ -241,11 +278,9 @@ bichon frise`
                 }
               </Card>
             </Section>
-          </div>
         ))
       }
     </SectionMain>
-  </div>
 )
 
 IndexPageTemplate.propTypes = {
@@ -264,7 +299,7 @@ class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDog: [false, false, false, false],
+      showDog: [true, true, true, true],
       blur: 0,
       currentDog: 0,
       minX: 0,
@@ -278,9 +313,9 @@ class IndexPage extends React.Component {
     }
   }
   componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
-    window.addEventListener('wheel', this.onWheel);
-    this.detectSwipe('aboutDescription', this.swipeDetected);
+    // window.addEventListener('scroll', this.onScroll);
+    // window.addEventListener('wheel', this.onWheel);
+    // this.detectSwipe('aboutDescription', this.swipeDetected);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll)

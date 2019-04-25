@@ -47,7 +47,9 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Navbar />
       <WallpaperBlurredComponent/>
-      <div>{children}</div>
+      {
+        children
+      }
       <Footer />
     </div>
   )
