@@ -334,7 +334,7 @@ class IndexPage extends React.Component {
   }
   componentDidMount() {
     // document.getElementById('sectionMain').addEventListener('scroll', this.onScroll);
-    window.addEventListener('wheel', this.onWheel);
+    window.addEventListener('wheel', this.onWheel, {passive: false});
     this.detectSwipe('sectionMain', this.swipeDetected);
   }
   componentWillUnmount() {
@@ -388,37 +388,37 @@ class IndexPage extends React.Component {
       })
     }
   }
-  onScroll = (e) => {
-    const { scrollTop } = document.getElementById('sectionMain');
-    const visualWidth = window.visualViewport.width;
-    const showDogLen = this.state.showDog.length;
-    let showDogCopy = Object.assign([], this.state.showDog);
-    let currentDog = 0;
-    for(let i = 0; i < showDogLen; i++) {
-      if(scrollTop >= (i + 1) * visualWidth) {
-        currentDog = i + 1;
-        showDogCopy[i] = true;
-      } else {
-        showDogCopy[i] = false;
-      }
-    }
-
-    if(scrollTop > 0.25 * visualWidth) {
-      this.setState({
-        blur: 5,
-        showDog: showDogCopy,
-        currentDog,
-        activeDot: currentDog
-      })
-    } else {
-      this.setState({
-        blur: 0,
-        showDog: showDogCopy,
-        currentDog,
-        activeDot: currentDog
-      })
-    }
-  }
+  // onScroll = (e) => {
+  //   const { scrollTop } = document.getElementById('sectionMain');
+  //   const visualWidth = window.visualViewport.width;
+  //   const showDogLen = this.state.showDog.length;
+  //   let showDogCopy = Object.assign([], this.state.showDog);
+  //   let currentDog = 0;
+  //   for(let i = 0; i < showDogLen; i++) {
+  //     if(scrollTop >= (i + 1) * visualWidth) {
+  //       currentDog = i + 1;
+  //       showDogCopy[i] = true;
+  //     } else {
+  //       showDogCopy[i] = false;
+  //     }
+  //   }
+  //
+  //   if(scrollTop > 0.25 * visualWidth) {
+  //     this.setState({
+  //       blur: 5,
+  //       showDog: showDogCopy,
+  //       currentDog,
+  //       activeDot: currentDog
+  //     })
+  //   } else {
+  //     this.setState({
+  //       blur: 0,
+  //       showDog: showDogCopy,
+  //       currentDog,
+  //       activeDot: currentDog
+  //     })
+  //   }
+  // }
   detectSwipe = (elementId, func) => {
     let swipe_det = {};
     swipe_det.sX = 0; swipe_det.sY = 0; swipe_det.eX = 0; swipe_det.eY = 0;
