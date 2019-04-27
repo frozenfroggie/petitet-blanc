@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import styled, { keyframes } from "styled-components"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
+import ProgressBar from '../components/ProgressBar'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
@@ -63,6 +64,7 @@ const SpanBigSlim = styled.span`
     font-size: 2.15em;
   }
 `
+
 const SpanStyled = styled.span`
   letter-spacing: 1px;
   left: -1px;
@@ -192,7 +194,13 @@ const Section = styled.section`
   /* background-color: blue; */
   /* transform: rotate(90deg) translate(50vh, 50vh); */
   transform: rotate(90deg) translateX(-200vh);
-  margin-top: 100vh;
+  /* margin-top: 50%;
+    margin-top: 100vh;
+  } */
+  /* margin-top: -0vw; */
+  @media only screen and (min-width: 1088px) {
+    /* margin-top: 100vh; */
+  }
   transform-origin: left bottom;
   /* background-color: red; */
   /* border: 1px solid blue; */
@@ -213,6 +221,18 @@ const SectionMain = styled.section`
   transform-origin: right top;
 `
 
+const ProgressBarContainer = styled.section`
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  height: 100px;
+  width: 100vw;
+`
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -222,17 +242,19 @@ export const IndexPageTemplate = ({
   description,
   intro,
   showDog,
-  blur
+  blur,
+  activateDot,
+  activeDot
 }) => (
-    <SectionMain>
-      <Section>
+    <SectionMain id="sectionMain">
+      <Section style={{marginTop: '100vh'}}>
         <WallpaperContainer style={
           blur === 0 ? {
             opacity: 1,
-            transform: 'translateY(0%)'
+            transform: 'translateX(0%)'
           } : {
             opacity: 0,
-            transform: 'translateY(-10%)'
+            transform: 'translateX(-10%)'
           }}>
           <FederationsContainer>
             <ImgFederations src={federations}  />
@@ -251,16 +273,6 @@ export const IndexPageTemplate = ({
             }
             </SpanStyledBottom>
           </HeaderMain>
-          <ScrollDown onClick={() => {
-            const innerHeight = window.innerHeight;
-            console.log(innerHeight)
-            window.scrollTo({
-              top: innerHeight,
-              behavior: 'smooth'
-              });
-            }}>
-            <a href="#thanks"><span></span></a>
-          </ScrollDown>
         </WallpaperContainer>
       </Section>
       {
@@ -302,7 +314,7 @@ class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDog: [true, true, true, true],
+      showDog: [false, false, false, false],
       blur: 0,
       currentDog: 0,
       minX: 0,
@@ -312,16 +324,17 @@ class IndexPage extends React.Component {
         sY: 0,
         eX: 0,
         eY: 0
-      }
+      },
+      activeDot: 0
     }
   }
   componentDidMount() {
-    // window.addEventListener('scroll', this.onScroll);
-    // window.addEventListener('wheel', this.onWheel);
-    // this.detectSwipe('aboutDescription', this.swipeDetected);
+    // document.getElementById('sectionMain').addEventListener('scroll', this.onScroll);
+    window.addEventListener('wheel', this.onWheel);
+    this.detectSwipe('sectionMain', this.swipeDetected);
   }
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll)
+    // document.getElementById('sectionMain').removeEventListener('scroll', this.onScroll)
     window.removeEventListener('wheel', this.onWheel)
   }
   onWheel = (e) => {
@@ -334,7 +347,6 @@ class IndexPage extends React.Component {
     }
     console.log(this.state.currentDog)
     if (delta < 0){
-      // console.log(window.pageYOffset, window.innerHeight)
       this.showNextDog()
     } else if (delta > 0){
       console.log("UP");
@@ -343,38 +355,43 @@ class IndexPage extends React.Component {
     e.preventDefault();
   }
   showNextDog = () => {
-    if(this.state.currentDog + 1 <= 4) {
-      // const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
-      console.log(document.documentElement.clientHeight)
-      console.log(window.screen.height)
-      console.log(window.innerHeight)
-      console.log(window.visualViewport.height)
-      const innerHeight = window.visualViewport.height;
-      // alert(document.documentElement.clientHeight, window.screen.height, window.innerHeight)
-      window.scrollTo({
-         top: (this.state.currentDog + 1) * innerHeight,
-         behavior: 'smooth'
-       })
+    if(this.state.currentDog < 4) {
+      let showDogCopy = Object.assign([], this.state.showDog);
+      if(this.state.currentDog > 0) {
+        showDogCopy[this.state.currentDog - 1] = false // hide prev dog
+      }
+      showDogCopy[this.state.currentDog + 1 - 1] = true // show next dog
+      this.setState({
+        showDog: showDogCopy,
+        activeDot: this.state.currentDog + 1,
+        currentDog: this.state.currentDog + 1
+      }, () => {
+        this.scrollToCurrentDog();
+      })
     }
   }
   showPreviousDog = () => {
-    // const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
-    const innerHeight = window.visualViewport.height;
-    window.scrollTo({
-      top: (this.state.currentDog - 1) * innerHeight,
-      behavior: 'smooth'
-    })
+    if(this.state.currentDog > 0) {
+      let showDogCopy = Object.assign([], this.state.showDog);
+      showDogCopy[this.state.currentDog - 1] = false // hide next dog
+      showDogCopy[this.state.currentDog - 1 - 1] = true // show prev dog
+      this.setState({
+        showDog: showDogCopy,
+        activeDot: this.state.currentDog - 1,
+        currentDog: this.state.currentDog - 1
+      }, () => {
+        this.scrollToCurrentDog();
+      })
+    }
   }
   onScroll = (e) => {
-    // console.log(e)
-    const { scrollY } = window;
-    // const innerHeight = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
-    const innerHeight = window.visualViewport.height;
+    const { scrollTop } = document.getElementById('sectionMain');
+    const visualWidth = window.visualViewport.width;
     const showDogLen = this.state.showDog.length;
     let showDogCopy = Object.assign([], this.state.showDog);
     let currentDog = 0;
     for(let i = 0; i < showDogLen; i++) {
-      if(scrollY >= (i + 1) * innerHeight) {
+      if(scrollTop >= (i + 1) * visualWidth) {
         currentDog = i + 1;
         showDogCopy[i] = true;
       } else {
@@ -382,17 +399,19 @@ class IndexPage extends React.Component {
       }
     }
 
-    if(scrollY > 0.25 * innerHeight) {
+    if(scrollTop > 0.25 * visualWidth) {
       this.setState({
         blur: 5,
         showDog: showDogCopy,
-        currentDog
+        currentDog,
+        activeDot: currentDog
       })
     } else {
       this.setState({
         blur: 0,
         showDog: showDogCopy,
-        currentDog
+        currentDog,
+        activeDot: currentDog
       })
     }
   }
@@ -406,7 +425,6 @@ class IndexPage extends React.Component {
     let direcX = 0;
     let direcY = 0;
     let element = document.getElementById(elementId);
-    console.log(element)
     if(!element)
       return;
     element.addEventListener('touchstart', (e) => {
@@ -454,11 +472,30 @@ class IndexPage extends React.Component {
     }, false);
   }
   swipeDetected = (directionX, directionY) => {
-    if(directionY > 0) {
+    if(directionX > 0) {
       this.showNextDog();
-    } else if(directionY < 0) {
+    } else if(directionX < 0) {
       this.showPreviousDog();
     }
+  }
+  activateDot = (dot) => {
+    let showDogCopy = Object.assign([], this.state.showDog);
+    showDogCopy[this.state.currentDog - 1] = false; // hide current dog
+    showDogCopy[dot - 1] = true; // show current dog
+    this.setState({
+      activeDot: dot,
+      currentDog: dot,
+      showDog: showDogCopy
+    }, () => {
+      this.scrollToCurrentDog()
+    })
+  }
+  scrollToCurrentDog = () => {
+    const visualWidth = window.visualViewport.height;
+    document.getElementById('sectionMain').scrollTo({
+      top: (this.state.currentDog) * visualWidth,
+      behavior: 'smooth'
+    })
   }
   render() {
     const { frontmatter } = this.props.data.markdownRemark
@@ -474,7 +511,12 @@ class IndexPage extends React.Component {
           mainpitch={frontmatter.mainpitch}
           description={frontmatter.description}
           intro={frontmatter.intro}
+          activateDot={this.activateDot}
+          activeDot={this.state.activeDot}
         />
+        <ProgressBarContainer>
+          <ProgressBar activeDot={this.state.activeDot} activateDot={(dot) => this.activateDot(dot)} />
+        </ProgressBarContainer>
       </Layout>
     )
   }

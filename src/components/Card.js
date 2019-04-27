@@ -5,6 +5,9 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 const CardContainer = styled.div`
   display: flex;
   justify-content: center;
+  @media only screen and (min-width: 1088px) {
+    justify-content: flex-start;
+  }
   align-items: center;
   width: 100%;
   height: 100vh;
@@ -23,6 +26,9 @@ const CardStyled = styled.div`
   border-radius: 5px;
   transition: all .7s;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  @media only screen and (min-width: 1088px) {
+    margin: 50px;
+  }
 `
 
 const CardButtonStyled = styled.button`
@@ -42,7 +48,7 @@ const CardButtonStyled = styled.button`
 
 const Card = ({ children, img, shouldShowCard, idx }) => (
   <CardContainer>
-    <CardStyled img={img} style={shouldShowCard ? {opacity: 1, transform: 'translateY(-10%)'} : {opacity: 0, transform: 'translateY(10%)'}}>
+    <CardStyled img={img} style={shouldShowCard ? {opacity: 1, transform: 'translateX(0%)'} : {opacity: 0, transform: 'translateX(10%)'}}>
       <CardButtonStyled>
         {
           children
