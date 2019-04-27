@@ -34,7 +34,7 @@ const CardStyled = styled.div`
 
 const CardButtonStyled = styled.button`
   position: relative;
-  top: 100px;
+  top: 80px;
   display: block;
   width: 200px;
   height: 50px;
