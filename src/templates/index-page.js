@@ -22,7 +22,7 @@ const WallpaperContainer = styled.div`
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 24% 58% 18%;
+  grid-template-rows: 25% 53% 22%;
   @media only screen and (min-width: 1088px) {
     grid-template-rows: 52% 29% 19%;
   }
