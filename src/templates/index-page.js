@@ -491,7 +491,7 @@ class IndexPage extends React.Component {
     })
   }
   scrollToCurrentDog = () => {
-    const visualWidth = window.visualViewport.height;
+    const visualWidth = document.getElementById('sectionMain').getBoundingClientRect().height;
     document.getElementById('sectionMain').scrollTo({
       top: (this.state.currentDog) * visualWidth,
       behavior: 'smooth'
