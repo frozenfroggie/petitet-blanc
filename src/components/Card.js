@@ -14,7 +14,7 @@ const CardContainer = styled.div`
 `
 
 const CardStyled = styled.div`
-  top: -50px;
+  top: -70px;
   position: relative;
   display: flex;
   justify-content: center;

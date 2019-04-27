@@ -22,7 +22,7 @@ const WallpaperContainer = styled.div`
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 24% 56% 20%;
+  grid-template-rows: 24% 58% 18%;
   @media only screen and (min-width: 1088px) {
     grid-template-rows: 52% 29% 19%;
   }
@@ -224,7 +224,10 @@ const SectionMain = styled.section`
 
 const ProgressBarContainer = styled.section`
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
+  @media only screen and (min-width: 1088px) {
+    bottom: 10px;
+  }
   left: 0px;
   display: flex;
   justify-content: center;
