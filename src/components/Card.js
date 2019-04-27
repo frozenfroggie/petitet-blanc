@@ -15,6 +15,9 @@ const CardContainer = styled.div`
 
 const CardStyled = styled.div`
   top: -70px;
+  @media only screen and (min-width: 1088px) {
+    top: -50px;
+  }
   position: relative;
   display: flex;
   justify-content: center;
@@ -35,6 +38,9 @@ const CardStyled = styled.div`
 const CardButtonStyled = styled.button`
   position: relative;
   top: 80px;
+  @media only screen and (min-width: 1088px) {
+    top: 100px;
+  }
   display: block;
   width: 200px;
   height: 50px;
