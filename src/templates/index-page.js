@@ -11,8 +11,6 @@ import BlogRoll from '../components/BlogRoll'
 import WallpaperBlurredComponent from '../components/WallpaperBlurredComponent'
 import Card from '../components/Card'
 
-import wallpaper from '../img/wallpaper.jpg'
-import wallpaper_mobile from '../img/wallpaper_mobile.jpg'
 import federations from '../img/federations.png'
 
 /* position: fixed; */
@@ -24,8 +22,11 @@ const WallpaperContainer = styled.div`
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 52% 29% 19%;
-  grid-template-areas: "federationsContainer . ." "headerMain headerMain headerMain" " scrollDown scrollDown scrollDown";
+  grid-template-rows: 24% 56% 20%;
+  @media only screen and (min-width: 1088px) {
+    grid-template-rows: 52% 29% 19%;
+  }
+  grid-template-areas: "federationsContainer . ." "headerMain headerMain headerMain" ". . .";
   grid-template-columns: 50% 35% 15%;
   transition: all .2s;
 `

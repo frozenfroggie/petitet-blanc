@@ -14,6 +14,7 @@ const CardContainer = styled.div`
 `
 
 const CardStyled = styled.div`
+  top: -50px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -48,7 +49,7 @@ const CardButtonStyled = styled.button`
 
 const Card = ({ children, img, shouldShowCard, idx }) => (
   <CardContainer>
-    <CardStyled img={img} style={shouldShowCard ? {opacity: 1, transform: 'translateX(0%)'} : {opacity: 0, transform: 'translateX(10%)'}}>
+    <CardStyled img={img} style={shouldShowCard ? {opacity: 1, transform: 'translateX(0%)'} : {opacity: 0, transform: 'translateX(5%)'}}>
       <CardButtonStyled>
         {
           children
