@@ -32,17 +32,20 @@ const WallpaperBlurredComponent = class extends React.Component {
     }
   }
   componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
+    const sectionMain = document.getElementById('sectionMain');
+    sectionMain && sectionMain.addEventListener('scroll', this.onScroll);
   }
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll)
+    const sectionMain = document.getElementById('sectionMain');
+    sectionMain && sectionMain.removeEventListener('scroll', this.onScroll)
   }
   onScroll = (e) => {
-    const { innerHeight, scrollY } = window;
+    const { innerHeight } = window;
+    const { scrollTop } = document.getElementById('sectionMain');
     // console.log(e)
-    if(scrollY > 0.25 * innerHeight) {
+    if(scrollTop > 0.5 * innerHeight) {
       this.setState({
-        blur: 5
+        blur: 4
       })
     } else {
       this.setState({
