@@ -16,6 +16,7 @@ const NavStyled = styled.nav`
   color: white;
   font-size: 1.1em;
   transition: all .4s;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
 `
 
 const NavContainer = styled.div`
