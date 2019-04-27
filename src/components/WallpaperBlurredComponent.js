@@ -5,7 +5,7 @@ import styled, { keyframes } from "styled-components"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import wallpaper from '../img/wallpaper.jpg'
-import wallpaper_mobile from '../img/wallpaper_mobile.jpg'
+import wallpaper_mobile from '../img/wallpaper.jpg'
 import federations from '../img/federations.png'
 
 const WallpaperBlurredContainer = styled.div`
