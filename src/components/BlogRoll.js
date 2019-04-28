@@ -1,6 +1,91 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
+import classNames from 'classnames'
+import styled, { keyframes } from "styled-components"
+import { FaClock } from 'react-icons/fa';
+
+import defaultDog from '../img/default_dog.png'
+
+const PostTile = styled.article`
+  display: flex;
+  flex-direction: column;
+  max-height: 650px;
+  background-color: rgba(250,250,250,0.7);
+  padding: 30px;
+  border-radius: 5px;
+  overflow: hidden;
+`
+
+const PostTileImage = styled.div`
+  background-image: url(${props => !!(props.image && props.image.childImageSharp) ? props.image.childImageSharp.fluid.src : defaultDog});
+  width: 100%;
+  height: 250px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`
+
+const PostTileHeader = styled.div`
+  color: #202020;
+  transition: color .2s;
+  text-decoration: none;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    color: #339933;
+  }
+`
+const PostTileDate = styled.div`
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 10px;
+  svg {
+    position: relative;
+    top: 1px;
+    margin-right: 5px;
+    color: #339933;
+  }
+  span {
+    font-size: 0.9em;
+  }
+`
+
+const PostTileExcerpt = styled.div`
+`
+
+const PostTileMore = styled.div`
+  margin-top: 20px;
+  .button {
+    position: relative;
+    border: 1px solid #339933;
+    color: #339933;
+    transition: all 0.3s;
+    &:after {
+      display: block;
+      position: relative;
+      top: -2px;
+      opacity: 0;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1em;
+      content: "";
+      transition: all 0.5s;
+    }
+    &:hover {
+      color: white;
+      background-color: #339933;
+      &:after {
+        opacity: 1;
+        padding-left: .3em;
+        content: "»";
+      }
+    }
+  }
+`
+
 
 class BlogRoll extends React.Component {
   render() {
@@ -8,32 +93,34 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <div className="columns is-multiline" style={{zIndex: 100, position: 'relative', top: 100}}>
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
-              <article className="tile is-child box notification">
-                <p>
+            <div className="is-parent column is-6" key={post.id} style={{zIndex: 100, padding: 30}}>
+              <PostTile className="is-child">
+                <PostTileImage image={post.frontmatter.image}></PostTileImage>
+                <PostTileHeader>
                   <Link
-                    className="title has-text-primary is-size-4"
-                    to={post.fields.slug}
-                  >
+                    className="title is-size-4"
+                    to={post.fields.slug}>
                     {post.frontmatter.title}
                   </Link>
-                  <span> &bull; </span>
-                  <span className="subtitle is-size-5 is-block">
+                </PostTileHeader>
+                <PostTileDate>
+                  <span className="subtitle is-block">
+                    <FaClock/>
                     {post.frontmatter.date}
                   </span>
-                </p>
-                <p>
+                </PostTileDate>
+                <PostTileExcerpt>
                   {post.excerpt}
-                  <br />
-                  <br />
+                </PostTileExcerpt>
+                <PostTileMore>
                   <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
+                    czytaj dalej
                   </Link>
-                </p>
-              </article>
+                </PostTileMore>
+              </PostTile>
             </div>
           ))}
       </div>
@@ -59,7 +146,7 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
+              excerpt(pruneLength: 350)
               id
               fields {
                 slug
@@ -67,7 +154,14 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "D MMMM, YYYY", locale: "pl")
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 400, quality: 64) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
             }
           }

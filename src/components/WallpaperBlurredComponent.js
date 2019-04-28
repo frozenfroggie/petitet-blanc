@@ -14,10 +14,11 @@ const WallpaperBlurredContainer = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 97;
-  background-position: 48%;
+  background-position: 55%;
   background-size: cover;
   background-image: url(${wallpaper_mobile});
   @media only screen and (min-width: 1088px) {
+    background-position: 48%;
     grid-template-rows: 40% 34% 21%;
     background-image: url(${wallpaper});
   }
@@ -32,17 +33,20 @@ const WallpaperBlurredComponent = class extends React.Component {
     }
   }
   componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
+    const sectionMain = document.getElementById('sectionMain');
+    sectionMain && sectionMain.addEventListener('scroll', this.onScroll);
   }
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll)
+    const sectionMain = document.getElementById('sectionMain');
+    sectionMain && sectionMain.removeEventListener('scroll', this.onScroll)
   }
   onScroll = (e) => {
-    const { innerHeight, scrollY } = window;
+    const { innerHeight, location } = window;
+    const { scrollTop } = document.getElementById('sectionMain');
     // console.log(e)
-    if(scrollY > 0.25 * innerHeight) {
+    if(scrollTop > 0.5 * innerHeight) {
       this.setState({
-        blur: 5
+        blur: 3
       })
     } else {
       this.setState({
@@ -51,6 +55,12 @@ const WallpaperBlurredComponent = class extends React.Component {
     }
   }
   render() {
+    console.log(window.location.pathname)
+    if(window.location.pathname !== '/' && this.state.blur === 0) {
+      this.setState({
+        blur: 3
+      })
+    }
     return (
       <WallpaperBlurredContainer style={{
         filter: `blur(${this.state.blur}px)`
