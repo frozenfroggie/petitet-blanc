@@ -55,8 +55,7 @@ const WallpaperBlurredComponent = class extends React.Component {
     }
   }
   render() {
-    console.log(window.location.pathname)
-    if(window.location.pathname !== '/' && this.state.blur === 0) {
+    if(typeof window !== 'undefined' && window.location.pathname !== '/' && this.state.blur === 0) {
       this.setState({
         blur: 3
       })
