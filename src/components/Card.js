@@ -45,7 +45,7 @@ const CardStyled = styled.div`
 
 const CardButtonStyled = styled.button`
   height: 100px;
-  margin-top: -40px;
+  margin-top: -50px;
   @media only screen and (min-width: 1088px) {
     margin-top: 0px;
     height: auto;
