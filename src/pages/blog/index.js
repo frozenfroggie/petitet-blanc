@@ -7,19 +7,8 @@ export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem',
-            }}
-          >
-            Latest Stories
-          </h1>
-        <section className="section">
-          <div className="container" style={{zIndex: 100}}>
+        <section className="section" style={{marginBottom: '-100vh'}}>
+          <div className="container" style={{zIndex: 99}}>
             <div className="content">
               <BlogRoll />
             </div>

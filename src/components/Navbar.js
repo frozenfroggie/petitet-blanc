@@ -81,9 +81,9 @@ const Navbar = class extends React.Component {
           <NavBrand>
             <StyledLink to="/" title="Logo">
               {
-                typeof window !== 'undefined' && window.scrollY > 0.5 * window.innerHeight ?
-                <img src={logo_green} alt="Petitet Blanc Logo" style={{ width: "auto", height: '40px' }} />
-                :
+                // typeof window !== 'undefined' && window.scrollY > 0.5 * window.innerHeight ?
+                // <img src={logo_green} alt="Petitet Blanc Logo" style={{ width: "auto", height: '40px' }} />
+                // :
                 <img src={logo_white} alt="Petitet Blanc Logo" style={{ width: "auto", height: '40px' }} />
               }
 
@@ -92,7 +92,8 @@ const Navbar = class extends React.Component {
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
-              style={typeof window !== 'undefined' && window.innerHeight < window.scrollY ? {color: '#339933'} : {}}
+              // style={typeof window !== 'undefined' && window.innerHeight < window.scrollY ? {color: '#339933'} : {}}
+              style={{color: '#339933'}}
               onClick={() => this.toggleHamburger()}
             >
               <span />
@@ -114,13 +115,16 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/about">
                 NASZE MIOTY
               </Link>
-              <Link className="navbar-item" to="/contact">
+              <Link className="navbar-item" to="/grooming">
                 GROOMING
               </Link>
-              <Link className="navbar-item" to="/contact/examples">
+              <Link className="navbar-item" to="/exhibitions">
+                WYSTAWY
+              </Link>
+              <Link className="navbar-item" to="/gallery">
                 GALERIA
               </Link>
-              <Link className="navbar-item" to="/contact/examples">
+              <Link className="navbar-item" to="/contact">
                 KONTAKT
               </Link>
             </div>

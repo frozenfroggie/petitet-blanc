@@ -11,7 +11,7 @@ import BlogRoll from '../components/BlogRoll'
 import WallpaperBlurredComponent from '../components/WallpaperBlurredComponent'
 import Card from '../components/Card'
 
-import federations from '../img/federations.png'
+import federations from '../img/federations3.png'
 
 /* position: fixed; */
 
@@ -22,7 +22,8 @@ const WallpaperContainer = styled.div`
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 25% 53% 22%;
+  /* grid-template-rows: 25% 53% 22%; */
+  grid-template-rows: 20% 50% 30%;
   @media only screen and (min-width: 1088px) {
     grid-template-rows: 52% 29% 19%;
   }
@@ -158,53 +159,15 @@ const ScrollDown = styled.div`
   }
 `
 
-// const Section = styled.section`
-//   /* position: relative; */
-//   /* top: -50vh; */
-//   /* margin: 50px 0px; */
-//   width: 100vh;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   transform: rotate(90deg);
-//   transform-origin: right top;
-//   border: 1px dotted blue;
-// `
-//
-// const SectionMain = styled.section`
-//   z-index: 98;
-//   position: absolute;
-//   top: 0px;
-//   left: 0px;
-//   width: 100vh;
-//   height: 100vw;
-//   border: 1px solid red;
-//   /* background-color: red; */
-//   transform: rotate(-90deg) translateY(-50vw);
-//   transform-origin: right top;
-//   overflow-y: auto;
-//   overflow-x: hidden;
-// `
-
 const Section = styled.section`
   z-index: 10000;
   width: 100vw;
   min-height: 100vh;
-  /* border: 1px solid blue; */
-  /* background-color: blue; */
-  /* transform: rotate(90deg) translate(50vh, 50vh); */
   transform: rotate(90deg) translateX(-200vh);
-  /* margin-top: 50%;
-    margin-top: 100vh;
-  } */
-  /* margin-top: -0vw; */
   @media only screen and (min-width: 1088px) {
     /* margin-top: 100vh; */
   }
   transform-origin: left bottom;
-  /* background-color: red; */
-  /* border: 1px solid blue; */
 `
 
 const SectionMain = styled.section`
@@ -285,15 +248,16 @@ export const IndexPageTemplate = ({
               <Card
                 img={require(`../img/dog${idx + 1}.jpg`)}
                 shouldShowCard={shouldShowCard}
-                idx={idx}>
+                idx={idx}
+                tab={idx === 0 ? 'blog' : idx === 1 ? 'nasze-psy' : idx === 2 ? 'nasze-mioty' : 'grooming'}>
                 {
                   idx === 0 ?
-                    'Blog' :
+                    'blog' :
                     idx === 1 ?
-                    'Nasze Psy' :
+                    '<span>nasze</span>psy' :
                       idx === 2 ?
-                      'Nasze Mioty' :
-                      'Grooming'
+                      '<span>nasze</span>mioty' :
+                      'grooming'
                 }
               </Card>
             </Section>
@@ -388,37 +352,6 @@ class IndexPage extends React.Component {
       })
     }
   }
-  // onScroll = (e) => {
-  //   const { scrollTop } = document.getElementById('sectionMain');
-  //   const visualWidth = window.visualViewport.width;
-  //   const showDogLen = this.state.showDog.length;
-  //   let showDogCopy = Object.assign([], this.state.showDog);
-  //   let currentDog = 0;
-  //   for(let i = 0; i < showDogLen; i++) {
-  //     if(scrollTop >= (i + 1) * visualWidth) {
-  //       currentDog = i + 1;
-  //       showDogCopy[i] = true;
-  //     } else {
-  //       showDogCopy[i] = false;
-  //     }
-  //   }
-  //
-  //   if(scrollTop > 0.25 * visualWidth) {
-  //     this.setState({
-  //       blur: 5,
-  //       showDog: showDogCopy,
-  //       currentDog,
-  //       activeDot: currentDog
-  //     })
-  //   } else {
-  //     this.setState({
-  //       blur: 0,
-  //       showDog: showDogCopy,
-  //       currentDog,
-  //       activeDot: currentDog
-  //     })
-  //   }
-  // }
   detectSwipe = (elementId, func) => {
     let swipe_det = {};
     swipe_det.sX = 0; swipe_det.sY = 0; swipe_det.eX = 0; swipe_det.eY = 0;
