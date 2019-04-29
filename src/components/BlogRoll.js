@@ -86,17 +86,16 @@ const PostTileMore = styled.div`
   }
 `
 
-
 class BlogRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline" style={{zIndex: 100, position: 'relative', top: 100}}>
+      <div className="columns is-multiline">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id} style={{zIndex: 100, padding: 30}}>
+            <div className="is-parent column is-6" key={post.id} style={{zIndex: 100}}>
               <PostTile className="is-child">
                 <PostTileImage image={post.frontmatter.image}></PostTileImage>
                 <PostTileHeader>
@@ -146,7 +145,7 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 350)
+              excerpt(pruneLength: 300)
               id
               fields {
                 slug

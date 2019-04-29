@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import GalleryFolderInside from '../components/GalleryFolderInside'
 
 export const GalleryPageTemplate = ({
+  id,
   title,
   galleryImages,
   openLightbox,
@@ -75,6 +76,7 @@ class GalleryPage extends React.Component {
     return (
       <Layout>
         <GalleryPageTemplate
+          id={frontmatter.id}
           title={frontmatter.title}
           galleryImages={frontmatter.galleryImages}
           openLightbox={(idx, e) => this.openLightbox(frontmatter.galleryImages, idx, e)}
@@ -99,8 +101,8 @@ GalleryPage.propTypes = {
 export default GalleryPage
 
 export const pageQuery = graphql`
-query GalleryPageTemplate {
-  markdownRemark(frontmatter: {templateKey: {eq: "gallery-page"}}) {
+query GalleryPageByID($id: String!) {
+  markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
