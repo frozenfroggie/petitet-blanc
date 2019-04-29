@@ -7,30 +7,26 @@ import DogTile from '../components/DogTile'
 import DogInfo from '../components/DogInfo'
 
 export const NewHomePageTemplate = ({
-  title,
+  id,
   image,
-  galleryImages
+  title,
+  description,
+  galleryImage
 }) => {
   return (
     <div>
-    <section className="section section--gradient">
-      <div className="container">
+    <section className="section section--gradient"  style={{marginBottom: '-100vh'}}>
+      <div className="container" style={{zIndex: 99, marginTop: 100}}>
         <div className="section">
           <div className="columns">
             <div className="column is-12">
               <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
-                <DogTile
-                  idx={0}
-                  id={0}
-                  image={image}
-                  title={title}
-                  showDog={() => alert('Niedostępne w podglądzie')}
-                />
                 <DogInfo
+                  id={id}
                   image={image}
                   title={title}
-                  galleryImages={galleryImages}
-                  openLightbox={() => alert('Niedostępne w podglądzie')}
+                  description={description}
+                  galleryImage={galleryImage}
                 />
               </div>
             </div>
