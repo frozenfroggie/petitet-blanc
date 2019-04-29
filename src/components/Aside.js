@@ -9,11 +9,21 @@ const AsideStyled = styled.aside`
   background-color: rgba(250,250,250,0.7);
   z-index: 100;
   padding: 30px;
+  margin-left: 0px; !important
 `
 
 const TagList = styled.ul`
   display: flex;
   flex-direction: column;
+  li {
+    list-style-type: none;
+    color: #202020;
+    transition: all .3s;
+    padding: 5px;
+    &:hover {
+      color: #339933;
+    }
+  }
 `
 
 const Aside = ({
@@ -30,7 +40,7 @@ const Aside = ({
       {group.map(tag => (
         <li key={tag.fieldValue}>
           <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-            {tag.fieldValue} ({tag.totalCount})
+            {tag.fieldValue.charAt(0).toUpperCase() + tag.fieldValue.slice(1) } ({tag.totalCount})
           </Link>
         </li>
       ))}
