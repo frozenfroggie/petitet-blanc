@@ -72,6 +72,20 @@ exports.createPages = ({ actions, graphql }) => {
   })
 }
 
+// Implement the Gatsby API “onCreatePage”. This is
+// called after every page is created.
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/dogs/)) {
+   page.matchPath = "/dogs/*"
+   // Update the page.
+   createPage(page)
+  }
+}
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
   fmImagesToRelative(node) // convert image paths for gatsby images
