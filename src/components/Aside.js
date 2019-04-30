@@ -23,6 +23,11 @@ const TagList = styled.ul`
     &:hover {
       color: #339933;
     }
+    a {
+      &:hover {
+        color: #339933;
+      }
+    }
   }
 `
 
