@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import classNames from 'classnames'
 import styled, { keyframes } from "styled-components"
-import { FaClock } from 'react-icons/fa';
+import { FaClock, FaTags } from 'react-icons/fa';
+import { kebabCase } from 'lodash'
 
 import defaultDog from '../img/default_dog.png'
 
@@ -39,7 +40,7 @@ const PostTileHeader = styled.div`
 `
 const PostTileDate = styled.div`
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   padding: 10px;
   svg {
@@ -86,6 +87,32 @@ const PostTileMore = styled.div`
   }
 `
 
+const TagList = styled.ul`
+  display: inline-block;
+  list-style-type: none;
+  width: 200px;
+  margin-bottom: 24px;
+  li {
+    display: inline-block;
+    padding: 0px 5px;
+    list-style-type: none;
+    margin: 0px;
+  }
+`
+
+const Subtitle = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const FaContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 25px;
+`
+
 class BlogRoll extends React.Component {
   render() {
     const { data } = this.props
@@ -106,10 +133,22 @@ class BlogRoll extends React.Component {
                   </Link>
                 </PostTileHeader>
                 <PostTileDate>
-                  <span className="subtitle is-block">
-                    <FaClock/>
-                    {post.frontmatter.date}
-                  </span>
+                  <Subtitle>
+                    <FaContainer>
+                      <FaClock/>
+                    </FaContainer>
+                    <div style={{height: 18, paddingLeft: 3}}>{post.frontmatter.date}</div>
+                  </Subtitle>
+                  <Subtitle>
+                    <FaContainer>
+                      <FaTags/>
+                    </FaContainer>
+                    <TagList>
+                      {
+                        post.frontmatter.tags.slice(0,2).map((tag, idx) => <li><Link to={`/tags/${kebabCase(tag)}/`}> {tag.charAt(0).toUpperCase() + tag.slice(1)}</Link>{idx === 0 && ','}</li>)
+                      }
+                    </TagList>
+                  </Subtitle>
                 </PostTileDate>
                 <PostTileExcerpt>
                   {post.excerpt}
@@ -151,6 +190,7 @@ export default () => (
                 slug
               }
               frontmatter {
+                tags
                 title
                 templateKey
                 date(formatString: "D MMMM, YYYY", locale: "pl")
