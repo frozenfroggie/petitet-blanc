@@ -4,14 +4,13 @@ import { LittersPageTemplate } from '../../templates/litters-page'
 
 const LittersPagePreview = ({ entry, widgetFor }) => (
   <LittersPageTemplate
-    content={widgetFor('body')}
+    id={entry.getIn(['data', 'id'])}
     title={entry.getIn(['data', 'title'])}
     parents={entry.getIn(['data', 'parents'])}
     birthDate={entry.getIn(['data', 'birthDate'])}
     galleryImages={entry.getIn(['data', 'galleryImages'])}
-    date={entry.getIn(['data', 'date'])}
     image={entry.getIn(['data', 'image'])}
-    tags={entry.getIn(['data', 'tags'])}
+    puppies={entry.getIn(['data', 'puppies'])}
   />
 )
 

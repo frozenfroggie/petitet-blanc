@@ -4,7 +4,6 @@ import { NewHomePageTemplate } from '../../templates/new-home-page'
 
 const NewHomePagePreview = ({ entry, widgetFor }) => (
   <NewHomePageTemplate
-    content={widgetFor('body')}
     title={entry.getIn(['data', 'title'])}
     lineage={entry.getIn(['data', 'lineage'])}
     galleryImages={entry.getIn(['data', 'galleryImages'])}
