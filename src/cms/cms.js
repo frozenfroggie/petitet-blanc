@@ -5,7 +5,16 @@ import BlogPostPreview from './preview-templates/BlogPostPreview'
 import ProductPagePreview from './preview-templates/ProductPagePreview'
 import IndexPagePreview from './preview-templates/IndexPagePreview'
 
-CMS.registerPreviewTemplate('index', IndexPagePreview)
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('products', ProductPagePreview)
+import LittersPagePreview from './preview-templates/LittersPagePreview'
+import NewHomePagePreview from './preview-templates/NewHomePagePreview'
+import ExhibitionsPagePreview from './preview-templates/ExhibitionsPagePreview'
+import DogsPagePreview from './preview-templates/DogsPagePreview'
+
+// CMS.registerPreviewTemplate('index', IndexPagePreview)
+// CMS.registerPreviewTemplate('about', AboutPagePreview)
+// CMS.registerPreviewTemplate('products', ProductPagePreview)
 CMS.registerPreviewTemplate('blog', BlogPostPreview)
+CMS.registerPreviewTemplate('litters', LittersPagePreview)
+CMS.registerPreviewTemplate('new-home', NewHomePagePreview)
+CMS.registerPreviewTemplate('exhibitions', ExhibitionsPagePreview)
+CMS.registerPreviewTemplate('dogs', DogsPagePreview)
