@@ -3,15 +3,14 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import DogTile from '../components/DogTile'
-import DogInfo from '../components/DogInfo'
+import DogNewHomeInfo from '../components/DogNewHomeInfo'
 
 export const NewHomePageTemplate = ({
   id,
   image,
   title,
   description,
-  galleryImage
+  galleryImages
 }) => {
   return (
     <div>
@@ -21,12 +20,11 @@ export const NewHomePageTemplate = ({
           <div className="columns">
             <div className="column is-12">
               <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
-                <DogInfo
-                  id={id}
-                  image={image}
+                <DogNewHomeInfo
                   title={title}
                   description={description}
-                  galleryImage={galleryImage}
+                  galleryImages={galleryImages}
+                  image={image}
                 />
               </div>
             </div>

@@ -5,7 +5,7 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import styled from "styled-components"
 
 const AsideStyled = styled.aside`
-  height: 100vh;
+  height: 100%;
   background-color: rgba(250,250,250,0.7);
   z-index: 100;
   padding: 30px;

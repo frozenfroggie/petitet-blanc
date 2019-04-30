@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-netlify-cms",
-  "description": "Example Gatsby, and Netlify CMS project",
+  "name": "petit-et-blanc",
+  "description": "Petit Et Blanc FCI",
   "version": "1.1.3",
-  "author": "Austin Green",
+  "author": "frozenfroggie",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
     "bulma": "^0.7.0",
