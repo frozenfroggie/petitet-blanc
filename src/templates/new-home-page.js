@@ -10,7 +10,12 @@ export const NewHomePageTemplate = ({
   image,
   title,
   description,
-  galleryImages
+  galleryImages,
+  openLightbox,
+  closeLightbox,
+  lightbox,
+  currentImage,
+  photos
 }) => {
   return (
     <div>
@@ -25,6 +30,11 @@ export const NewHomePageTemplate = ({
                   description={description}
                   galleryImages={galleryImages}
                   image={image}
+                  lightbox={lightbox}
+                  onClose={closeLightbox}
+                  openLightbox={(idx, e) => openLightbox(idx, e)}
+                  currentImage={currentImage}
+                  photos={photos}
                 />
               </div>
             </div>
@@ -48,19 +58,41 @@ NewHomePageTemplate.propTypes = {
   }),
 }
 
-const NewHomePage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-
-  return (
-    <Layout>
-      <NewHomePageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        description={frontmatter.description}
-        galleryImages={frontmatter.galleryImages}
-      />
-    </Layout>
-  )
+class NewHomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lightbox: false,
+      currentImage: 0,
+      photos: []
+    }
+  }
+  openLightbox = (galleryImages, idx, event) => {
+    event.preventDefault();
+    const photos = galleryImages.map(({image, description}) => ({image: image.childImageSharp.fluid, description}))
+    this.setState({ lightbox: true, photos, currentImage: idx });
+  }
+  closeLightbox = () =>{
+    this.setState({ lightbox: false });
+  }
+  render() {
+    const { frontmatter } = this.props.data.markdownRemark
+    return (
+      <Layout>
+        <NewHomePageTemplate
+          image={frontmatter.image}
+          title={frontmatter.title}
+          description={frontmatter.description}
+          galleryImages={frontmatter.galleryImages}
+          openLightbox={(idx, e) => this.openLightbox(frontmatter.galleryImages, idx, e)}
+          closeLightbox={this.closeLightbox}
+          lightbox={this.state.lightbox}
+          currentImage={this.state.currentImage}
+          photos={this.state.photos}
+        />
+      </Layout>
+    )
+  }
 }
 
 NewHomePage.propTypes = {

@@ -14,7 +14,12 @@ export const LittersPageTemplate = ({
   puppies,
   galleryImages,
   birthDate,
-  parents
+  parents,
+  openLightbox,
+  closeLightbox,
+  lightbox,
+  currentImage,
+  photos
 }) => {
   return (
     <section className="section section--gradient" style={{marginBottom: '-100vh'}}>
@@ -31,7 +36,11 @@ export const LittersPageTemplate = ({
                   title={title}
                   galleryImages={galleryImages}
                   birthDate={birthDate}
-                  openLightbox={() => alert('Niedostępne w podglądzie')}
+                  lightbox={lightbox}
+                  onClose={closeLightbox}
+                  openLightbox={(idx, e) => openLightbox(idx, e)}
+                  currentImage={currentImage}
+                  photos={photos}
                 />
               </div>
             </div>
@@ -54,22 +63,44 @@ LittersPageTemplate.propTypes = {
   }),
 }
 
-const LittersPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-
-  return (
-    <Layout>
-      <LittersPageTemplate
-        id={frontmatter.id}
-        puppies={frontmatter.puppies}
-        parents={frontmatter.parents}
-        image={frontmatter.image}
-        title={frontmatter.title}
-        birthDate={frontmatter.birthDate}
-        galleryImages={frontmatter.galleryImages}
-      />
-    </Layout>
-  )
+class LittersPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lightbox: false,
+      currentImage: 0,
+      photos: []
+    }
+  }
+  openLightbox = (galleryImages, idx, event) => {
+    event.preventDefault();
+    const photos = galleryImages.map(({image, description}) => ({image: image.childImageSharp.fluid, description}))
+    this.setState({ lightbox: true, photos, currentImage: idx });
+  }
+  closeLightbox = () =>{
+    this.setState({ lightbox: false });
+  }
+  render() {
+    const { frontmatter } = this.props.data.markdownRemark
+    return (
+      <Layout>
+        <LittersPageTemplate
+          id={frontmatter.id}
+          puppies={frontmatter.puppies}
+          parents={frontmatter.parents}
+          image={frontmatter.image}
+          title={frontmatter.title}
+          birthDate={frontmatter.birthDate}
+          galleryImages={frontmatter.galleryImages}
+          openLightbox={(idx, e) => this.openLightbox(frontmatter.galleryImages, idx, e)}
+          closeLightbox={this.closeLightbox}
+          lightbox={this.state.lightbox}
+          currentImage={this.state.currentImage}
+          photos={this.state.photos}
+        />
+      </Layout>
+    )
+  }
 }
 
 LittersPage.propTypes = {

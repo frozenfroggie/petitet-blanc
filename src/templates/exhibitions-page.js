@@ -15,7 +15,12 @@ export const ExhibitionsPageTemplate = ({
   exhibitionDate,
   dogs,
   achievements,
-  galleryImages
+  galleryImages,
+  openLightbox,
+  closeLightbox,
+  lightbox,
+  currentImage,
+  photos
 }) => {
   return (
     <div>
@@ -35,6 +40,11 @@ export const ExhibitionsPageTemplate = ({
                   exhibitionDate={exhibitionDate}
                   achievements={achievements}
                   galleryImages={galleryImages}
+                  lightbox={lightbox}
+                  onClose={closeLightbox}
+                  openLightbox={(idx, e) => openLightbox(idx, e)}
+                  currentImage={currentImage}
+                  photos={photos}
                 />
               </div>
             </div>
@@ -58,24 +68,46 @@ ExhibitionsPageTemplate.propTypes = {
   }),
 }
 
-const ExhibitionsPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-
-  return (
-    <Layout>
-      <ExhibitionsPageTemplate
-        id={frontmatter.id}
-        image={frontmatter.image}
-        title={frontmatter.title}
-        templateKey={frontmatter.templateKey}
-        date={frontmatter.date}
-        exhibitionDate={frontmatter.exhibitionDate}
-        dogs={frontmatter.dogs}
-        achievements={frontmatter.achievements}
-        galleryImages={frontmatter.galleryImages}
-      />
-    </Layout>
-  )
+class ExhibitionsPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lightbox: false,
+      currentImage: 0,
+      photos: []
+    }
+  }
+  openLightbox = (galleryImages, idx, event) => {
+    event.preventDefault();
+    const photos = galleryImages.map(({image, description}) => ({image: image.childImageSharp.fluid, description}))
+    this.setState({ lightbox: true, photos, currentImage: idx });
+  }
+  closeLightbox = () =>{
+    this.setState({ lightbox: false });
+  }
+  render() {
+    const { frontmatter } = this.props.data.markdownRemark
+    return (
+      <Layout>
+        <ExhibitionsPageTemplate
+          id={frontmatter.id}
+          image={frontmatter.image}
+          title={frontmatter.title}
+          templateKey={frontmatter.templateKey}
+          date={frontmatter.date}
+          exhibitionDate={frontmatter.exhibitionDate}
+          dogs={frontmatter.dogs}
+          achievements={frontmatter.achievements}
+          galleryImages={frontmatter.galleryImages}
+          openLightbox={(idx, e) => this.openLightbox(frontmatter.galleryImages, idx, e)}
+          closeLightbox={this.closeLightbox}
+          lightbox={this.state.lightbox}
+          currentImage={this.state.currentImage}
+          photos={this.state.photos}
+        />
+      </Layout>
+    )
+  }
 }
 
 ExhibitionsPage.propTypes = {

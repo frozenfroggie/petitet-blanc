@@ -31,9 +31,10 @@ const PostTileHeader = styled.div`
   color: #202020;
   transition: color .2s;
   text-decoration: none;
-  height: 60px;
+  min-height: 60px;
   display: flex;
   align-items: center;
+  margin-top: 10px;
   &:hover {
     color: #339933;
   }
@@ -42,7 +43,7 @@ const PostTileDate = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 15px 0px;
   svg {
     position: relative;
     top: 1px;
@@ -90,7 +91,7 @@ const PostTileMore = styled.div`
 const TagList = styled.ul`
   display: inline-block;
   list-style-type: none;
-  width: 200px;
+  width: auto;
   margin-bottom: 24px;
   li {
     display: inline-block;
@@ -137,7 +138,7 @@ class BlogRoll extends React.Component {
                     <FaContainer>
                       <FaClock/>
                     </FaContainer>
-                    <div style={{height: 18, paddingLeft: 3}}>{post.frontmatter.date}</div>
+                    <div>{post.frontmatter.date}</div>
                   </Subtitle>
                   <Subtitle>
                     <FaContainer>
