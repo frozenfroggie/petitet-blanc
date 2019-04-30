@@ -13,7 +13,12 @@ export const DogsPageTemplate = ({
   gender,
   achievements,
   galleryImages,
-  image
+  image,
+  openLightbox,
+  closeLightbox,
+  lightbox,
+  currentImage,
+  photos
 }) => {
   return (
     <div>
@@ -25,12 +30,16 @@ export const DogsPageTemplate = ({
               <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
                 <DogInfo
                   image={image}
-                  name={homeName}
+                  homeName={homeName}
                   officialName={officialName}
                   achievements={achievements}
-                  photos={galleryImages}
+                  galleryImages={galleryImages}
                   birthDate={birthDate}
-                  openLightbox={() => alert('Niedostępne w podglądzie')}
+                  lightbox={lightbox}
+                  onClose={closeLightbox}
+                  openLightbox={(idx, e) => openLightbox(idx, e)}
+                  currentImage={currentImage}
+                  photos={photos}
                 />
               </div>
             </div>
@@ -42,24 +51,46 @@ export const DogsPageTemplate = ({
   )
 }
 
-const DogsPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-
-  return (
-    <Layout>
-      <DogsPageTemplate
-        title={frontmatter.title}
-        lineage={frontmatter.lineage}
-        birthDate={frontmatter.birthDate}
-        officialName={frontmatter.officialName}
-        homeName={frontmatter.homeName}
-        gender={frontmatter.gender}
-        achievements={frontmatter.achievements}
-        galleryImages={frontmatter.galleryImages}
-        image={frontmatter.image}
-      />
-    </Layout>
-  )
+class DogsPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lightbox: false,
+      currentImage: 0,
+      photos: []
+    }
+  }
+  openLightbox = (galleryImages, idx, event) => {
+    event.preventDefault();
+    const photos = galleryImages.map(({image, description}) => ({image: image.childImageSharp.fluid, description}))
+    this.setState({ lightbox: true, photos, currentImage: idx });
+  }
+  closeLightbox = () =>{
+    this.setState({ lightbox: false });
+  }
+  render() {
+    const { frontmatter } = this.props.data.markdownRemark
+    return (
+      <Layout>
+        <DogsPageTemplate
+          title={frontmatter.title}
+          lineage={frontmatter.lineage}
+          birthDate={frontmatter.birthDate}
+          officialName={frontmatter.officialName}
+          homeName={frontmatter.homeName}
+          gender={frontmatter.gender}
+          achievements={frontmatter.achievements}
+          galleryImages={frontmatter.galleryImages}
+          image={frontmatter.image}
+          openLightbox={(idx, e) => this.openLightbox(frontmatter.galleryImages, idx, e)}
+          closeLightbox={this.closeLightbox}
+          lightbox={this.state.lightbox}
+          currentImage={this.state.currentImage}
+          photos={this.state.photos}
+        />
+      </Layout>
+    )
+  }
 }
 
 export default DogsPage
