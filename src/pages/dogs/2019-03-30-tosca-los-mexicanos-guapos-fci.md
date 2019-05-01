@@ -1,22 +1,16 @@
 ---
 templateKey: dogs-page
 date: 2019-04-02T22:00:00.000Z
-image: /img/tosca1.jpg
-officialName: TOSCA Los Mexicanos Guapos FCI
-lineage: 'http://ingrus.net/chihuahua/en/details.php?id=141592'
-homeName: TOSCA
-gender: female
-birthDate: 2018-08-20T22:00:00.000Z
+image: /img/eino.jpg
+officialName: Leeward's AIN'T NO POLAR BEAR
+lineage: 'https://i.gyazo.com/b01efa72bd990ecb077833c2d6eeb241.jpg'
+homeName: Eino
+gender: male
+birthDate: 2015-12-10T23:00:00.000Z
 achievements:
-  - ''
+  - Interchampion
 galleryImages:
-  - description: ''
-    image: /img/tosca2.jpg
-  - description: ''
-    image: /img/tosca3.jpg
-  - description: ''
-    image: /img/tosca4.jpg
-  - description: ''
-    image: /img/tosca1.jpg
+  - image: /img/eino1.jpg
+  - image: /img/eino2.jpg
 ---
 
