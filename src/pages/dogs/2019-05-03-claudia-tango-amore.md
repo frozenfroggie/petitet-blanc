@@ -1,6 +1,6 @@
 ---
 templateKey: dogs-page
-date: 2019-05-01T20:08:11.386Z
+date: 2019-04-01T20:08:00.000Z
 image: /img/claudia.jpg
 officialName: CLAUDIA Tango Amore
 lineage: www.petitetblanc.eu
