@@ -1,7 +1,7 @@
 ---
 templateKey: dogs-page
 date: 2019-03-31T22:00:00.000Z
-image: /img/grupa-6.png
+image: /img/aivi3.jpg
 officialName: Labenido LIMITED EDITION
 lineage: 'https://i.gyazo.com/0d174eb66a190a6c5a501dd06cad82bc.png'
 homeName: Aivi
