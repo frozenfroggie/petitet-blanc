@@ -14,5 +14,12 @@ achievements:
   - Champion of Austria
 galleryImages:
   - image: /img/aivi1.jpg
+  - image: /img/aivi2.jpg
+  - image: /img/aivi3.jpg
+  - image: /img/aivi4.jpg
+  - image: /img/aivi6.jpg
+  - image: /img/aivi8.jpg
+  - image: /img/aivi9.jpg
+  - image: /img/aivi10.jpg
 ---
 
