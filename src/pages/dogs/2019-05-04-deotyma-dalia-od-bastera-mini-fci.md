@@ -6,7 +6,7 @@ officialName: DEOTYMA DALIA Od Bastera Mini FCI
 lineage: www.petitetblanc.eu
 homeName: Doti
 gender: female
-birthDate: ''
+birthDate: 2006-04-29T22:00:00.000Z
 achievements:
   - Champion
 galleryImages:
