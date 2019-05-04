@@ -7,7 +7,7 @@ lineage: >-
   https://drive.google.com/file/d/1DMaX9iR_04YVCvhJANuNwN7IBuYE1YUZ/view?usp=sharing
 homeName: Lili
 gender: female
-birthDate: ''
+birthDate: 2012-05-06T22:00:00.000Z
 achievements:
   - Champion
 galleryImages:
