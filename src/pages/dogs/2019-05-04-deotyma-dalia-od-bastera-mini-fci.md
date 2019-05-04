@@ -14,6 +14,6 @@ galleryImages:
     image: /img/doti1.jpg
   - image: /img/doti2.jpg
   - image: /img/doti4.jpg
-  - {}
+  - image: /img/doti3.jpg
 ---
 
