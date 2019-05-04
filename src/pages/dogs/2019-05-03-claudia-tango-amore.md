@@ -4,7 +4,7 @@ date: 2019-04-01T20:08:00.000Z
 image: /img/claudia.jpg
 officialName: CLAUDIA Tango Amore
 lineage: >-
-  https://drive.google.com/file/d/1itWGldRlYHfgseZhNiNxAAbywhh4G2IF/view?usp=sharing
+  https://drive.google.com/file/d/1DMaX9iR_04YVCvhJANuNwN7IBuYE1YUZ/view?usp=sharing
 homeName: Lili
 gender: female
 birthDate: ''
