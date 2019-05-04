@@ -3,10 +3,11 @@ templateKey: dogs-page
 date: 2019-04-03T20:59:00.000Z
 image: /img/moli.jpg
 officialName: MAMMA MIA Charnett
-lineage: www.petitetblanc.eu
+lineage: >-
+  https://drive.google.com/file/d/1aIqWCOngSqPoIXD6k2KA9JgQvJvHGAsf/view?usp=sharing
 homeName: Moli
 gender: female
-birthDate: ''
+birthDate: 2012-01-12T23:00:00.000Z
 achievements:
   - Champion
 galleryImages:
