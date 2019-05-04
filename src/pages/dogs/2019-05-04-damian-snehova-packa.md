@@ -2,7 +2,7 @@
 templateKey: dogs-page
 date: 2019-05-04T12:24:02.698Z
 image: /img/misiu.jpg
-officialName: Damian Snehova Packa
+officialName: DAMIAN Snehova Packa
 lineage: www.petitetblanc.eu
 homeName: Misiu
 gender: male
