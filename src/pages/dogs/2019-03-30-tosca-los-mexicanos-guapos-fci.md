@@ -12,5 +12,7 @@ achievements:
 galleryImages:
   - image: /img/eino1.jpg
   - image: /img/eino2.jpg
+  - image: /img/eino3.jpg
+  - image: /img/eino10.jpg
 ---
 
