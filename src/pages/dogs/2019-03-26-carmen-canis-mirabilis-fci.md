@@ -7,7 +7,7 @@ lineage: >-
   https://drive.google.com/file/d/1itWGldRlYHfgseZhNiNxAAbywhh4G2IF/view?usp=sharing
 homeName: Aivi
 gender: female
-birthDate: 2016-12-28T23:00:00.000Z
+birthDate: 2017-10-05T22:00:00.000Z
 achievements:
   - Interchampion
   - Grand Champion of Poland
