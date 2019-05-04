@@ -11,7 +11,10 @@ achievements:
   - Interchampion
   - Grand Champion of Poland
   - Champion of Poland
-  - Champion of Austria
+  - Junior Champion of Poland
+  - Junior Champion of Croatia
+  - Junior Polish Winner 2016
+  - Champion of Champions 2017
 galleryImages:
   - image: /img/aivi1.jpg
   - image: /img/aivi2.jpg
