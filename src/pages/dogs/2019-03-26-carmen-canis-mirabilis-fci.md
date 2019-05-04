@@ -3,7 +3,8 @@ templateKey: dogs-page
 date: 2019-03-31T22:00:00.000Z
 image: /img/aivi.jpg
 officialName: Labenido LIMITED EDITION
-lineage: 'https://i.gyazo.com/0d174eb66a190a6c5a501dd06cad82bc.png'
+lineage: >-
+  https://drive.google.com/file/d/1itWGldRlYHfgseZhNiNxAAbywhh4G2IF/view?usp=sharing
 homeName: Aivi
 gender: female
 birthDate: 2016-12-28T23:00:00.000Z
