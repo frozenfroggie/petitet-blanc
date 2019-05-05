@@ -326,7 +326,7 @@ class IndexPage extends React.Component {
     e.preventDefault();
   }
   showNextDog = () => {
-    if(this.state.currentDog < 4) {
+    if(this.state.currentDog < 5) {
       let showDogCopy = Object.assign([], this.state.showDog);
       if(this.state.currentDog > 0) {
         showDogCopy[this.state.currentDog - 1] = false // hide prev dog
