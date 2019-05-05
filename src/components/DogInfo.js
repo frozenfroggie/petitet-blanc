@@ -38,12 +38,30 @@ const DogInfo = props => (
                   </div>
                   :
                   props.dogs &&
-                    <div>
+                    <div style={{margin: 10}}>
                       <p className="is-size-6 dog-info-subheader">Wystawiane psy:</p>
                       <ul className="puppies-list">
                         {
                           props.dogs &&
-                          props.dogs.map((dog, idx) => <li key={idx} className="is-size-5"> <strong>{ dog.dog } </strong></li>)
+                          props.dogs.map((dog, idx) => {
+                            console.log(dog)
+                            return (
+                              <li key={idx} className="is-size-5">
+                                <strong>{ dog.dog } </strong>
+                                {
+                                  dog.achievements && dog.achievements[0] !== '' &&
+                                  <div style={{paddingLeft: 10}}>
+                                    <span>Osiągnięcia: </span>
+                                    <ul style={{paddingLeft: 10}}>
+                                    {
+                                      dog.achievements.map(achievement => <li><strong>{achievement}</strong></li>)
+                                    }
+                                    </ul>
+                                  </div>
+                                }
+                              </li>
+                            )}
+                          )
                         }
                       </ul>
                     </div>

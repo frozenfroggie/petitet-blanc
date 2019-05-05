@@ -131,8 +131,8 @@ query ExhibitionPageByID($id: String!) {
           exhibitionDate(formatString: "MMMM DD, YYYY", locale: "pl")
           dogs {
             dog
+            achievements
           }
-          achievements
           galleryImages {
           image {
             childImageSharp {

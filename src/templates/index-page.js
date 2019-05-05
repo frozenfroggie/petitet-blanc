@@ -250,7 +250,7 @@ export const IndexPageTemplate = ({
                 img={require(`../img/dog${idx + 1}.jpg`)}
                 shouldShowCard={shouldShowCard}
                 idx={idx}
-                tab={idx === 0 ? 'blog' : idx === 1 ? 'nasze-psy' : idx === 2 ? 'nasze-mioty' : 'grooming'}>
+                tab={idx === 0 ? 'blog' : idx === 1 ? 'nasze-psy' : idx === 2 ? 'nasze-mioty' : idx === 3 ? 'grooming' : 'wystawy'}>
                 {
                   idx === 0 ?
                     'blog' :
@@ -258,7 +258,9 @@ export const IndexPageTemplate = ({
                     '<span>nasze</span>psy' :
                       idx === 2 ?
                       '<span>nasze</span>mioty' :
-                      'grooming'
+                        idx === 3 ?
+                        'grooming' :
+                        'wystawy'
                 }
               </Card>
             </Section>
@@ -283,7 +285,7 @@ class IndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDog: [false, false, false, false],
+      showDog: [false, false, false, false, false],
       blur: 0,
       currentDog: 0,
       minX: 0,

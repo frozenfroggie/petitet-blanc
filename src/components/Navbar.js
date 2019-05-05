@@ -144,7 +144,6 @@ const Navbar = class extends React.Component {
   render() {
     return (
       <NavStyled
-        style={typeof window !== 'undefined' && window.scrollY > 0.5 * window.innerHeight ? {backgroundColor: 'rgb(245,245,245)', color: '#339933', boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'} : {}}
         role="navigation"
         aria-label="main-navigation">
         <NavContainer>

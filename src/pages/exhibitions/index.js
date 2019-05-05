@@ -70,8 +70,8 @@ export default props => (
               exhibitionDate(formatString: "D MMMM YYYY", locale: "pl")
               dogs {
                 dog
+                achievements
               }
-              achievements
               galleryImages {
                 image {
                   childImageSharp {
