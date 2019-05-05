@@ -68,7 +68,9 @@ export default props => (
               title
               date
               exhibitionDate(formatString: "D MMMM YYYY", locale: "pl")
-              dogs
+              dogs {
+                dog
+              }
               achievements
               galleryImages {
                 image {

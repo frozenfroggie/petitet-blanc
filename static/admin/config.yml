@@ -20,7 +20,7 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-      
+
   - name: "dogs"
     label: "Nasze psy"
     folder: "src/pages/dogs"
@@ -78,10 +78,9 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Nazwa wystawy", name: "title", widget: "string"}
       - {label: "Zdjęcie główne", name: image, widget: image, required: false}
-      - {label: "Data wystawy", name: "exhibitionDate", widget: "date", default: "", required: false}
+      - {label: "Data wystawy", name: "exhibitionDate", widget: "date", required: false}
       - {label: "Galeria", name: "galleryImages", widget: list, fields: [{label: Image, name: image, widget: image, required: false}, {required: false, default: "", label: "Podpis", name: "description", widget: string}]}
-      - {label: "Osiągnięcia", name: "achievements", widget: list}
-      - {label: "Wystawione psy", name: "dogs", widget: list}
+      - {label: "Wystawione psy", name: "dogs", widget: list, fields: [{label: Pies, name: dog, widget: string, required: true}, {required: false, default: "", label: "Osiągnięcia", name: "achievements", widget: list}]}
 
   - name: "gallery"
     label: "Galeria"

@@ -129,7 +129,9 @@ query ExhibitionPageByID($id: String!) {
           templateKey
           date(formatString: "MMMM DD, YYYY", locale: "pl")
           exhibitionDate(formatString: "MMMM DD, YYYY", locale: "pl")
-          dogs
+          dogs {
+            dog
+          }
           achievements
           galleryImages {
           image {
