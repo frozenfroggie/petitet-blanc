@@ -32,13 +32,7 @@ class GroomingPage extends React.Component {
             <section className="section section-main it" style={{marginBottom: '-100vh'}}>
               <div className="container" style={{zIndex: 99, position: 'relative', top: 100}}>
                 <div className="content">
-                  <TheGoogleMap
-                    isMarkerShown
-                    googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-                    loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `400px` }} />}
-                    mapElement={<div style={{ height: `100%` }} />}
-                   />
+                  <img src="https://maps.googleapis.com/maps/api/staticmap?center=50.768365,%2016.165263&zoom=17&size=400x400&markers=50.768365,%2016.165263&key=AIzaSyBtpEjog0thmTk4yMd_r4arB0q_QPNKM_I&signature=H7feWa2h_auj155jJI8E_gF5PBY=" />
                 </div>
               </div>
             </section>
