@@ -20,7 +20,7 @@ const ProgressBarStyled = styled.div`
     position: absolute;
     top: 10px;
     box-sizing: border-box;
-    left: ${props => `${((props.activeDot) * 50.5) + 27}px`};
+    left: ${props => `${((props.activeDot) * 47) + 10}px`};
     content: '';
     width: 40px;
     height: 26px;
@@ -71,6 +71,9 @@ const ProgressBar = ({ activeDot, activateDot }) => (
     </DotContainer>
     <DotContainer onClick={() => activateDot(4)}>
       <Dot isActive={activeDot === 4}></Dot>
+    </DotContainer>
+    <DotContainer onClick={() => activateDot(5)}>
+      <Dot isActive={activeDot === 5}></Dot>
     </DotContainer>
   </ProgressBarStyled>
 )
