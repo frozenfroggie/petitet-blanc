@@ -63,7 +63,6 @@ export default props => (
             frontmatter {
               templateKey
               title
-              dogs
               description
               galleryImages {
                 image {

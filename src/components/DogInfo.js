@@ -43,7 +43,7 @@ const DogInfo = props => (
                       <ul className="puppies-list">
                         {
                           props.dogs &&
-                          props.dogs.map((dog, idx) => <li key={idx} className="is-size-5"> <strong>{ dog } </strong></li>)
+                          props.dogs.map((dog, idx) => <li key={idx} className="is-size-5"> <strong>{ dog.dog } </strong></li>)
                         }
                       </ul>
                     </div>

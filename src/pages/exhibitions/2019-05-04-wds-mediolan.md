@@ -11,6 +11,5 @@ galleryImages:
   - image: /img/mediolan.jpg
   - image: /img/mediolan3.jpg
 dogs:
-  - Aphrodite's Reflection JACKPOT DRAW
+  - dog: Aphrodite's Reflection JACKPOT DRAW
 ---
-
