@@ -1,6 +1,6 @@
 ---
 templateKey: exhibitions-page
-date: 2019-05-04T20:29:20.411Z
+date: 2015-05-04T20:29:00.000Z
 title: WDS Mediolan 2015
 image: /img/mediolan.jpg
 exhibitionDate: 2015-06-09T22:00:00.000Z
@@ -13,3 +13,4 @@ galleryImages:
 dogs:
   - dog: Aphrodite's Reflection JACKPOT DRAW
 ---
+
