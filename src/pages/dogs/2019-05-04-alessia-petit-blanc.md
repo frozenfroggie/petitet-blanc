@@ -1,6 +1,6 @@
 ---
 templateKey: dogs-page
-date: 2019-01-04T19:38:00.000Z
+date: 2017-01-04T19:38:00.000Z
 image: /img/lusi1.jpg
 officialName: ALESSIA Petit&Blanc
 lineage: www.petitetblanc.eu
