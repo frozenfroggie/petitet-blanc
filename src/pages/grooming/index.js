@@ -37,13 +37,13 @@ class GroomingPage extends React.Component {
     this.init();
     $('#footer').css('display', 'none');
     window.addEventListener('wheel', this.onWheel, {passive: false});
-    window.addEventListener('scroll', (ev) => {
-      this.adjustPositions(ev);
-    })
+    window.addEventListener('scroll', this.adjustPositions);
   }
   componentWillUnmount() {
     $('body').css('height', 'auto');
     $('#footer').css('display', 'block');
+    window.removeEventListener('wheel', this.onWheel);
+    window.removeEventListener('scroll', this.adjustPositions);
   }
   init = () => {
     if($slides) {
