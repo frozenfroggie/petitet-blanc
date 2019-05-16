@@ -233,7 +233,7 @@ const Navbar = class extends React.Component {
               </TransitionGroup>
               </div>
               <Link className="navbar-item" to="/grooming" style={{whiteSpace: 'pre'}}>
-                GR<span style={{position: 'relative', top: 1, fontSize: '0.8em'}}>α</span>MING
+                GR<span style={{position: 'relative', top: 0, fontSize: '0.85em'}}>α</span>MING
               </Link>
               <Link className="navbar-item" to="/exhibitions">
                 WYSTAWY
