@@ -14,20 +14,8 @@ class DogsRoll extends React.Component {
       anchorEl: null,
       lightbox: false,
       photos: [],
-      posts: [],
+      filteredPosts: [],
       currentImage: 0
-    }
-  }
-  componentDidMount() {
-    const { posts } = this.props;
-    const filteredPosts = Object.assign([], posts.filter(({node}) => node.frontmatter.gender === this.props.gender))
-    this.setState({posts: filteredPosts});
-  }
-  componentWillReceiveProps(nextProps) {
-    if(this.props.gender !== nextProps.gender) {
-      const { posts } = this.props;
-      const filteredPosts = Object.assign([], posts.filter(({node}) => node.frontmatter.gender !== this.props.gender))
-      this.setState({posts: filteredPosts})
     }
   }
   openLightbox = (post, idx, event) => {
@@ -42,15 +30,14 @@ class DogsRoll extends React.Component {
     const { data, gender, showDog, dogToShow } = this.props
     let post, forSale;
     if(dogToShow) {
-      post = this.state.posts[dogToShow - 1].node;
+      post = this.props.posts[dogToShow - 1].node;
     }
-    console.log('?', this.state.posts, this.props.dogToShow)
-    console.log('?', post)
+    const filteredPosts = this.props.posts.filter(({node}) => node.frontmatter.gender === gender)
     return (
       <div>
         <div className="dogs-container columns is-multiline">
         {
-            this.state.posts.length > 0 && (this.state.posts
+            filteredPosts.length > 0 && (filteredPosts
               .map(({ node: post }, idx) => (
                 <DogTile
                   key={idx}
