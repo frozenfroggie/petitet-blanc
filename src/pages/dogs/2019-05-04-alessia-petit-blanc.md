@@ -5,7 +5,7 @@ image: /img/lusi1.jpg
 officialName: ALESSIA Petit&Blanc
 lineage: www.petitetblanc.eu
 homeName: Lusi
-gender: female
+gender: veteran
 birthDate: 2009-02-12T23:00:00.000Z
 achievements:
   - Champion
