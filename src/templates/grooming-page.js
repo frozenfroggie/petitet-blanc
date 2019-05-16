@@ -7,18 +7,18 @@ import DogInfo from '../components/DogInfo'
 export const GroomingPageTemplate = () => {
   return (
     <div>
-    <section className="section section--gradient" style={{marginBottom: '-100vh'}}>
-      <div className="container" style={{zIndex: 99, marginTop: 100}}>
-        <div className="section">
-          <div className="columns">
-            <div className="column is-12">
-              <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
+      <section className="section section--gradient" style={{marginBottom: '-100vh'}}>
+        <div className="container" style={{zIndex: 99, marginTop: 100}}>
+          <div className="section">
+            <div className="columns">
+              <div className="column is-12">
+                <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   )
 }
@@ -44,8 +44,7 @@ class GroomingPage extends React.Component {
     const { frontmatter } = this.props.data.markdownRemark
     return (
       <Layout>
-        <GroomingPageTemplate
-        />
+        <GroomingPageTemplate />
       </Layout>
     )
   }

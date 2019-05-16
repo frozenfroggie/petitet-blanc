@@ -64,11 +64,12 @@ const SpanBigSlim = styled.span`
   font-size: 1.95em;
   letter-spacing: 0.9px;
   @media only screen and (min-width: 1088px) {
-    font-size: 2.15em;
+    font-size: 2.45em;
   }
 `
 
 const SpanStyled = styled.span`
+  position: relative;
   letter-spacing: 1px;
   left: -1px;
   font-size: 1em;
@@ -76,7 +77,8 @@ const SpanStyled = styled.span`
   white-space: pre;
   @media only screen and (min-width: 1088px) {
     white-space: normal;
-    font-size: 1.1em;
+    left: 2px;
+    font-size: 1.24em;
   }
 `
 
@@ -250,7 +252,7 @@ export const IndexPageTemplate = ({
                 img={require(`../img/dog${idx + 1}.jpg`)}
                 shouldShowCard={shouldShowCard}
                 idx={idx}
-                tab={idx === 0 ? 'blog' : idx === 1 ? 'nasze-psy' : idx === 2 ? 'nasze-mioty' : idx === 3 ? 'grooming' : 'wystawy'}>
+                tab={idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions'}>
                 {
                   idx === 0 ?
                     'blog' :

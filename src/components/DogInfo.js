@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaMars, FaVenus } from 'react-icons/fa';
 import classNames from 'classnames';
+import moment from 'moment';
+import 'moment/locale/pl';
 
 import Modal from './Modal.js';
 import Lightbox from './Lightbox.js';
@@ -75,10 +77,10 @@ const DogInfo = props => (
             <p className="is-size-5"><strong>
             {
               props.birthDate ?
-                props.birthDate
+                moment(props.birthDate).local().format("D MMMM YYYY")
                 :
                 props.exhibitionDate ?
-                  props.exhibitionDate
+                  moment(props.exhibitionDate).local().format("D MMMM YYYY")
                   :
                   ' - '
             }
@@ -99,40 +101,38 @@ const DogInfo = props => (
           </div>
         </div>
         <div className="column is-6">
-          <div >
-            {
-              props.achievements ?
-              <p className="is-size-6" style={{marginBottom: 0}}>Osiągnięcia:</p>
-              :
+          {
+            props.puppies &&
+            <div>
               <p className="is-size-6" style={{marginBottom: 0}}>Szczenięta:</p>
-            }
-            <ul className={'puppies-list'}>
-              <strong>
-                {
-                  props.achievements && props.achievements.length > 0 && props.achievements[0] !== '' ?
-                    props.achievements.map((achivement, idx) => <li key={idx} className='is-size-5'> { achivement || " - " } </li>)
-                  :
-                  props.puppies && props.puppies.length > 0 && props.puppies[0] !== '' ?
-                    props.puppies.map((puppie, idx) =>
-                      (
-                        <li className={classNames('is-size-5', {'puppie-available': puppie.available})} key={idx}>
-                          <div className="puppie" key={'puppie-'+idx}>
-                          { puppie.name }
-                          {
-                            puppie.gender === 'male' ?
-                              <span className="gender-symbols"><FaMars size="1.5em" style={{color: '#19A1FF'}} /></span>
-                              :
-                              <span className="gender-symbols"><FaVenus size="1.5em" style={{color: '#FF0075'}} /></span>
-                          }
-                          </div>
-                        </li>
-                      ))
-                      :
-                      <li> - </li>
-                }
-              </strong>
-            </ul>
-          </div>
+              <ul className={'puppies-list'}>
+                <strong>
+                  {
+                    props.puppies && props.puppies.length > 0 && props.puppies[0] !== '' ?
+                      props.puppies.map((puppie, idx) =>
+                        (
+                          <li className={classNames('is-size-5', {'puppie-available': puppie.available})} key={idx}>
+                            <div className="puppie" key={'puppie-'+idx}>
+                            { puppie.name }
+                            {
+                              puppie.gender === 'male' ?
+                                <span className="gender-symbols"><FaMars size="1.5em" style={{color: '#19A1FF'}} /></span>
+                                :
+                                props.gender === 'female' ?
+                                  <span className="gender-symbols"><FaVenus size="1.5em" style={{color: '#FF0075'}} /></span>
+                                  :
+                                  <span className="gender-symbols"></span>
+                            }
+                            </div>
+                          </li>
+                        ))
+                        :
+                        <li> - </li>
+                  }
+                </strong>
+              </ul>
+            </div>
+          }
           <div style={{padding: "20px 0px"}}>
             <p className="is-size-6 dog-info-subheader">Galeria:</p>
             <ul className="gallery">

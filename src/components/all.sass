@@ -1,6 +1,10 @@
 @import "~bulma/sass/utilities/initial-variables"
 @import "~bulma"
 
+@font-face
+  font-family: Lato
+  src: url('../Lato-Regular.otf')
+
 // Config vars
 $primary: #339933
 $primary-invert: #99cc66
@@ -76,7 +80,7 @@ $black: #2b2523
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
-  z-index: 100
+  z-index: 97
   position: relative
   top: 120vh
   height: 80vh
@@ -156,7 +160,7 @@ $menu-label-color: $white-ter
 
 .navbar-item
   position: relative
-  top: 3px
+  top: 5px
   color: inherit
   @media only screen and (min-width: 1088px)
     color: inherit !important
@@ -482,8 +486,8 @@ html, body
         width: 350px
         height: 250px
         @media only screen and (min-width: 480px)
-          width: 140px
-          height: 140px
+          width: 130px
+          height: 130px
 
 .dog
   width: 300px
@@ -604,4 +608,110 @@ a
   margin: 0px
 
 .content li + li
+  margin: 0px
+
+.grooming-container
+  position: relative
+  background-color: transparent
+  height: calc(100vh - 68px)
+  width: 100%
+  display: flex
+  flex-direction: column
+  @media only screen and (min-width: 1088px)
+    display: block
+
+.slide
+  position: fixed
+  width: 100%
+  @media only screen and (min-width: 1088px)
+    width: 50%
+  height: calc(100vh - 68px)
+  float: left
+  overflow: hidden
+  background-color: transparent
+  z-index: 100
+  display: flex
+  justify-content: center
+  align-items: center
+
+  &:nth-of-type(even)
+    right: 0
+
+  &:nth-of-type(odd)
+    left: 0
+
+.slide--text
+  background-color: transparent
+  padding: 30px
+  color: black
+  font-family: 'Fjalla One', sans-serif
+  text-align: center
+  text-transform: uppercase
+
+.slide__inner
+  height: 86%
+  width: 86%
+  margin: 4% 4% 4% 4%
+  font-size: 2em
+  border: none
+  border-radius: 3px
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+
+.slide__inner__dashed
+  height: 95%
+  width: 95%
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  border-radius: 3px
+  font-size: 2em
+  border: 2px dashed $primary
+  color: $primary
+  box-sizing: border-box
+
+.slide--locked,
+.slide--sticky
+  position: fixed !important
+  top: 60px !important
+
+.slide--scrolling
+  position: absolute
+
+.demo-instructions
+  position: relative
+  top: 20px
+  font-size: 0.5em
+
+.demo-arrow
+  position: relative
+  animation: demo-arrow 0.4s ease-in-out infinite alternate
+
+@keyframes demo-arrow
+  0%
+    top: 0
+  100%
+    top: 10px
+
+
+#slide-1
+  .slide__inner__dashed
+    @media only screen and (max-width: 1087px)
+      border: none
+      justify-content: flex-end
+    .demo-title
+      @media only screen and (max-width: 1087px)
+        display: none
+    .demo-arrow
+    .demo-instructions
+
+.maps-content
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  height: 100%
+
+html, body
+  height: 100%
   margin: 0px

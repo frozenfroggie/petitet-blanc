@@ -67,7 +67,7 @@ export default props => (
               templateKey
               title
               date
-              exhibitionDate(formatString: "D MMMM YYYY", locale: "pl")
+              exhibitionDate
               dogs {
                 dog
                 achievements

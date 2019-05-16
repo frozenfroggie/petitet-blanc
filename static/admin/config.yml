@@ -34,7 +34,7 @@ collections:
       - {label: "Nazwa", name: "officialName", widget: "string"}
       - {label: "Rodowód", name: "lineage", widget: "string"}
       - {label: "Imię domowe", name: "homeName", widget: "string", required: false}
-      - {label: "Płeć", name: "gender", widget: "select", options: [{ label: "Pies", value: "male" }, { label: "Suka", value: "female" }]}
+      - {label: "Płeć", name: "gender", widget: "select", options: [{ label: "Pies", value: "male" }, { label: "Suka", value: "female" }, {label: 'Weteran', value: "veteran"}]}
       - {label: "Data urodzenia", name: "birthDate", widget: "date", default: "", required: false}
       - {label: "Osiągnięcia", name: "achievements", widget: list}
       - {label: "Galeria", name: "galleryImages", widget: list, fields: [{label: Image, name: image, widget: image, required: false}, {required: false, default: "", label: "Podpis", name: "description", widget: string}]}

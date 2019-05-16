@@ -8,13 +8,14 @@ import classNames from 'classnames';
 import github from "../img/github-icon.svg";
 import logo_white from "../img/logo_white.png";
 import logo_green from "../img/logo_green.png";
+import cut from "../img/cut.png";
 
 const NavStyled = styled.nav`
   top: 0px;
   position: fixed;
   width: 100vw;
   background-color: #339933;
-  height: 60px;
+  height: 68px;
   z-index: 100;
   color: white;
   font-size: 1.1em;
@@ -198,6 +199,11 @@ const Navbar = class extends React.Component {
                           SUKI
                         </div>
                       </li>
+                      <li>
+                        <div className="navbar-item"  onClick={() => this.navigateTo('/dogs/veteran', {gender: 'veteran'})}>
+                          WETERANY
+                        </div>
+                      </li>
                     </ul>
                   </CSSTransition>
                 </TransitionGroup>
@@ -226,8 +232,8 @@ const Navbar = class extends React.Component {
                 </CSSTransition>
               </TransitionGroup>
               </div>
-              <Link className="navbar-item" to="/grooming">
-                GROOMING
+              <Link className="navbar-item" to="/grooming" style={{whiteSpace: 'pre'}}>
+                GR<span style={{position: 'relative', top: 1, fontSize: '0.8em'}}>α</span>MING
               </Link>
               <Link className="navbar-item" to="/exhibitions">
                 WYSTAWY
