@@ -103,7 +103,7 @@ query DogsPageTemplate {
         title
         lineage
         templateKey
-        birthDate(formatString: "D MMMM YYYY", locale: "pl")
+        birthDate
         officialName
         homeName
         gender

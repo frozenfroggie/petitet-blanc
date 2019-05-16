@@ -120,8 +120,8 @@ query LittersPageByID($id: String!) {
       frontmatter {
         title
         templateKey
-        date(formatString: "MMMM DD, YYYY", locale: "pl")
-        birthDate(formatString: "D MMMM YYYY", locale: "pl")
+        date
+        birthDate
         parents {
           father
           mother

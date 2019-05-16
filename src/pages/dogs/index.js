@@ -57,6 +57,14 @@ class DogsIndexPage extends React.Component {
                       posts={posts}
                       dogToShow={this.state.dogToShow}
                       showDog={(idx, name) => this.showDog(idx, name)} />
+                    <DogsRoll
+                      path="/dogs/veteran"
+                      gender="veteran"
+                      location={this.props.location}
+                      goBack={this.goBack}
+                      posts={posts}
+                      dogToShow={this.state.dogToShow}
+                      showDog={(idx, name) => this.showDog(idx, name)} />
                   </Router>
                 </div>
               </div>
@@ -86,7 +94,7 @@ export default props => (
               lineage
               templateKey
               date
-              birthDate(formatString: "D MMMM YYYY", locale: "pl")
+              birthDate
               officialName
               homeName
               gender

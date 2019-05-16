@@ -1,6 +1,18 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
+import classNames from 'classnames';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { FaAt, FaUser, FaPhone, FaAngleDown, FaAngleUp, FaMoneyCheck, FaFacebookF } from 'react-icons/fa';
+import styled, { keyframes } from "styled-components"
+
+const Field = styled.div`
+  margin-bottom: 20px;
+`
+
+const FacebookField = styled.a`
+  display: flex;
+`
 
 function encode(data) {
   return Object.keys(data)
@@ -11,13 +23,14 @@ function encode(data) {
 export default class Index extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { isValidated: false }
+    this.state = {
+      isValidated: false,
+      showAccountDetails: false
+    }
   }
-
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
-
   handleSubmit = e => {
     e.preventDefault()
     const form = e.target
@@ -32,80 +45,152 @@ export default class Index extends React.Component {
       .then(() => navigate(form.getAttribute('action')))
       .catch(error => alert(error))
   }
-
+  toogleShowAccount = () => {
+    this.setState(prevState => ({
+      showAccountDetails: !prevState.showAccountDetails
+    }))
+  }
   render() {
     return (
       <Layout>
         <section className="section" style={{zIndex: 99, position: 'relative', top: '100px', marginBottom: '-100vh'}}>
-          <div className="container">
-            <div className="content">
-              <h1>Contact</h1>
-              <form
-                name="contact"
-                method="post"
-                action="/contact/thanks/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={this.handleSubmit}
-              >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div hidden>
-                  <label>
-                    Don’t fill this out:{' '}
-                    <input name="bot-field" onChange={this.handleChange} />
-                  </label>
+          <div className="container container-contact">
+            <div className="content columns">
+              <div className="column is-6 contact">
+                <Field className="is-size-5">
+                  <div className="is-size-6 flex-centered-y"><FaPhone style={{color: 'rgba(0,0,0,0.7', transform: 'rotate(180deg)', marginRight: 8}}/>Telefon</div>
+                  <div><strong>(+48) 604 419 577</strong></div>
+                </Field>
+                <Field className="is-size-5">
+                  <div className="is-size-6 flex-centered-y"><FaAt style={{color: 'rgba(0,0,0,0.7)', marginRight: 8}}/>E-mail</div>
+                  <div><strong>madamar.magda@gmail.com</strong></div>
+                </Field>
+                <Field className="is-size-5 flex-centered-y facebook-container"
+                  onMouseOver={() => this.setState({fbHover: true})} onMouseLeave={() => this.setState({fbHover: false})}>
+                  <FacebookField
+                    href="https://www.facebook.com/hodowlabichonfrise/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <FaFacebookF style={{color: 'rgba(0,0,0,0.7)', marginRight: 8, width: 15}} />
+                    <div>Odwiedź moją hodowlę na Facebooku</div>
+                  </FacebookField>
+                </Field>
+                <Field className="is-size-5 flex-centered-y facebook-container"
+                  onMouseOver={() => this.setState({fbHover: true})} onMouseLeave={() => this.setState({fbHover: false})}>
+                  <FacebookField
+                    href="https://www.facebook.com/klub.bichona/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <FaFacebookF style={{color: 'rgba(0,0,0,0.7)', marginRight: 8, width: 15}} />
+                    <div>Klub miłośników Rasy Bichon Frise Polska</div>
+                  </FacebookField>
+                </Field>
+                <Field className="is-size-5">
+                  <div className="is-size-6 flex-centered-y"><FaUser style={{color: 'rgba(0,0,0,0.7)', marginRight: 8}}/>Adres</div>
+                  <strong>Salon pielęgnacji psów - Plac Zwycięstwa 2,</strong><br/>
+                  <strong>58-371 Boguszów-Gorce</strong><br/>
+                  <strong>64- 100 Leszno</strong>
+                </Field>
+                <div style={{width: 250, position: 'relative', left: -2}} className="is-size-6 flex-centered-y show-account-details button-gold" onClick={this.toogleShowAccount}>
+                  <FaMoneyCheck className="money-check"/>
+                  Dane bankowe
+                  {
+                    this.state.showAccountDetails ?
+                      <FaAngleUp style={{opacity: 0.7, marginLeft: 8}}/>
+                      :
+                      <FaAngleDown style={{opacity: 0.7, marginLeft: 8}}/>
+                  }
                 </div>
-                <div className="field">
-                  <label className="label" htmlFor={'name'}>
-                    Your name
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'name'}
-                      onChange={this.handleChange}
-                      id={'name'}
-                      required={true}
-                    />
+                <div className="account-details-wrapper">
+                <TransitionGroup className='account-details-container'>
+                  <CSSTransition
+                    key={this.state.showAccountDetails}
+                    timeout={300}
+                    classNames='faq-slide-top'>
+                    <div className="account-details">
+                      {
+                        this.state.showAccountDetails &&
+                        <div>
+                          <p>
+                            Santander Bank Polska S.A.<br/>
+                            61 1090 2590 0000 0001 3245 3078 <br/>
+                            Magdalena Pilszak<br/>
+                          </p>
+                        </div>
+                      }
+                    </div>
+                  </CSSTransition>
+                </TransitionGroup>
+                </div>
+              </div>
+              <div className="column is-6">
+                <h3 style={{paddingBottom: 18}}>Napisz do mnie!</h3>
+                <form
+                  name="contact"
+                  method="post"
+                  action="/contact/thanks/"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={this.handleSubmit}>
+                  {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <div hidden>
+                    <label>
+                      Don’t fill this out:{' '}
+                      <input name="bot-field" onChange={this.handleChange} />
+                    </label>
                   </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'email'}>
-                    Email
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'email'}
-                      name={'email'}
-                      onChange={this.handleChange}
-                      id={'email'}
-                      required={true}
-                    />
+                  <div className="field">
+                    <label className="label" htmlFor={'name'}>
+                      Twoje imię
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'text'}
+                        name={'name'}
+                        onChange={this.handleChange}
+                        id={'name'}
+                        required={true}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'message'}>
-                    Message
-                  </label>
-                  <div className="control">
-                    <textarea
-                      className="textarea"
-                      name={'message'}
-                      onChange={this.handleChange}
-                      id={'message'}
-                      required={true}
-                    />
+                  <div className="field">
+                    <label className="label" htmlFor={'email'}>
+                      Twój e-mail
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'email'}
+                        name={'email'}
+                        onChange={this.handleChange}
+                        id={'email'}
+                        required={true}
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className="field">
-                  <button className="button is-link" type="submit">
-                    Send
-                  </button>
-                </div>
-              </form>
+                  <div className="field">
+                    <label className="label" htmlFor={'message'}>
+                      Wiadomość
+                    </label>
+                    <div className="control">
+                      <textarea
+                        className="textarea"
+                        name={'message'}
+                        onChange={this.handleChange}
+                        id={'message'}
+                        required={true}
+                      />
+                    </div>
+                  </div>
+                  <div className="field">
+                    <button className="button-gold" type="submit" style={{height: 58, marginTop: 18, paddingLeft: 50, paddingRight: 50}}>
+                      Wyślij
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </section>

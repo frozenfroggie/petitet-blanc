@@ -127,8 +127,8 @@ query ExhibitionPageByID($id: String!) {
       frontmatter {
           title
           templateKey
-          date(formatString: "MMMM DD, YYYY", locale: "pl")
-          exhibitionDate(formatString: "MMMM DD, YYYY", locale: "pl")
+          date
+          exhibitionDate
           dogs {
             dog
             achievements
