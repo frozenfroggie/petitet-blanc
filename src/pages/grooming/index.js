@@ -90,31 +90,33 @@ class GroomingPage extends React.Component {
     //   behavior: 'smooth'
     // })
     if(scrollingSlide === 1) {
-      window.scrollTo({top: (scrollingSlide + 1) * (windowHeight - navbarHeight), behavior: 'smooth'});
+      window.scrollTo({top: (scrollingSlide + 2) * (windowHeight - navbarHeight), behavior: 'smooth'});
       locked = true;
       setTimeout(() => {
-        window.scrollTo({top: (scrollingSlide + 2) * (windowHeight - navbarHeight), behavior: 'smooth'});
-        locked = false;
-      }, 750)
+        locked = false
+      }, 600)
     } else if(scrollingSlide >= 14) {
       return window.scrollTo({
           top: 0,
           behavior: 'smooth'
       })
     } else if(!locked) {
-      window.scrollTo({top: scrollingSlide * (windowHeight - navbarHeight), behavior: 'smooth'});
       locked = true;
       setTimeout(() => {
-        window.scrollTo({top: (scrollingSlide + 1) * (windowHeight - navbarHeight), behavior: 'smooth'});
-        locked = false;
-      }, 750)
+        locked = false
+      }, 600)
+      window.scrollTo({top: (scrollingSlide + 1) * (windowHeight - navbarHeight), behavior: 'smooth'});
     }
   }
   showPreviousSlide = () => {
     var scrollPosition = $(window).scrollTop();
-    if(document.getElementById('slide-0')) {
+    if(document.getElementById('slide-0') && !locked) {
       var slideHeight = document.getElementById('slide-0').offsetHeight;
       var scrollingSlide = Math.floor(scrollPosition / slideHeight) - 2;
+      locked = true;
+      setTimeout(() => {
+        locked = false
+      }, 600)
       window.scrollTo({top: scrollingSlide * (windowHeight - navbarHeight), behavior: 'smooth'});
     }
   }
