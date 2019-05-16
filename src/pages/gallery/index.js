@@ -63,7 +63,7 @@ export default props => (
               galleryImages {
                 image {
                   childImageSharp {
-                    fluid(maxWidth: 1024, quality: 64) {
+                    fluid(maxWidth: 200, quality: 64) {
                       ...GatsbyImageSharpFluid
                     }
                   }
