@@ -649,8 +649,11 @@ a
   text-transform: uppercase
 
 .slide__inner
-  height: 86%
-  width: 86%
+  width: 100%
+  height: 80%
+  @media only screen and (min-width: 1088px)
+    height: 86%
+    width: 86%
   margin: 4% 4% 4% 4%
   font-size: 2em
   border: none
@@ -693,17 +696,22 @@ a
   100%
     top: 10px
 
+#slide-0
+  .maps-content
+    @media only screen and (max-width: 1087px)
+      position: relative
+      top: -40px
 
 #slide-1
   .slide__inner__dashed
     @media only screen and (max-width: 1087px)
+      position: relative
+      top: -40px
       border: none
       justify-content: flex-end
     .demo-title
       @media only screen and (max-width: 1087px)
         display: none
-    .demo-arrow
-    .demo-instructions
 
 .maps-content
   display: flex

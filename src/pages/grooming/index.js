@@ -130,7 +130,7 @@ class GroomingPage extends React.Component {
   	// var scrollingSlide = Math.floor((scrollPosition / windowHeight) + (prevScrollingSlide * 0.045)) + 1;
     // console.log((scrollPosition / windowHeight) + (prevScrollingSlide * 0.045));
     // prevScrollingSlide = scrollingSlide;
-    if(scrollingSlide > 1 && !locked) {
+    if(scrollingSlide > 1) {
       var $scrollingSlide = $('#slide-' + scrollingSlide);
       $scrollingSlide.prevAll('.slide').removeClass('slide--scrolling').addClass('slide--locked');
       $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
@@ -173,14 +173,16 @@ class GroomingPage extends React.Component {
               <article id="slide-2" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming1})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-3" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming2})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
@@ -188,70 +190,80 @@ class GroomingPage extends React.Component {
               <article id="slide-4" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming3})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-5" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming4})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-6" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming5})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-7" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming6})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-8" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming7})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-9" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming8})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-10" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming9})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-11" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming10})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-12" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming11})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
               <article id="slide-13" className="slide">
                 <div className="slide__inner" style={{
                   backgroundImage: `url(${grooming12})`,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }}>
                 </div>
               </article>
