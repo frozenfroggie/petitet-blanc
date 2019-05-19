@@ -485,9 +485,14 @@ class IndexPage extends React.Component {
             <FaPaw size='1.5em' />
           </button>
         }
-        <Modal>
-            <Newsletter isNewsletterOpen={this.state.isNewsletterOpen} toogleModal={this.toogleModal} newsletterPoppedUp={this.newsletterPoppedUp} />
-        </Modal>
+        {
+          this.state.isNewsletterOpen &&
+          <Modal>
+            <Newsletter
+              isNewsletterOpen={this.state.isNewsletterOpen}
+              toogleModal={this.toogleModal} />
+          </Modal>
+        }
       </Layout>
     )
   }
