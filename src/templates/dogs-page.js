@@ -22,31 +22,31 @@ export const DogsPageTemplate = ({
 }) => {
   return (
     <div>
-    <section className="section section--gradient" style={{marginBottom: '-100vh'}}>
-      <div className="container" style={{zIndex: 99, marginTop: 100}}>
-        <div className="section">
-          <div className="columns">
-            <div className="column is-12">
-              <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
-                <DogInfo
-                  image={image}
-                  homeName={homeName}
-                  officialName={officialName}
-                  achievements={achievements}
-                  galleryImages={galleryImages}
-                  birthDate={birthDate}
-                  lightbox={lightbox}
-                  onClose={closeLightbox}
-                  openLightbox={(idx, e) => openLightbox(idx, e)}
-                  currentImage={currentImage}
-                  photos={photos}
-                />
+      <section className="section section--gradient" style={{marginBottom: '-100vh'}}>
+        <div className="container" style={{zIndex: 99, marginTop: 100}}>
+          <div className="section">
+            <div className="columns">
+              <div className="column is-12">
+                <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
+                  <DogInfo
+                    image={image}
+                    homeName={homeName}
+                    officialName={officialName}
+                    achievements={achievements}
+                    galleryImages={galleryImages}
+                    birthDate={birthDate}
+                    lightbox={lightbox}
+                    onClose={closeLightbox}
+                    openLightbox={(idx, e) => openLightbox(idx, e)}
+                    currentImage={currentImage}
+                    photos={photos}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   )
 }
@@ -96,8 +96,8 @@ class DogsPage extends React.Component {
 export default DogsPage
 
 export const pageQuery = graphql`
-query DogsPageTemplate {
-  markdownRemark(frontmatter: {templateKey: {eq: "dogs-page"}}) {
+query DogsPageByID($id: String!) {
+  markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
@@ -111,7 +111,7 @@ query DogsPageTemplate {
         galleryImages {
           image {
             childImageSharp {
-              fluid(maxWidth: 2400, quality: 64) {
+              fluid(maxWidth: 1024, quality: 64) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -119,7 +119,7 @@ query DogsPageTemplate {
         }
         image {
           childImageSharp {
-            fluid(maxWidth: 2400, quality: 64) {
+            fluid(maxWidth: 1024, quality: 64) {
               ...GatsbyImageSharpFluid
             }
           }
