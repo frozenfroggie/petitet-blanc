@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import styled, { keyframes } from "styled-components"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { FaPaw } from 'react-icons/fa';
 
 import ProgressBar from '../components/ProgressBar'
 import Layout from '../components/Layout'
@@ -10,7 +11,8 @@ import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 import WallpaperBlurredComponent from '../components/WallpaperBlurredComponent'
 import Card from '../components/Card'
-
+import Modal from '../components/Modal.js';
+import Newsletter from '../components/Newsletter.js';
 import federations from '../img/federations3.png'
 
 /* position: fixed; */
@@ -26,7 +28,7 @@ const WallpaperContainer = styled.div`
   /* grid-template-rows: 20% 50% 30%; */
   grid-template-rows: 22% 52% 26%;
   @media only screen and (min-width: 1088px) {
-    grid-template-rows: 52% 29% 19%;
+    grid-template-rows: 46% 34% 20%;
   }
   grid-template-areas: "federationsContainer . ." "headerMain headerMain headerMain" ". . .";
   grid-template-columns: 50% 35% 15%;
@@ -50,11 +52,16 @@ const FederationsContainer = styled.div`
     align-items: center;
     justify-items: start;
     padding-left: 10vw;
+    padding-top: 0px;
   }
 `
 
 const ImgFederations = styled.img`
-  width: 200px
+  width: 200px;
+  opacity: 0.3;
+  @media only screen and (min-width: 1088px) {
+    width: 250px;
+  }
 `
 
 const SpanBigSlim = styled.span`
@@ -64,7 +71,8 @@ const SpanBigSlim = styled.span`
   font-size: 1.95em;
   letter-spacing: 0.9px;
   @media only screen and (min-width: 1088px) {
-    font-size: 2.45em;
+    letter-spacing: 1.2px;
+    font-size: 3.75em;
   }
 `
 
@@ -214,7 +222,9 @@ export const IndexPageTemplate = ({
   showDog,
   blur,
   activateDot,
-  activeDot
+  activeDot,
+  isNewsletterOpen,
+  toogleModal
 }) => (
     <SectionMain id="sectionMain">
       <Section style={{marginTop: '100vh'}}>
@@ -243,6 +253,7 @@ export const IndexPageTemplate = ({
             }
             </SpanStyledBottom>
           </HeaderMain>
+
         </WallpaperContainer>
       </Section>
       {
@@ -298,7 +309,8 @@ class IndexPage extends React.Component {
         eX: 0,
         eY: 0
       },
-      activeDot: 0
+      activeDot: 0,
+      isNewsletterOpen: false
     }
   }
   componentDidMount() {
@@ -309,6 +321,12 @@ class IndexPage extends React.Component {
   componentWillUnmount() {
     // document.getElementById('sectionMain').removeEventListener('scroll', this.onScroll)
     window.removeEventListener('wheel', this.onWheel)
+  }
+  toogleModal = () => {
+    // clearTimeout(timeout);
+    this.setState(prevState => ({
+      isNewsletterOpen: !prevState.isNewsletterOpen
+    }));
   }
   onWheel = (e) => {
     let delta;
@@ -455,10 +473,21 @@ class IndexPage extends React.Component {
           intro={frontmatter.intro}
           activateDot={this.activateDot}
           activeDot={this.state.activeDot}
+          isNewsletterOpen={this.state.isNewsletterOpen}
+          toogleModal={this.toogleModal}
         />
         <ProgressBarContainer>
           <ProgressBar activeDot={this.state.activeDot} activateDot={(dot) => this.activateDot(dot)} />
         </ProgressBarContainer>
+        {
+          !this.state.isNewsletterOpen &&
+          <button className="newsletter-button" onClick={this.toogleModal} >
+            <FaPaw size='1.5em' />
+          </button>
+        }
+        <Modal>
+            <Newsletter isNewsletterOpen={this.state.isNewsletterOpen} toogleModal={this.toogleModal} newsletterPoppedUp={this.newsletterPoppedUp} />
+        </Modal>
       </Layout>
     )
   }

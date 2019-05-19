@@ -12,6 +12,11 @@ const Field = styled.div`
 
 const FacebookField = styled.a`
   display: flex;
+  align-items: center;
+  &:hover {
+    text-decoration: underline;
+    color: #339933;
+  }
 `
 
 function encode(data) {
@@ -58,11 +63,11 @@ export default class Index extends React.Component {
             <div className="content columns">
               <div className="column is-6 contact">
                 <Field className="is-size-5">
-                  <div className="is-size-6 flex-centered-y"><FaPhone style={{color: 'rgba(0,0,0,0.7', transform: 'rotate(180deg)', marginRight: 8}}/>Telefon</div>
+                  <div className="is-size-6 flex-centered-y"><FaPhone style={{transform: 'rotate(180deg)', marginRight: 8}}/>Telefon</div>
                   <div><strong>(+48) 604 419 577</strong></div>
                 </Field>
                 <Field className="is-size-5">
-                  <div className="is-size-6 flex-centered-y"><FaAt style={{color: 'rgba(0,0,0,0.7)', marginRight: 8}}/>E-mail</div>
+                  <div className="is-size-6 flex-centered-y"><FaAt style={{marginRight: 8}}/>E-mail</div>
                   <div><strong>madamar.magda@gmail.com</strong></div>
                 </Field>
                 <Field className="is-size-5 flex-centered-y facebook-container"
@@ -71,8 +76,8 @@ export default class Index extends React.Component {
                     href="https://www.facebook.com/hodowlabichonfrise/"
                     target="_blank"
                     rel="noopener noreferrer">
-                    <FaFacebookF style={{color: 'rgba(0,0,0,0.7)', marginRight: 8, width: 15}} />
-                    <div>Odwiedź moją hodowlę na Facebooku</div>
+                    <FaFacebookF style={{color: '#339933', marginRight: 8, width: 15}} />
+                    <div><strong style={{color: '#339933'}}>Odwiedź moją hodowlę na Facebooku</strong></div>
                   </FacebookField>
                 </Field>
                 <Field className="is-size-5 flex-centered-y facebook-container"
@@ -81,24 +86,23 @@ export default class Index extends React.Component {
                     href="https://www.facebook.com/klub.bichona/"
                     target="_blank"
                     rel="noopener noreferrer">
-                    <FaFacebookF style={{color: 'rgba(0,0,0,0.7)', marginRight: 8, width: 15}} />
-                    <div>Klub miłośników Rasy Bichon Frise Polska</div>
+                    <FaFacebookF style={{color: '#339933', marginRight: 8, width: 15}} />
+                    <div><strong style={{color: '#339933'}}>Klub miłośników Rasy Bichon Frise Polska</strong></div>
                   </FacebookField>
                 </Field>
                 <Field className="is-size-5">
-                  <div className="is-size-6 flex-centered-y"><FaUser style={{color: 'rgba(0,0,0,0.7)', marginRight: 8}}/>Adres</div>
+                  <div className="is-size-6 flex-centered-y"><FaUser style={{marginRight: 8}}/>Adres</div>
                   <strong>Salon pielęgnacji psów - Plac Zwycięstwa 2,</strong><br/>
                   <strong>58-371 Boguszów-Gorce</strong><br/>
-                  <strong>64- 100 Leszno</strong>
                 </Field>
                 <div style={{width: 250, position: 'relative', left: -2}} className="is-size-6 flex-centered-y show-account-details button-gold" onClick={this.toogleShowAccount}>
                   <FaMoneyCheck className="money-check"/>
                   Dane bankowe
                   {
                     this.state.showAccountDetails ?
-                      <FaAngleUp style={{opacity: 0.7, marginLeft: 8}}/>
+                      <FaAngleUp style={{position: 'relative', top: 2, marginLeft: 8}}/>
                       :
-                      <FaAngleDown style={{opacity: 0.7, marginLeft: 8}}/>
+                      <FaAngleDown style={{position: 'relative', top: 2, marginLeft: 8}}/>
                   }
                 </div>
                 <div className="account-details-wrapper">
@@ -141,11 +145,9 @@ export default class Index extends React.Component {
                     </label>
                   </div>
                   <div className="field">
-                    <label className="label" htmlFor={'name'}>
-                      Twoje imię
-                    </label>
                     <div className="control">
                       <input
+                        placeholder="Twoje imię"
                         className="input"
                         type={'text'}
                         name={'name'}
@@ -156,11 +158,9 @@ export default class Index extends React.Component {
                     </div>
                   </div>
                   <div className="field">
-                    <label className="label" htmlFor={'email'}>
-                      Twój e-mail
-                    </label>
                     <div className="control">
                       <input
+                        placeholder="Twój e-mail"
                         className="input"
                         type={'email'}
                         name={'email'}
@@ -171,16 +171,15 @@ export default class Index extends React.Component {
                     </div>
                   </div>
                   <div className="field">
-                    <label className="label" htmlFor={'message'}>
-                      Wiadomość
-                    </label>
                     <div className="control">
                       <textarea
+                        placeholder="Wiadomość"
                         className="textarea"
                         name={'message'}
                         onChange={this.handleChange}
                         id={'message'}
                         required={true}
+                        rows="5"
                       />
                     </div>
                   </div>

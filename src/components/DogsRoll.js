@@ -29,10 +29,10 @@ class DogsRoll extends React.Component {
   render() {
     const { data, gender, showDog, dogToShow } = this.props
     let post, forSale;
-    if(dogToShow) {
-      post = this.props.posts[dogToShow - 1].node;
-    }
     const filteredPosts = this.props.posts.filter(({node}) => node.frontmatter.gender === gender)
+    if(dogToShow) {
+      post = filteredPosts[dogToShow - 1].node;
+    }
     return (
       <div>
         <div className="dogs-container columns is-multiline">

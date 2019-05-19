@@ -163,7 +163,6 @@ const Navbar = class extends React.Component {
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
               // style={typeof window !== 'undefined' && window.innerHeight < window.scrollY ? {color: '#339933'} : {}}
-              style={{color: '#339933'}}
               onClick={() => this.toggleHamburger()}
             >
               <span />
