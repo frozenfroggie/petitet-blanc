@@ -38,7 +38,7 @@ class GroomingPage extends React.Component {
     $('#footer').css('display', 'none');
     window.addEventListener('wheel', this.onWheel, {passive: false});
     window.addEventListener('scroll', this.adjustPositions);
-    this.detectSwipe('grooming-container', this.swipeDetected);
+    this.detectSwipe('sectionMain2', this.swipeDetected);
   }
   componentWillUnmount() {
     $('body').css('height', 'auto');
@@ -158,7 +158,7 @@ class GroomingPage extends React.Component {
       locked = true;
       setTimeout(() => {
         locked = false
-      }, 600)
+      }, 300 * step)
     } else if(scrollingSlide >= 14 || step === 1 && scrollingSlide >= 13) {
       return window.scrollTo({
           top: 0,
@@ -168,7 +168,7 @@ class GroomingPage extends React.Component {
       locked = true;
       setTimeout(() => {
         locked = false
-      }, 600)
+      }, 300 * step)
       window.scrollTo({top: (scrollingSlide + 1) * (windowHeight - navbarHeight), behavior: 'smooth'});
     }
   }
@@ -180,7 +180,7 @@ class GroomingPage extends React.Component {
       locked = true;
       setTimeout(() => {
         locked = false
-      }, 600)
+      }, 300 * step)
       window.scrollTo({top: scrollingSlide * (windowHeight - navbarHeight), behavior: 'smooth'});
     }
   }
@@ -220,7 +220,7 @@ class GroomingPage extends React.Component {
     console.log(posts)
     return (
         <Layout>
-          <section className="section section-main it" style={{marginBottom: '-100vh', width: '100%', padding: 0}}>
+          <section id="sectionMain2" className="section section-main it" style={{marginBottom: '-100vh', width: '100%', padding: 0}}>
             <div id="grooming-container" className="grooming-container" style={{zIndex: 98, position: 'relative', top: 10, height: '100vh'}}>
 
               <article id="slide-0" className="slide slide--locked">
