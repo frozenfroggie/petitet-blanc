@@ -241,7 +241,7 @@ export const IndexPageTemplate = ({
           </FederationsContainer>
           <HeaderMain>
             <SpanBigSlim>Petit & Blanc</SpanBigSlim><br/>
-            <SpanStyled weight="100">
+            <SpanStyled weight="300">
             {
               `hodowla psów rasowych`
             }
@@ -482,7 +482,7 @@ class IndexPage extends React.Component {
         {
           !this.state.isNewsletterOpen &&
           <button className="newsletter-button" onClick={this.toogleModal} >
-            <FaPaw size='1.5em' />
+            <FaPaw size='2em' />
           </button>
         }
         {

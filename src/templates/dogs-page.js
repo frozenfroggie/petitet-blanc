@@ -1,8 +1,19 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import styled, { keyframes } from "styled-components"
 
 import Layout from '../components/Layout'
 import DogInfo from '../components/DogInfo'
+
+const Title = styled.h2`
+  position: relative;
+  top: -50px;
+  font-size: 2.5em;
+  color: #339933;
+  text-align: center;
+  margin: auto;
+  margin-bottom: -30px;
+`
 
 export const DogsPageTemplate = ({
   title,
@@ -18,7 +29,8 @@ export const DogsPageTemplate = ({
   closeLightbox,
   lightbox,
   currentImage,
-  photos
+  photos,
+  description
 }) => {
   return (
     <div>
@@ -28,6 +40,7 @@ export const DogsPageTemplate = ({
             <div className="columns">
               <div className="column is-12">
                 <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
+                  <Title> { officialName } </Title>
                   <DogInfo
                     image={image}
                     homeName={homeName}
@@ -40,6 +53,7 @@ export const DogsPageTemplate = ({
                     openLightbox={(idx, e) => openLightbox(idx, e)}
                     currentImage={currentImage}
                     photos={photos}
+                    description={description}
                   />
                 </div>
               </div>
@@ -73,6 +87,7 @@ class DogsPage extends React.Component {
     return (
       <Layout>
         <DogsPageTemplate
+          description={frontmatter.description}
           title={frontmatter.title}
           lineage={frontmatter.lineage}
           birthDate={frontmatter.birthDate}
@@ -108,6 +123,7 @@ query DogsPageByID($id: String!) {
         homeName
         gender
         achievements
+        description
         galleryImages {
           image {
             childImageSharp {
