@@ -8,7 +8,7 @@ import Lightbox from './Lightbox.js';
 import defaultDog from '../img/default_dog.png'
 
 const DogNewHomeInfo = props => (
-  <div className="is-parent centered column is-12">
+  <div className="is-parent column is-12">
     <div className="box notification is-full">
       <div className="columns">
         <div className="column is-6" >

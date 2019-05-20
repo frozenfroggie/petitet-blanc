@@ -38,6 +38,7 @@ class GroomingPage extends React.Component {
     $('#footer').css('display', 'none');
     window.addEventListener('wheel', this.onWheel, {passive: false});
     window.addEventListener('scroll', this.adjustPositions);
+    this.detectSwipe('grooming-container', this.swipeDetected);
   }
   componentWillUnmount() {
     $('body').css('height', 'auto');
@@ -70,32 +71,95 @@ class GroomingPage extends React.Component {
       delta = -1 * e.deltaY;
     }
     if (delta < 0){
-      this.showNextSlide()
+      this.showNextSlide(2)
     } else if (delta > 0){
       console.log("UP");
-      this.showPreviousSlide()
+      this.showPreviousSlide(2)
     }
     e.preventDefault();
   }
-  showNextSlide = () => {
+  detectSwipe = (elementId, func) => {
+    let swipe_det = {};
+    swipe_det.sX = 0; swipe_det.sY = 0; swipe_det.eX = 0; swipe_det.eY = 0;
+    const min_x = 30;  //min x swipe for horizontal swipe
+    // const max_x = 30;  //max x difference for horizontal swipe
+    const min_y = 30;  //min y swipe for vertical swipe
+    // const max_y = 60;
+    let direcX = 0;
+    let direcY = 0;
+    let element = document.getElementById(elementId);
+    if(!element)
+      return;
+    element.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      swipe_det.sX = t.screenX;
+      swipe_det.sY = t.screenY;
+      e.preventDefault();
+    }, false);
+    element.addEventListener('touchmove', (e) => {
+      const horizontalSwipe = ((swipe_det.eX - min_x > swipe_det.sX) ||
+      (swipe_det.eX + min_x < swipe_det.sX)) && (swipe_det.eX > 0);
+      const verticalSwipe = ((swipe_det.eY - min_y > swipe_det.sY) ||
+      (swipe_det.eY + min_y < swipe_det.sY)) && (swipe_det.eY > 0);
+      console.log(horizontalSwipe, verticalSwipe)
+      if (horizontalSwipe || verticalSwipe) {
+        e.preventDefault();
+      }
+      const t = e.touches[0];
+      swipe_det.eX = t.screenX;
+      swipe_det.eY = t.screenY;
+    }, false);
+    element.addEventListener('touchend', () => {
+      //horizontal detection
+      const shouldSwipeHorizontally = ((swipe_det.eX - min_x > swipe_det.sX) ||
+      (swipe_det.eX + min_x < swipe_det.sX)) && (swipe_det.eX > 0);
+      const shouldSwipeVertically = ((swipe_det.eY - min_y > swipe_det.sY) ||
+      (swipe_det.eY + min_y < swipe_det.sY)) && (swipe_det.eY > 0);
+      if (shouldSwipeHorizontally) {
+        if(swipe_det.eX > swipe_det.sX) direcX = -1;
+        else direcX = 1;
+      } else if (shouldSwipeVertically) {
+        if(swipe_det.eY > swipe_det.sY) direcY = -1;
+        else direcY = 1;
+      }
+
+      if (direcX !== 0 || direcY !== 0) {
+        if (typeof func == 'function') func(direcX, direcY);
+      }
+      direcX = 0;
+      direcY = 0;
+      swipe_det.sY = 0;
+      swipe_det.eY = 0;
+      swipe_det.sX = 0;
+      swipe_det.eX = 0;
+    }, false);
+  }
+  swipeDetected = (directionX, directionY) => {
+    if(directionY > 0) {
+      this.showNextSlide(1);
+    } else if(directionY < 0) {
+      this.showPreviousSlide(1);
+    }
+  }
+  showNextSlide = step => {
     var scrollPosition = $(window).scrollTop();
     let slideHeight;
     if(document.getElementById('slide-0')) {
       slideHeight = document.getElementById('slide-0').offsetHeight;
     }
-    var scrollingSlide = Math.floor(scrollPosition / slideHeight) + 1;
+    var scrollingSlide = Math.floor(scrollPosition / slideHeight) + (step - 1);
     console.log(scrollingSlide);
     // document.getElementById('grooming-container').scrollTo({
     //   top: scrollingSlide * slideHeight + "px",
     //   behavior: 'smooth'
     // })
     if(scrollingSlide === 1) {
-      window.scrollTo({top: (scrollingSlide + 2) * (windowHeight - navbarHeight), behavior: 'smooth'});
+      window.scrollTo({top: (scrollingSlide + step) * (windowHeight - navbarHeight), behavior: 'smooth'});
       locked = true;
       setTimeout(() => {
         locked = false
       }, 600)
-    } else if(scrollingSlide >= 14) {
+    } else if(scrollingSlide >= 14 || step === 1 && scrollingSlide >= 13) {
       return window.scrollTo({
           top: 0,
           behavior: 'smooth'
@@ -108,11 +172,11 @@ class GroomingPage extends React.Component {
       window.scrollTo({top: (scrollingSlide + 1) * (windowHeight - navbarHeight), behavior: 'smooth'});
     }
   }
-  showPreviousSlide = () => {
+  showPreviousSlide = step => {
     var scrollPosition = $(window).scrollTop();
     if(document.getElementById('slide-0') && !locked) {
       var slideHeight = document.getElementById('slide-0').offsetHeight;
-      var scrollingSlide = Math.floor(scrollPosition / slideHeight) - 2;
+      var scrollingSlide = Math.floor(scrollPosition / slideHeight) - step;
       locked = true;
       setTimeout(() => {
         locked = false

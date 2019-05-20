@@ -86,6 +86,14 @@ const DogInfo = props => (
             }
             </strong></p>
             {
+              props.description &&
+              <p style={{padding: '10px 0px'}}>
+                {
+                  props.description
+                }
+              </p>
+            }
+            {
               props.lineage &&
                 <div style={{marginTop: 23}}>
                   <p className="is-size-6">Rodowód:</p>

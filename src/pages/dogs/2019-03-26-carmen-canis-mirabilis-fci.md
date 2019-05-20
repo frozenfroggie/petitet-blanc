@@ -25,5 +25,7 @@ galleryImages:
   - image: /img/aivi8.jpg
   - image: /img/aivi9.jpg
   - image: /img/aivi10.jpg
+description: '
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pretium feugiat mi, eget tempus mauris sollicitudin id. Ut efficitur magna quam, sed vestibulum ligula luctus id. Cras gravida ultrices mi euismod ultrices. Vivamus vel fermentum purus, at vestibulum metus. Quisque maximus ultrices lectus, non iaculis arcu sagittis ac. Nulla venenatis tortor sapien, volutpat pretium nisl tincidunt vel. Proin maximus maximus orci. Mauris imperdiet vehicula libero, at vestibulum augue consectetur at. Quisque viverra lorem odio, at malesuada odio congue at. 
+  '
 ---
-

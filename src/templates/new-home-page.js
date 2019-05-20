@@ -1,9 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import styled, { keyframes } from "styled-components"
 
 import Layout from '../components/Layout'
 import DogNewHomeInfo from '../components/DogNewHomeInfo'
+
+const Title = styled.h2`
+  position: relative;
+  top: -50px;
+  font-size: 2.5em;
+  color: #339933;
+  text-align: center;
+  margin: auto;
+  margin-bottom: -30px;
+`
 
 export const NewHomePageTemplate = ({
   id,
@@ -20,11 +31,12 @@ export const NewHomePageTemplate = ({
   return (
     <div>
     <section className="section section--gradient"  style={{marginBottom: '-100vh'}}>
-      <div className="container" style={{zIndex: 99, marginTop: 100}}>
+      <div className="container" style={{zIndex: 99}}>
         <div className="section">
           <div className="columns">
             <div className="column is-12">
               <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
+                <Title> { title } </Title>
                 <DogNewHomeInfo
                   title={title}
                   description={description}

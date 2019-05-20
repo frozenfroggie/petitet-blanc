@@ -1,10 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import styled, { keyframes } from "styled-components"
 
 import Layout from '../components/Layout'
 import DogTile from '../components/DogTile'
 import DogInfo from '../components/DogInfo'
+
+const Title = styled.h2`
+  position: relative;
+  top: -50px;
+  font-size: 2.5em;
+  color: #339933;
+  text-align: center;
+  margin: auto;
+  margin-bottom: -30px;
+  height: auto;
+`
 
 export const LittersPageTemplate = ({
   id,
@@ -28,6 +40,7 @@ export const LittersPageTemplate = ({
           <div className="columns">
             <div className="column is-12">
               <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
+                <Title> { title } </Title>
                 <DogInfo
                   id={id}
                   image={image}
