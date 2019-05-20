@@ -73,7 +73,7 @@ class GroomingPage extends React.Component {
     if (delta < 0){
       this.showNextSlide(2)
     } else if (delta > 0){
-      console.log("UP");
+      // console.log("UP");
       this.showPreviousSlide(2)
     }
     e.preventDefault();
@@ -135,6 +135,7 @@ class GroomingPage extends React.Component {
     }, false);
   }
   swipeDetected = (directionX, directionY) => {
+    console.log(directionY)
     if(directionY > 0) {
       this.showNextSlide(1);
     } else if(directionY < 0) {
@@ -148,7 +149,7 @@ class GroomingPage extends React.Component {
       slideHeight = document.getElementById('slide-0').offsetHeight;
     }
     var scrollingSlide = Math.floor(scrollPosition / slideHeight) + (step - 1);
-    console.log(scrollingSlide);
+    // console.log(scrollingSlide);
     // document.getElementById('grooming-container').scrollTo({
     //   top: scrollingSlide * slideHeight + "px",
     //   behavior: 'smooth'
@@ -185,14 +186,14 @@ class GroomingPage extends React.Component {
     }
   }
   adjustPositions = (ev) => {
-    console.log(ev);
+    // console.log(ev);
   	var scrollPosition = $(window).scrollTop();
     let slideHeight;
     if(document.getElementById('slide-0')) {
       slideHeight = document.getElementById('slide-0').offsetHeight;
     }
     var scrollingSlide = Math.floor(scrollPosition / slideHeight) + 1;
-    console.log(scrollPosition, slideHeight, scrollPosition / slideHeight);
+    // console.log(scrollPosition, slideHeight, scrollPosition / slideHeight);
   	// var scrollingSlide = Math.floor((scrollPosition / windowHeight) + (prevScrollingSlide * 0.045)) + 1;
     // console.log((scrollPosition / windowHeight) + (prevScrollingSlide * 0.045));
     // prevScrollingSlide = scrollingSlide;
@@ -220,7 +221,7 @@ class GroomingPage extends React.Component {
     console.log(posts)
     return (
         <Layout>
-          <section id="sectionMain2" className="section section-main it" style={{marginBottom: '-100vh', width: '100%', padding: 0}}>
+          <section id="sectionMain2"  className="section section-main it" style={{marginBottom: '-100vh', width: '100%', padding: 0}}>
             <div id="grooming-container" className="grooming-container" style={{zIndex: 98, position: 'relative', top: 10, height: '100vh'}}>
 
               <article id="slide-0" className="slide slide--locked">
