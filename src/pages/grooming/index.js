@@ -23,6 +23,7 @@ let $slides;
 let prevScrollingSlide = 1;
 const navbarHeight = 68;
 let locked = false;
+let scrollingSlide = 0;
 
 class GroomingPage extends React.Component {
   constructor(props) {
@@ -137,9 +138,34 @@ class GroomingPage extends React.Component {
   swipeDetected = (directionX, directionY) => {
     console.log(directionY)
     if(directionY > 0) {
-      this.showNextSlide(1);
+      scrollingSlide += 1;
+      if(scrollingSlide <= 2) {
+        scrollingSlide = 3
+      }
+      var $scrollingSlide = $('#slide-' + scrollingSlide);
+      console.log($scrollingSlide)
+      if(scrollingSlide > 14) {
+        $scrollingSlide.prevAll('.slide').removeClass('slide--locked').addClass('slide--scrolling');
+        // $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
+        // $scrollingSlide.nextAll('.slide').removeClass('slide--locked').removeClass('slide--scrolling');
+        scrollingSlide = 0;
+        var $scrollingSlide = $('#slide-' + scrollingSlide);
+        $scrollingSlide.prevAll('.slide').removeClass('slide--scrolling').addClass('slide--locked');
+        $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
+        $scrollingSlide.nextAll('.slide').removeClass('slide--locked').removeClass('slide--scrolling');
+      } else {
+        $scrollingSlide.prevAll('.slide').removeClass('slide--scrolling').addClass('slide--locked');
+        $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
+        $scrollingSlide.nextAll('.slide').removeClass('slide--locked').removeClass('slide--scrolling');
+      }
     } else if(directionY < 0) {
-      this.showPreviousSlide(1);
+      scrollingSlide -= 1;
+      if(scrollingSlide > 1) {
+        var $scrollingSlide = $('#slide-' + scrollingSlide);
+        $scrollingSlide.prevAll('.slide').removeClass('slide--scrolling').addClass('slide--locked');
+        $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
+        $scrollingSlide.nextAll('.slide').removeClass('slide--locked').removeClass('slide--scrolling');
+      }
     }
   }
   showNextSlide = step => {
