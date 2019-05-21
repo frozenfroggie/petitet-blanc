@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaMars, FaVenus } from 'react-icons/fa';
+import { FaMars, FaVenus, FaPaperclip } from 'react-icons/fa';
 import classNames from 'classnames';
 import moment from 'moment';
 import 'moment/locale/pl';
@@ -22,7 +22,7 @@ const DogInfo = props => (
                   : defaultDog
               })`
             }}></div>
-          <div>
+          <div style={{padding: '0px 10px'}}>
             {
               props.homeName ?
                 <div>
@@ -86,25 +86,32 @@ const DogInfo = props => (
             }
             </strong></p>
             {
+              props.lineage &&
+                <div>
+                  <p className="is-size-6 dog-info-subheader" style={{marginBottom: 5}}>Rodowód:</p>
+                  <a target="_blank" rel="noopener noreferrer" href={props.lineage}>
+                    <FaPaperclip size="2em" />
+                  </a>
+                </div>
+            }
+            {
+              props.achievements && props.achievements.length > 0 &&
+              <div>
+                <p className="is-size-6 dog-info-subheader">Osiągnięcia:</p>
+                <ul>
+                  {
+                    props.achievements.map((achievement, idx) => <li className="is-size-5" key={idx}><strong>{achievement}</strong></li>)
+                  }
+                </ul>
+              </div>
+            }
+            {
               props.description &&
               <p style={{padding: '10px 0px'}}>
                 {
                   props.description
                 }
               </p>
-            }
-            {
-              props.lineage &&
-                <div style={{marginTop: 23}}>
-                  <p className="is-size-6">Rodowód:</p>
-                  <a target="_blank" rel="noopener noreferrer" href={props.lineage}>
-                    <div className="certificate" style={{
-                      backgroundImage: `url(${lineage})`,
-                      backgroundSize: 'cover'
-                    }}>
-                    </div>
-                  </a>
-                </div>
             }
           </div>
         </div>
@@ -141,8 +148,8 @@ const DogInfo = props => (
               </ul>
             </div>
           }
-          <div style={{padding: "20px 0px"}}>
-            <p className="is-size-6 dog-info-subheader">Galeria:</p>
+          <div style={{padding: "0px 0px"}}>
+            <p className="is-size-6 dog-info-subheader" style={{padding: "0px 10px"}}>Galeria:</p>
             <ul className="gallery">
               {
                 props.galleryImages && props.galleryImages.map(({image}, idx) => {
