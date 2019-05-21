@@ -23,6 +23,7 @@ let $slides;
 let prevScrollingSlide = 1;
 const navbarHeight = 68;
 let locked = false;
+let scrollingSlide = 0;
 
 class GroomingPage extends React.Component {
   constructor(props) {
@@ -137,9 +138,34 @@ class GroomingPage extends React.Component {
   swipeDetected = (directionX, directionY) => {
     console.log(directionY)
     if(directionY > 0) {
-      this.showNextSlide(1);
+      scrollingSlide += 1;
+      if(scrollingSlide <= 2) {
+        scrollingSlide = 3
+      }
+      var $scrollingSlide = $('#slide-' + scrollingSlide);
+      console.log($scrollingSlide)
+      if(scrollingSlide > 14) {
+        $scrollingSlide.prevAll('.slide').removeClass('slide--locked').addClass('slide--scrolling');
+        // $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
+        // $scrollingSlide.nextAll('.slide').removeClass('slide--locked').removeClass('slide--scrolling');
+        scrollingSlide = 0;
+        var $scrollingSlide = $('#slide-' + scrollingSlide);
+        $scrollingSlide.prevAll('.slide').removeClass('slide--scrolling').addClass('slide--locked');
+        $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
+        $scrollingSlide.nextAll('.slide').removeClass('slide--locked').removeClass('slide--scrolling');
+      } else {
+        $scrollingSlide.prevAll('.slide').removeClass('slide--scrolling').addClass('slide--locked');
+        $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
+        $scrollingSlide.nextAll('.slide').removeClass('slide--locked').removeClass('slide--scrolling');
+      }
     } else if(directionY < 0) {
-      this.showPreviousSlide(1);
+      scrollingSlide -= 1;
+      if(scrollingSlide > 1) {
+        var $scrollingSlide = $('#slide-' + scrollingSlide);
+        $scrollingSlide.prevAll('.slide').removeClass('slide--scrolling').addClass('slide--locked');
+        $scrollingSlide.removeClass('slide--locked').addClass('slide--scrolling');
+        $scrollingSlide.nextAll('.slide').removeClass('slide--locked').removeClass('slide--scrolling');
+      }
     }
   }
   showNextSlide = step => {
@@ -225,9 +251,9 @@ class GroomingPage extends React.Component {
             <div id="grooming-container" className="grooming-container" style={{zIndex: 98, position: 'relative', top: 10, height: '100vh'}}>
 
               <article id="slide-0" className="slide slide--locked">
-                <div className="maps-content">
+                <a className="maps-content" target="_blank" href="https://www.google.pl/maps/place/plac+Zwyci%C4%99stwa+2,+58-100+Bogusz%C3%B3w-Gorce/@50.7683451,16.1647094,19z/data=!3m1!4b1!4m13!1m7!3m6!1s0x470e562aebdaf713:0x50d1e4abb7191d14!2splac+Zwyci%C4%99stwa,+58-100+Bogusz%C3%B3w-Gorce!3b1!8m2!3d50.7688353!4d16.1661247!3m4!1s0x470e562abff23ff9:0x7cc343a1588cbae7!8m2!3d50.7683451!4d16.1652579">
                   <img src="https://maps.googleapis.com/maps/api/staticmap?center=50.768365,%2016.165263&zoom=17&size=550x490&markers=50.768365,%2016.165263&key=AIzaSyBtpEjog0thmTk4yMd_r4arB0q_QPNKM_I&signature=vyJ8FYBNmoc6zQrL0kDXHUvrOI0=" />
-                </div>
+                </a>
               </article>
               <article id="slide-1" className="slide slide--text slide--locked">
                 <div className="slide__inner__dashed">
