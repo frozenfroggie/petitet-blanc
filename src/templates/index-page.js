@@ -119,7 +119,7 @@ const HeaderMain = styled.h1`
     background: none;
   }
 `
-// 
+//
 // const scrollDownAnimation = keyframes`
 //   0% {
 //     transform: translate(0, 0);
@@ -263,6 +263,7 @@ export const IndexPageTemplate = ({
                   img={require(`../img/dog${idx + 1}.jpg`)}
                   shouldShowCard={shouldShowCard}
                   key={`card-${idx}`}
+                  idx={idx}
                   tab={idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions'}>
                   {
                     idx === 0 ?
