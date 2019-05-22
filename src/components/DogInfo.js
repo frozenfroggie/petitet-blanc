@@ -11,7 +11,7 @@ import defaultDog from '../img/default_dog.png'
 import lineage from '../img/lineage.png'
 
 const DogInfo = props => (
-  <div className="is-parent centered column is-12" key={props.id}>
+  <div className="is-parent column is-12" key={props.id}>
     <div className="box notification is-full">
       <div className="columns">
         <div className="column is-6" >

@@ -27,23 +27,24 @@ class LittersPage extends React.Component {
     const { edges: posts } = this.props.data.allMarkdownRemark
     console.log('ok', posts)
     return (
-        <Layout>
-            <section className="section section-main" style={{marginBottom: '-100vh'}}>
-              <div className="container" style={{zIndex: 99, position: 'relative', top: 100}}>
-                <div className="content">
-                  <DogsRoll
-                    path="/puppies/litters"
-                    location={this.props.location}
-                    goBack={this.goBack}
-                    posts={posts}
-                    dogToShow={this.state.dogToShow}
-                    goBack={this.goBack}
-                    showDog={(idx) => this.showDog(idx)} />
-                </div>
-              </div>
-            </section>
-        </Layout>
-      )
+      <Layout>
+        <section className="section section-main" style={{zIndex: 99, position: 'relative', top: '100px', marginBottom: '-100vh'}}>
+          <div className="container">
+            <div className="content">
+              <DogsRoll
+                path="/puppies/litters"
+                location={this.props.location}
+                goBack={this.goBack}
+                posts={posts}
+                dogToShow={this.state.dogToShow}
+                goBack={this.goBack}
+                showDog={(idx) => this.showDog(idx)}
+              />
+            </div>
+          </div>
+        </section>
+      </Layout>
+    )
   }
 }
 

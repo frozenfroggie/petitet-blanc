@@ -12,9 +12,11 @@ const NewsletterModal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   height: 100%;
-  width: 100%;
+  width: 100vw;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,6 +90,10 @@ const NewsletterModal = styled.div`
   }
 `
 
+const FacebookContainer = styled.div`
+  min-height: 300px;
+`
+
 var script;
 
 class Newsletter extends Component {
@@ -137,15 +143,17 @@ class Newsletter extends Component {
           </div>
           <h2>Dołącz go grupy Bichon Frise Poland. Znajdziesz tutaj pomoc i porady dotyczące rasy</h2>
           <br/>
-          <FacebookProvider appId="304797623776030">
-            <Group
-              href="https://www.facebook.com/groups/195152164440499"
-              width="300"
-              showSocialContext={true}
-              showMetaData={false}
-              skin="light"
-            />
-          </FacebookProvider>
+          <FacebookContainer>
+            <FacebookProvider appId="304797623776030">
+              <Group
+                href="https://www.facebook.com/groups/195152164440499"
+                width="300"
+                showSocialContext={true}
+                showMetaData={false}
+                skin="light"
+              />
+            </FacebookProvider>
+          </FacebookContainer>
         </div>
       </NewsletterModal>
     );

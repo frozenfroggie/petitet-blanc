@@ -5,6 +5,7 @@ import styled, { keyframes } from "styled-components"
 
 import Layout from '../components/Layout'
 import DogNewHomeInfo from '../components/DogNewHomeInfo'
+import InfoWrapper from '../components/InfoWrapper'
 
 const Title = styled.h2`
   position: relative;
@@ -29,32 +30,20 @@ export const NewHomePageTemplate = ({
   photos
 }) => {
   return (
-    <div>
-    <section className="section section--gradient"  style={{marginBottom: '-100vh'}}>
-      <div className="container" style={{zIndex: 99}}>
-        <div className="section">
-          <div className="columns">
-            <div className="column is-12">
-              <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
-                <Title> { title } </Title>
-                <DogNewHomeInfo
-                  title={title}
-                  description={description}
-                  galleryImages={galleryImages}
-                  image={image}
-                  lightbox={lightbox}
-                  onClose={closeLightbox}
-                  openLightbox={(idx, e) => openLightbox(idx, e)}
-                  currentImage={currentImage}
-                  photos={photos}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    </div>
+    <InfoWrapper>
+      <Title> { title } </Title>
+      <DogNewHomeInfo
+        title={title}
+        description={description}
+        galleryImages={galleryImages}
+        image={image}
+        lightbox={lightbox}
+        onClose={closeLightbox}
+        openLightbox={(idx, e) => openLightbox(idx, e)}
+        currentImage={currentImage}
+        photos={photos}
+      />
+    </InfoWrapper>
   )
 }
 
