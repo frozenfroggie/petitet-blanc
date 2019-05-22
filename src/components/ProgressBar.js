@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components"
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const ProgressBarStyled = styled.div`
   position: relative;

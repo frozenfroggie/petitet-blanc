@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import DogInfo from '../components/DogInfo'
 
 export const GroomingPageTemplate = () => {
   return (

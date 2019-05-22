@@ -1,10 +1,8 @@
 import React from 'react'
-import { Router } from "@reach/router"
-import { Link, graphql, StaticQuery, navigate } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import $ from "jquery";
 
 import Layout from '../../components/Layout'
-import TheGoogleMap from '../../components/TheGoogleMap'
 import grooming1 from "../../img/grooming/grooming1.jpg";
 import grooming2 from "../../img/grooming/grooming2.jpg";
 import grooming3 from "../../img/grooming/grooming3.jpg";
@@ -20,7 +18,7 @@ import grooming12 from "../../img/grooming/grooming12.jpg";
 
 let windowHeight;
 let $slides;
-let prevScrollingSlide = 1;
+// let prevScrollingSlide = 1;
 const navbarHeight = 68;
 let locked = false;
 let scrollingSlide = 0;

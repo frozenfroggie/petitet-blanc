@@ -67,7 +67,7 @@ class Lightbox extends Component {
     }
   }
   handleTouchStart = (e) => {
-    const { swipeDet, minX } = this.state;
+    const { swipeDet } = this.state;
     const t = e.touches[0];
     swipeDet.sX = t.screenX;
     swipeDet.sY = t.screenY;
@@ -77,8 +77,8 @@ class Lightbox extends Component {
   }
   handleTouchMove = (e) => {
     const { swipeDet, minX } = this.state;
-    const horizontalSwipe = ((swipeDet.eX - minX > swipeDet.sX) ||
-    (swipeDet.eX + minX < swipeDet.sX)) && (swipeDet.eX > 0);
+    // const horizontalSwipe = ((swipeDet.eX - minX > swipeDet.sX) ||
+    // (swipeDet.eX + minX < swipeDet.sX)) && (swipeDet.eX > 0);
     // if (horizontalSwipe) {
     //   return;
     // }

@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import classNames from 'classnames'
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 import { FaClock, FaTags } from 'react-icons/fa';
 import { kebabCase } from 'lodash'
 

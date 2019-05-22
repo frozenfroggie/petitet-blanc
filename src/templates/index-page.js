@@ -1,17 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled, { keyframes } from "styled-components"
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { FaPaw } from 'react-icons/fa';
 import { navigate } from '@reach/router';
 import Tappable from 'react-tappable';
 
 import ProgressBar from '../components/ProgressBar'
 import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
-import WallpaperBlurredComponent from '../components/WallpaperBlurredComponent'
 import Card from '../components/Card'
 import Modal from '../components/Modal.js';
 import Newsletter from '../components/Newsletter.js';
@@ -123,54 +119,54 @@ const HeaderMain = styled.h1`
     background: none;
   }
 `
-
-const scrollDownAnimation = keyframes`
-  0% {
-    transform: translate(0, 0);
-    opacity: 0;
-  }
-  40% {
-    opacity: 1;
-  }
-  80% {
-    transform: translate(0, 20px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}`
-
-const ScrollDown = styled.div`
-  grid-area: scrollDown;
-  position: relative;
-  top: -10px;
-  left: 50%;
-  width: 30px;
-  height: 50px;
-  margin-left: -15px;
-  border: 2px solid #339933;
-  border-radius: 50px;
-  box-sizing: border-box;
-  align-self: center;
-  &:before {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    content: '';
-    width: 6px;
-    height: 6px;
-    margin-left: -3px;
-    background-color: #339933;
-    border-radius: 100%;
-    -webkit-animation: ${scrollDownAnimation} 2s infinite;
-    animation: ${scrollDownAnimation} 2s infinite;
-    box-sizing: border-box;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-`
+// 
+// const scrollDownAnimation = keyframes`
+//   0% {
+//     transform: translate(0, 0);
+//     opacity: 0;
+//   }
+//   40% {
+//     opacity: 1;
+//   }
+//   80% {
+//     transform: translate(0, 20px);
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 0;
+//   }
+// }`
+//
+// const ScrollDown = styled.div`
+//   grid-area: scrollDown;
+//   position: relative;
+//   top: -10px;
+//   left: 50%;
+//   width: 30px;
+//   height: 50px;
+//   margin-left: -15px;
+//   border: 2px solid #339933;
+//   border-radius: 50px;
+//   box-sizing: border-box;
+//   align-self: center;
+//   &:before {
+//     position: absolute;
+//     top: 10px;
+//     left: 50%;
+//     content: '';
+//     width: 6px;
+//     height: 6px;
+//     margin-left: -3px;
+//     background-color: #339933;
+//     border-radius: 100%;
+//     -webkit-animation: ${scrollDownAnimation} 2s infinite;
+//     animation: ${scrollDownAnimation} 2s infinite;
+//     box-sizing: border-box;
+//   }
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `
 
 const Section = styled.section`
   z-index: 10000;
@@ -260,12 +256,13 @@ export const IndexPageTemplate = ({
       </Section>
       {
         showDog.map((shouldShowCard, idx) => (
-            <Section>
-              <Tappable onTap={() => navigate(idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions')}>
+            <Section key={`section-${idx}`}>
+              <Tappable key={`tappable-${idx}`}
+                onTap={() => navigate(idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions')}>
                 <Card
                   img={require(`../img/dog${idx + 1}.jpg`)}
                   shouldShowCard={shouldShowCard}
-                  idx={idx}
+                  key={`card-${idx}`}
                   tab={idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions'}>
                   {
                     idx === 0 ?

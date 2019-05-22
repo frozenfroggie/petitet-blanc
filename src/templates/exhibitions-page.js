@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
 import Layout from '../components/Layout'
-import DogTile from '../components/DogTile'
 import DogInfo from '../components/DogInfo'
 
 const Title = styled.h2`

@@ -1,10 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery, navigate } from 'gatsby'
 
 import DogTile from './DogTile.js';
-import DogInfo from './DogInfo.js';
-import DogNewHomeInfo from './DogNewHomeInfo.js';
 
 class DogsRoll extends React.Component {
   constructor(props) {
@@ -27,12 +23,12 @@ class DogsRoll extends React.Component {
     this.setState({ lightbox: false });
   }
   render() {
-    const { data, gender, showDog, dogToShow } = this.props
-    let post, forSale;
+    const { gender, showDog, dogToShow } = this.props
+    let forSale;
     const filteredPosts = this.props.posts.filter(({node}) => node.frontmatter.gender === gender)
-    if(dogToShow) {
-      post = filteredPosts[dogToShow - 1].node;
-    }
+    // if(dogToShow) {
+    //   post = filteredPosts[dogToShow - 1].node;
+    // }
     return (
       <div>
         <div className="dogs-container columns is-multiline">

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components"
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { navigate } from '@reach/router';
 
 const CardContainer = styled.div`
