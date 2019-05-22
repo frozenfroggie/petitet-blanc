@@ -1,12 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import styled, { keyframes } from "styled-components"
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import styled from "styled-components"
 
 import wallpaper from '../img/wallpaper.jpg'
 import wallpaper_mobile from '../img/wallpaper.jpg'
-import federations from '../img/federations.png'
 
 const WallpaperBlurredContainer = styled.div`
   position: fixed;
@@ -41,7 +37,7 @@ const WallpaperBlurredComponent = class extends React.Component {
     sectionMain && sectionMain.removeEventListener('scroll', this.onScroll)
   }
   onScroll = (e) => {
-    const { innerHeight, location } = window;
+    const { innerHeight } = window;
     const { scrollTop } = document.getElementById('sectionMain');
     // console.log(e)
     if(scrollTop > 0.5 * innerHeight) {

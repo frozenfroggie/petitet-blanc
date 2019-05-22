@@ -1,6 +1,5 @@
 import React from 'react'
-import { Router } from "@reach/router"
-import { Link, graphql, StaticQuery, navigate } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 
 import Layout from '../../components/Layout'
 import DogsRoll from '../../components/DogsRoll'

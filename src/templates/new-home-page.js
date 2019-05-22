@@ -1,21 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import styled, { keyframes } from "styled-components"
 
 import Layout from '../components/Layout'
 import DogNewHomeInfo from '../components/DogNewHomeInfo'
 import InfoWrapper from '../components/InfoWrapper'
 
-const Title = styled.h2`
-  position: relative;
-  top: -50px;
-  font-size: 2.5em;
-  color: #339933;
-  text-align: center;
-  margin: auto;
-  margin-bottom: -30px;
-`
+import { Title } from '../components/style'
 
 export const NewHomePageTemplate = ({
   id,

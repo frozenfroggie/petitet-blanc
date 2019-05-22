@@ -8,7 +8,6 @@ import Modal from './Modal.js';
 import Lightbox from './Lightbox.js';
 
 import defaultDog from '../img/default_dog.png'
-import lineage from '../img/lineage.png'
 
 const DogInfo = props => (
   <div className="is-parent column is-12" key={props.id}>

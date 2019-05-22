@@ -1,20 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled, { keyframes } from "styled-components"
 
 import Layout from '../components/Layout'
 import DogInfo from '../components/DogInfo'
 import InfoWrapper from '../components/InfoWrapper'
 
-const Title = styled.h2`
-  position: relative;
-  top: -50px;
-  font-size: 2.5em;
-  color: #339933;
-  text-align: center;
-  margin: auto;
-  margin-bottom: -30px;
-`
+import { Title } from '../components/style'
 
 export const DogsPageTemplate = ({
   title,

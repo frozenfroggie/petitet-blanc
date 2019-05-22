@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { navigate, globalHistory } from '@reach/router';
+import { navigate } from '@reach/router';
 import classNames from 'classnames';
 
-import github from "../img/github-icon.svg";
 import logo_white from "../img/logo_white.png";
-import logo_green from "../img/logo_green.png";
-import cut from "../img/cut.png";
+// import logo_green from "../img/logo_green.png";
+// import cut from "../img/cut.png";
 
 const NavStyled = styled.nav`
   top: 0px;

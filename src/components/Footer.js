@@ -4,8 +4,6 @@ import { Link } from 'gatsby'
 import logo from '../img/logo_white.png'
 import facebook from '../img/social/facebook.svg'
 import instagram from '../img/social/instagram.svg'
-import twitter from '../img/social/twitter.svg'
-import vimeo from '../img/social/vimeo.svg'
 
 const Footer = class extends React.Component {
   render() {
@@ -25,23 +23,18 @@ const Footer = class extends React.Component {
                 <section className="menu">
                   <ul className="menu-list">
                     <li>
-                      <Link to="/" className="navbar-item">
-                        Home
+                      <Link to="/blog" className="navbar-item">
+                        Blog
                       </Link>
                     </li>
                     <li>
                       <Link className="navbar-item" to="/about">
-                        About
+                        Nasze Psy
                       </Link>
                     </li>
                     <li>
                       <Link className="navbar-item" to="/products">
-                        Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
+                        Szczenięta
                       </Link>
                     </li>
                     <li>
@@ -61,13 +54,23 @@ const Footer = class extends React.Component {
                 <section>
                   <ul className="menu-list">
                     <li>
-                      <Link className="navbar-item" to="/blog">
-                        Latest Stories
+                      <Link className="navbar-item" to="/grooming">
+                        Grooming
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="navbar-item" to="/exhibitions">
+                        Wystawy
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="navbar-item" to="/gallery">
+                        Galeria
                       </Link>
                     </li>
                     <li>
                       <Link className="navbar-item" to="/contact">
-                        Contact
+                        Kontakt
                       </Link>
                     </li>
                   </ul>
@@ -81,14 +84,6 @@ const Footer = class extends React.Component {
                     style={{ width: '1em', height: '1em' }}
                   />
                 </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
                 <a title="instagram" href="https://instagram.com">
                   <img
                     src={instagram}
@@ -96,13 +91,12 @@ const Footer = class extends React.Component {
                     style={{ width: '1em', height: '1em' }}
                   />
                 </a>
-                <a title="vimeo" href="https://vimeo.com">
-                  <img
-                    src={vimeo}
-                    alt="Vimeo"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
+                <br/>
+                <br/>
+                <div>
+                  <p>Graphic Design - Dawid Pilszak</p>
+                  <p>Website Development - Jakub Wojtyra</p>
+                </div>
               </div>
             </div>
           </div>

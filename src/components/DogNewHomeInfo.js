@@ -1,6 +1,4 @@
 import React from 'react'
-import { FaMars, FaVenus } from 'react-icons/fa';
-import classNames from 'classnames';
 
 import Modal from './Modal.js';
 import Lightbox from './Lightbox.js';
@@ -8,7 +6,7 @@ import Lightbox from './Lightbox.js';
 import defaultDog from '../img/default_dog.png'
 
 const DogNewHomeInfo = props => (
-  <div className="is-parent column is-12">
+  <div className="is-parent column is-12" key={props.id}>
     <div className="box notification is-full">
       <div className="columns">
         <div className="column is-6" >

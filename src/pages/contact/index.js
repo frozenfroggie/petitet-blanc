@@ -1,10 +1,9 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
-import classNames from 'classnames';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { FaAt, FaUser, FaPhone, FaAngleDown, FaAngleUp, FaMoneyCheck, FaFacebookF } from 'react-icons/fa';
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 
 const Field = styled.div`
   margin-bottom: 20px;

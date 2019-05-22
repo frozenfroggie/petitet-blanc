@@ -1,9 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery, navigate } from 'gatsby'
 
 import GalleryFolder from './GalleryFolder.js';
-import GalleryFolderInside from './GalleryFolderInside.js';
 
 class GalleryRoll extends React.Component {
   render() {
