@@ -4,6 +4,8 @@ import { Link, graphql } from 'gatsby'
 import styled, { keyframes } from "styled-components"
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { FaPaw } from 'react-icons/fa';
+import { navigate } from '@reach/router';
+import Tappable from 'react-tappable';
 
 import ProgressBar from '../components/ProgressBar'
 import Layout from '../components/Layout'
@@ -259,23 +261,25 @@ export const IndexPageTemplate = ({
       {
         showDog.map((shouldShowCard, idx) => (
             <Section>
-              <Card
-                img={require(`../img/dog${idx + 1}.jpg`)}
-                shouldShowCard={shouldShowCard}
-                idx={idx}
-                tab={idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions'}>
-                {
-                  idx === 0 ?
-                    'blog' :
-                    idx === 1 ?
-                    '<span>nasze</span>psy' :
-                      idx === 2 ?
-                      '<span>nasze</span>mioty' :
-                        idx === 3 ?
-                        'grooming' :
-                        'wystawy'
-                }
-              </Card>
+              <Tappable onTap={() => navigate(idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions')}>
+                <Card
+                  img={require(`../img/dog${idx + 1}.jpg`)}
+                  shouldShowCard={shouldShowCard}
+                  idx={idx}
+                  tab={idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions'}>
+                  {
+                    idx === 0 ?
+                      'blog' :
+                      idx === 1 ?
+                      '<span>nasze</span>psy' :
+                        idx === 2 ?
+                        '<span>nasze</span>mioty' :
+                          idx === 3 ?
+                          'grooming' :
+                          'wystawy'
+                  }
+                </Card>
+              </Tappable>
             </Section>
         ))
       }

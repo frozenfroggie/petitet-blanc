@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components"
 
 import Layout from '../components/Layout'
 import DogInfo from '../components/DogInfo'
+import InfoWrapper from '../components/InfoWrapper'
 
 const Title = styled.h2`
   position: relative;
@@ -33,34 +34,24 @@ export const DogsPageTemplate = ({
   description
 }) => {
   return (
-    <div>
-      <section className="section section--gradient" style={{marginBottom: '-100vh'}}>
-        <div className="container" style={{zIndex: 99, marginTop: 100}}>
-            <div className="columns">
-              <div className="column is-12">
-                <div className="dogs-container columns is-multiline" style={{ marginBottom: '20rem' }}>
-                  <Title> { officialName } </Title>
-                  <DogInfo
-                    image={image}
-                    homeName={homeName}
-                    officialName={officialName}
-                    achievements={achievements}
-                    galleryImages={galleryImages}
-                    birthDate={birthDate}
-                    lightbox={lightbox}
-                    onClose={closeLightbox}
-                    openLightbox={(idx, e) => openLightbox(idx, e)}
-                    currentImage={currentImage}
-                    photos={photos}
-                    description={description}
-                    lineage={lineage}
-                  />
-                </div>
-              </div>
-            </div>
-        </div>
-      </section>
-    </div>
+    <InfoWrapper>
+      <Title> { officialName } </Title>
+      <DogInfo
+        image={image}
+        homeName={homeName}
+        officialName={officialName}
+        achievements={achievements}
+        galleryImages={galleryImages}
+        birthDate={birthDate}
+        lightbox={lightbox}
+        onClose={closeLightbox}
+        openLightbox={(idx, e) => openLightbox(idx, e)}
+        currentImage={currentImage}
+        photos={photos}
+        description={description}
+        lineage={lineage}
+        />
+    </InfoWrapper>
   )
 }
 
