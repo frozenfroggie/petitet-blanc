@@ -4,6 +4,7 @@ import { Link, graphql, StaticQuery, navigate } from 'gatsby'
 
 import Layout from '../../components/Layout'
 import DogsRoll from '../../components/DogsRoll'
+import DogsMenu from '../../components/DogsMenu'
 
 class DogsIndexPage extends React.Component {
   constructor(props) {
@@ -41,6 +42,8 @@ class DogsIndexPage extends React.Component {
               <div className="container">
                 <div className="content">
                   <Router>
+                    <DogsMenu
+                      path="/dogs" />
                     <DogsRoll
                       path="/dogs/male"
                       gender="male"
