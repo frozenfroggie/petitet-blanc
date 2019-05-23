@@ -258,7 +258,7 @@ export const IndexPageTemplate = ({
         showDog.map((shouldShowCard, idx) => (
             <Section key={`section-${idx}`}>
               <Tappable key={`tappable-${idx}`}
-                onTap={() => navigate(idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions')}>
+                onTap={() => navigate(idx === 0 ? '/blog' : idx === 1 ? '/dogs' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions')}>
                 <Card
                   img={require(`../img/dog${idx + 1}.jpg`)}
                   shouldShowCard={shouldShowCard}
