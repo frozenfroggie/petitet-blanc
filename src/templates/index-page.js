@@ -264,7 +264,7 @@ export const IndexPageTemplate = ({
                   shouldShowCard={shouldShowCard}
                   key={`card-${idx}`}
                   idx={idx}
-                  tab={idx === 0 ? '/blog' : idx === 1 ? '/dogs/female' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions'}>
+                  tab={idx === 0 ? '/blog' : idx === 1 ? '/dogs' : idx === 2 ? '/puppies/litters' : idx === 3 ? '/grooming' : '/exhibitions'}>
                   {
                     idx === 0 ?
                       'blog' :
