@@ -64,7 +64,7 @@ const ImgFederations = styled.img`
 
 const SpanBigSlim = styled.span`
   position: relative;
-  font-weight: 200;
+  font-weight: 300;
   color: #339933;
   font-size: 1.95em;
   letter-spacing: 0.9px;
