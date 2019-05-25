@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Petit Et Blanc FCI',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Petit&Blanc - hodowla psów rasowych bichon frise (kędzierzawy). Zarejestrowana w Związku Kynologicznym w Polsce - Oddział Wałbrzych. Salon strzyżenia i pielęgnacji psów.',
   },
   plugins: [
     'gatsby-plugin-styled-components',
