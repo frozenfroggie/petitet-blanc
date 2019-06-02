@@ -2,9 +2,9 @@ var proxy = require("http-proxy-middleware")
 
 module.exports = {
   siteMetadata: {
-    title: 'Petit Et Blanc FCI | Hodowla Bichon Frise',
+    title: 'Hodowla Bichon Frise - Petit Et Blanc FCI',
     description:
-      'Petit & Blanc - hodowla psów rasowych bichon frise (kędzierzawy). Zarejestrowana w Związku Kynologicznym w Polsce - Oddział Wałbrzych. Salon strzyżenia i pielęgnacji psów.',
+      'Hodowla psów rasowych bichon frise (kędzierzawy). Zarejestrowana w Związku Kynologicznym w Polsce - Oddział Wałbrzych. Salon strzyżenia i pielęgnacji psów.',
   },
   plugins: [
     'gatsby-plugin-styled-components',
