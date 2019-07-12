@@ -19,7 +19,7 @@ const GalleryFolder = props => {
               src={!!(image && image.childImageSharp) ? image.childImageSharp.fluid.src : defaultDog} />
           ))
         }
-        <FaCamera className="camera" size="1.1em" color="#339933"/>
+        <FaCamera className="camera" size="1.1em" color="#fff"/>
         <div className="title is-size-5" style={{color: "#339933"}}>
           { props.title + ` (${props.galleryImages.length})`}
         </div>
