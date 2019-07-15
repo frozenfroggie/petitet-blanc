@@ -6,6 +6,13 @@ image: /img/benio1.jpg
 galleryImages:
   - image: /img/benio1.jpg
     description: ''
-description: Lorem
+  - image: /img/benio1.jpg
+  - image: /img/benio2.jpg
+  - image: /img/benio3.jpg
+  - image: /img/benio4.jpg
+description: >-
+  Velvet w domu nazywany po prostu Benio rośnie jak na drożdżach, jest maskotką
+  całej rodziny, rozkochuje w sobie wszystkich i nic dziwnego, jest przesłodkim
+  maluchem <3
 ---
 
