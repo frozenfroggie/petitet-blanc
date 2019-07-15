@@ -4,7 +4,6 @@ date: 2019-07-15T14:39:27.451Z
 title: 'Venus (Beza) w Poznaniu '
 image: /img/bezapozn3.jpg
 galleryImages:
-  - description: ''
   - image: /img/bezapozn1.jpg
   - image: /img/bezapozn2.jpg
   - image: /img/bezapozn4.jpg
