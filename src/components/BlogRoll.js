@@ -194,7 +194,7 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "D MMMM, YYYY", locale: "pl")
-                image {
+                featuredImage {
                   childImageSharp {
                     fluid(maxWidth: 400, quality: 64) {
                       ...GatsbyImageSharpFluid

@@ -77,25 +77,18 @@ const Footer = class extends React.Component {
                 </section>
               </div>
               <div className="column is-4 social">
-                <a title="facebook" href="https://facebook.com">
+                <a className="socialLink" title="facebook" href="https://www.facebook.com/hodowlabichonfrise/">
                   <img
                     src={facebook}
                     alt="Facebook"
                     style={{ width: '1em', height: '1em' }}
                   />
                 </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
                 <br/>
                 <br/>
                 <div>
-                  <p>Graphic Design - Dawid Pilszak</p>
-                  <p>Website Development - Jakub Wojtyra</p>
+                  <p><a target="_blank" href="https://www.facebook.com/dawid.pilszak.1">Graphic Design - Dawid Pilszak</a></p>
+                  <p><a target="_blank" href="https://www.linkedin.com/in/jakub-wojtyra-07b783129/">Website Development - Jakub Wojtyra</a></p>
                 </div>
               </div>
             </div>
