@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import { FaFacebookF } from 'react-icons/fa';
+
 import logo from '../img/logo_white.png'
 import facebook from '../img/social/facebook.svg'
 import instagram from '../img/social/instagram.svg'
@@ -78,11 +80,7 @@ const Footer = class extends React.Component {
               </div>
               <div className="column is-4 social">
                 <a className="socialLink" title="facebook" href="https://www.facebook.com/hodowlabichonfrise/">
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: '1em', height: '1em' }}
-                  />
+                  <FaFacebookF color="#339933"></FaFacebookF>
                 </a>
                 <br/>
                 <br/>

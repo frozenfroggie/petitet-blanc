@@ -124,7 +124,7 @@ class BlogRoll extends React.Component {
           posts.map(({ node: post }) => (
             <div className="is-parent column is-6" key={post.id} style={{zIndex: 100}}>
               <PostTile className="is-child">
-                <PostTileImage image={post.frontmatter.image}></PostTileImage>
+                <PostTileImage image={post.frontmatter.featuredimage}></PostTileImage>
                 <PostTileHeader>
                   <Link
                     className="title is-size-4"
@@ -194,7 +194,7 @@ export default () => (
                 title
                 templateKey
                 date(formatString: "D MMMM, YYYY", locale: "pl")
-                featuredImage {
+                featuredimage {
                   childImageSharp {
                     fluid(maxWidth: 400, quality: 64) {
                       ...GatsbyImageSharpFluid
