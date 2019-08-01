@@ -4,7 +4,7 @@ title: Jak dobrze wybrać hodowlę?
 date: 2019-07-31T19:07:43.534Z
 description: >-
   Zapadła decyzja, chcemy psa! Z różnych względów nie chcemy psa ze schroniska,
-  tylko szczenię z hodowli, wybraliśmy nawet rasę. Skąd wziąć maluszka, z którym
+  tylko szczenię z hodowli, wybraliśmy nawet rasę. Skąd wziąć maluszka, który
   będzie nam towarzyszył przez długi czas? 
 featuredpost: true
 featuredimage: /img/love-bichon.jpg
