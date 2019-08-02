@@ -9,9 +9,8 @@ description: >-
 featuredpost: true
 featuredimage: /img/affection-animal-canine-2640076.jpg
 tags:
-  - hodowa
-  - szczęnię
-  - hodowca
+  - hodowla
+  - szczenięta
   - ZKwP
 ---
 Jeżeli nie mamy znajomych, którzy posiadają psa wybranej rasy, nikt nam nie umie doradzić to najprostszy sposób to internet. Siadamy więc przed komputerem, wpisujemy nazwę rasy i szukamy... szukamy hodowli, bo gdzieś słyszymy, że szczenię musi pochodzić z legalnej hodowli, ale co to znaczy do końca nie wiemy. 
