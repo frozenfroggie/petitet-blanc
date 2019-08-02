@@ -13,7 +13,7 @@ tags:
   - szczenięta
   - ZKwP
 ---
-Jeżeli nie mamy znajomych, którzy posiadają psa wybranej rasy, nikt nam nie umie doradzić to najprostszy sposób to internet. Siadamy więc przed komputerem, wpisujemy nazwę rasy i szukamy... szukamy hodowli, bo gdzieś słyszymy, że szczenię musi pochodzić z legalnej hodowli, ale co to znaczy do końca nie wiemy. 
+Jeżeli nie mamy znajomych, którzy posiadają psa wybranej rasy, nikt nam nie umie doradzić wówczas najprostszy sposób to internet. Siadamy więc przed komputerem, wpisujemy nazwę rasy i szukamy... szukamy hodowli, bo gdzieś słyszymy, że szczenię musi pochodzić z legalnej hodowli, ale co to znaczy do końca nie wiemy. 
 
 Co to jest w ogóle hodowla? To nie jedynie nazwa, to nie miejsce w którym kupujemy nasze wymarzone szczenię. Hodowla to świadome działanie człowieka mające na celu poprawę populacji genetycznej zwierząt, aby pokolenie potomne było lepsze od pokolenia rodzicielskiego. Zakładając hodowlę należy spełnić szereg warunków. Dobremu hodowcy nie wystarczą uprawnienia hodowlane, które bez większych problemów można zrobić odbywając trzy wystawy. 
 
@@ -21,7 +21,7 @@ Dobry hodowca zadba o badania wszystkich psów przeznaczonych do rozrodu, zrobi 
 
 Dobry hodowca rozmnaża tylko psy zrównoważone, dobrze socjalizowane, a nie wszystkie jakie ma w domu.
 
- Dobry hodowca ma zaufanego weterynarza, do którego może zadzwonić o każdej porze dnia i nocy i otrzymać pomoc. 
+Dobry hodowca ma zaufanego weterynarza, do którego może zadzwonić o każdej porze dnia i nocy i otrzymać pomoc. 
 
 Dobry hodowca jest odpowiedzialny za prowadzenie hodowli, opiekuje się swoimi zwierzętami, zapewnia im odpowiednie warunki do życia i rozwoju, pielęgnuje i posiada jedynie taką ilość psów, której jest w stanie zapewnić co najmniej dobre warunki życia.
 
