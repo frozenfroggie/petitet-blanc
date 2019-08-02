@@ -9,8 +9,7 @@ featuredpost: true
 featuredimage: /img/kolor.jpg
 tags:
   - ciekawostki
-  - pies
-  - kolor
+  - ''
 ---
 **Jednym z najczęściej zadawanych pytań dotyczących psiego wzroku jest najprawdopodobniej kwestia widzenia kolorów przez psy.**
 
