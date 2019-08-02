@@ -6,7 +6,7 @@ description: >-
   Jednym z najczęściej zadawanych pytań dotyczących psiego wzroku jest
   najprawdopodobniej kwestia widzenia kolorów przez psy.
 featuredpost: true
-featuredimage: /img/fdfb8587-7788-400c-b05e-471863cdb4b8.jpeg
+featuredimage: /img/kolor.jpg
 tags:
   - ciekawostki
   - pies
@@ -27,3 +27,5 @@ Neitz potwierdził, że psy faktycznie rozróżniają kolory, ale widzą ich zde
 Biorąc pod uwagę to, co wiemy o rozróżnianiu kolorów przez psy, zdumiewające i zadziwiające jest to, że aktualnie większość popularnych zabawek dla psów jest w kolorze czerwonym lub bezpiecznie pomarańczowym (jasny pomarańczowy czy czerwony jak na pachołkach lub kamizelkach bezpieczeństwa). Kolor czerwony jest trudny do dostrzeżenia przez psa. Może on być odebrany jako bardzo ciemny brązowo-szary lub nawet czarny. Oznacza to, że jaskrawo czerwona zabawka, tak dobrze widziana przez ciebie, może być bardzo trudna do dostrzeżenia przez twojego psa. Oznacza to, że jeśli twój ukochany psiak przebiegnie rzuconą przez Ciebie zabawkę i jej nie dostrzeże, nie koniecznie jest głupi czy uparty. To może być twoja wina, ponieważ wybrałeś zabawkę, której koloru twój pies nie rozróżni spośród zieleni łąki. Zostawia nas to z pytaniem, czy psy wykorzystują widzenie kolorów?
 
 Autor: Stanley Coren
+
+Photo by Sharon McCutcheon from Pexels
