@@ -13,6 +13,8 @@ tags:
   - szczenięta
   - ZKwP
 ---
+![text](/img/affection-animal-canine-2640076.jpg)
+
 Jeżeli nie mamy znajomych, którzy posiadają psa wybranej rasy, nikt nam nie umie doradzić wówczas najprostszy sposób to internet. Siadamy więc przed komputerem, wpisujemy nazwę rasy i szukamy... szukamy hodowli, bo gdzieś słyszymy, że szczenię musi pochodzić z legalnej hodowli, ale co to znaczy do końca nie wiemy. 
 
 Co to jest w ogóle hodowla? To nie jedynie nazwa, to nie miejsce w którym kupujemy nasze wymarzone szczenię. Hodowla to świadome działanie człowieka mające na celu poprawę populacji genetycznej zwierząt, aby pokolenie potomne było lepsze od pokolenia rodzicielskiego. Zakładając hodowlę należy spełnić szereg warunków. Dobremu hodowcy nie wystarczą uprawnienia hodowlane, które bez większych problemów można zrobić odbywając trzy wystawy. 
