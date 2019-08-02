@@ -11,8 +11,6 @@ galleryImages:
   - image: /img/bezawarsz1.jpg
   - image: /img/66117213_495093427904958_7689898000117661696_n-1-.jpg
   - image: /img/66196899_2834529143286401_4198368344732073984_n.jpg
-  - {}
-  - {}
 description: >-
   Beza jest bardzo grzecznym szczeniaczkiem, zaczęła już sygnalizować swoje
   potrzeby, a ma dopiero 4 miesiące. Zaprzyjaźniła się już yorkiem.
