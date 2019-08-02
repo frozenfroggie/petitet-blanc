@@ -6,7 +6,6 @@ image: /img/img_20190615_114607.jpg
 exhibitionDate: 2019-06-14T22:00:00.000Z
 galleryImages:
   - image: /img/img_20190615_114627.jpg
-  - {}
 dogs:
   - achievements:
       - ocena wybitnie obecująca
