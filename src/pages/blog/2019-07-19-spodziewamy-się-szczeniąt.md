@@ -10,4 +10,4 @@ tags:
 ---
 W sierpniu spodziewamy się szczeniąt z wyjątkowego skojarzenia. Ojcem maluszków będzie Rasmus, przepiękny, młodziutki reproduktor mieszkający w jednej z najlepszych hodowli bichonków w Norwegii.
 
-Matka: [Claudia Tango Amore](https://www.petitetblanc.eu/dogs/2019-05-03-claudia-tango-amore/)
+Matka: [**Claudia Tango Amore**](https://www.petitetblanc.eu/dogs/2019-05-03-claudia-tango-amore/)****
