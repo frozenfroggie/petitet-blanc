@@ -124,7 +124,11 @@ class BlogRoll extends React.Component {
           posts.map(({ node: post }) => (
             <div className="is-parent column is-6" key={post.id} style={{zIndex: 100}}>
               <PostTile className="is-child">
-                <PostTileImage image={post.frontmatter.featuredimage}></PostTileImage>
+                <Link
+                  className="title is-size-4"
+                  to={post.fields.slug}>
+                  <PostTileImage image={post.frontmatter.featuredimage}></PostTileImage>
+                </Link>
                 <PostTileHeader>
                   <Link
                     className="title is-size-4"
@@ -151,7 +155,7 @@ class BlogRoll extends React.Component {
                   </Subtitle>
                 </PostTileDate>
                 <PostTileExcerpt>
-                  {post.excerpt}
+                  {post.frontmatter.description}
                 </PostTileExcerpt>
                 <PostTileMore>
                   <Link className="button" to={post.fields.slug}>
@@ -192,6 +196,7 @@ export default () => (
               frontmatter {
                 tags
                 title
+                description
                 templateKey
                 date(formatString: "D MMMM, YYYY", locale: "pl")
                 featuredimage {
