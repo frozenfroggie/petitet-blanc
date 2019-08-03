@@ -13,7 +13,7 @@ tags:
   - szczenięta
   - ZKwP
 ---
-![text](/img/affection-animal-canine-2640076.jpg)
+![](/img/affection-animal-canine-2640076.jpg)
 
 Jeżeli nie mamy znajomych, którzy posiadają psa wybranej rasy, nikt nam nie umie doradzić wówczas najprostszy sposób to internet. Siadamy więc przed komputerem, wpisujemy nazwę rasy i szukamy... szukamy hodowli, bo gdzieś słyszymy, że szczenię musi pochodzić z legalnej hodowli, ale co to znaczy do końca nie wiemy. 
 
