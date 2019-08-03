@@ -11,9 +11,9 @@ tags:
   - ciekawostki
   - ''
 ---
-**Jednym z najczęściej zadawanych pytań dotyczących psiego wzroku jest najprawdopodobniej kwestia widzenia kolorów przez psy.**
+![](/img/kolor.jpg)
 
-Prosta odpowiedź, a mianowicie że psy nie rozróżniają kolorów, jest źle interpretowana przez ludzi i często spotykamy się ze stwierdzeniem, iż psy nie widzą kolorów, a odbierają świat w odcieniach szarości. Nie jest to prawdą. **Psy widzą kolory, ale kolory te nie są tak bogate i nie jest ich tak wiele jak tych widzianych przez ludzi.**
+Prosta odpowiedź, a mianowicie że psy nie rozróżniają kolorów, jest źle interpretowana przez ludzi i często spotykamy się ze stwierdzeniem, iż psy nie widzą kolorów, a odbierają świat w odcieniach szarości. Nie jest to prawdą. **Psy widzą kolory, ale kolory te nie są tak bogate i nie jest ich tak wiele jak tych, widzianych przez ludzi.**
 
 Zarówno ludzkie jak i psie oczy zawierają komórki wrażliwe na światło zwane czopkami, które reagują na kolor. Psie oczy mają mniej czopków niż ludzkie, co sugeruje iż widzenie przez nich kolorów nie będzie tak bogate czy intensywne jak w przypadku ludzi. Jakkolwiek, możliwość widzenia kolorów to nie tylko posiadanie czopków, ale także posiadanie różnych ich typów, dostrojonych do różnych długości fal światła.
 
