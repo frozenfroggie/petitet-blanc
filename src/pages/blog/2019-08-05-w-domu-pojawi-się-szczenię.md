@@ -7,7 +7,7 @@ description: |
 featuredpost: true
 featuredimage: /img/aivi2.jpg
 tags:
-  - szczenię
+  - szczenięta
   - socjalizacja
 ---
 ![](/img/20190421_110901.jpg)
