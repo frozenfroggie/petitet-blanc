@@ -132,7 +132,7 @@ const DogInfo = props => (
                               puppie.gender === 'male' ?
                                 <span className="gender-symbols"><FaMars size="1.5em" style={{color: '#19A1FF'}} /></span>
                                 :
-                                props.gender === 'female' ?
+                                puppie.gender === 'female' ?
                                   <span className="gender-symbols"><FaVenus size="1.5em" style={{color: '#FF0075'}} /></span>
                                   :
                                   <span className="gender-symbols"></span>
