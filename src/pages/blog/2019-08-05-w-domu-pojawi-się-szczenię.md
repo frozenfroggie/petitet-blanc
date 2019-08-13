@@ -12,38 +12,9 @@ tags:
 ---
 ![](/img/20190421_110901.jpg)
 
-W części przypadków jest to Wasz pierwszy pies i nic dziwnego, że macie z tego
+W części przypadków jest to Wasz pierwszy pies. Macie z tego powodu obawy i lęki związane z obowiązkiem, jaki na Was ciąży. Nie ma w tym nic dziwnego. Może na początku wygląda to strasznie, biorąc pod uwagę, że ta psinka jest przecież taka malutka. Spokojnie - daję głowę, że sobie poradzicie!
 
-powodu obawy i lęki związane z obowiązkiem, jaki na Was ciąży. Nie ma w tym nic
-
-dziwnego. Może na początku wygląda to strasznie, biorąc pod uwagę, że ta psinka jest
-
-przecież taka malutka, ale spokojnie - daję głowę, że sobie poradzicie.
-
-Szczeniak potrzebuje zaangażowania w wychowanie, aby wyrósł na Waszego najlepszego
-
-przyjaciela. Musicie nauczyć go swoich zasad, swoich reguł, swoich przyzwyczajeń.
-
-Do tej pory wychowywał się z mamą, tatą, rodzeństwem, a większość czasu
-
-spędzał w psim towarzystwie. Nagle wszystko ulega zmianie: został sam, bez swoich
-
-czworonożnych przyjaciół, z obcymi osobami. Jest w nowym miejscu, otoczony zapachami,
- które są dla niego nieznane.
-
-Dobrze socjalizowane szczenię o silnej psychice, szybko poradzi sobie z tą sytuacją,
-
-ale musicie mu pomóc. Maluch będzie za Wami wszędzie chodził. Nawet do łazienki.
-
-Może wybrać jedną osobę, do której będzie lgnął,  którą wybierze za przewodnika - to
-
-normalne. Musicie poświęcić mu na początku dużo czasu - nie zostawiać go przez
-
-kilka dni bez opieki. Jest dla niego bardzo ważne.
-
-Piesek musi zapoznać się ze swoim nowym domem, poznać każdy kąt, znać miejsce
-
-odpoczynku, miejsce jedzenia.
+Szczeniak potrzebuje zaangażowania w wychowanie, aby wyrósł na Waszego najlepszego przyjaciela. Musicie nauczyć go swoich zasad, swoich reguł, swoich przyzwyczajeń. Do tej pory wychowywał się z mamą, tatą, rodzeństwem, a większość czasu spędzał w psim towarzystwie. Nagle wszystko ulega zmianie: został sam, bez swoich czworonożnych przyjaciół, z obcymi osobami. Jest w nowym miejscu, otoczony zapachami, które są dla niego nieznane. Dobrze socjalizowane szczenię o silnej psychice, szybko poradzi sobie z tą sytuacją, ale musicie mu pomóc. Maluch będzie za Wami wszędzie chodził. Nawet do łazienki. Może wybrać jedną osobę, do której będzie lgnął, którą wybierze za przewodnika - to normalne. Musicie poświęcić mu na początku dużo czasu - nie zostawiać go przez kilka dni bez opieki. Jest to dla niego bardzo ważne. Piesek musi zapoznać się ze swoim nowym domem, poznać każdy kąt, znać miejsce odpoczynku i miejsce jedzenia.
 
 Plany związane ze szczenięciem mogą być różne. Bichonki najczęściej pełnią w naszych domach funkcję towarzysza rodziny, ale mogą też uczestniczyć w wystawach lub zawodach. Czy jest jakiś wspólny mianownik tych wszystkich psich planów? Od czego zacząć? Czy i ile mogę wymagać od szczenięcia  w pierwszych chwilach w nowym domu?
 
