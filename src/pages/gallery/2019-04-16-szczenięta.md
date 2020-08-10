@@ -8,5 +8,6 @@ galleryImages:
   - image: /img/20190421_110545.jpg
   - image: /img/puppies.jpg
   - image: /img/puppies2.jpg
+  - image: /img/puppies3.jpg
 ---
 
