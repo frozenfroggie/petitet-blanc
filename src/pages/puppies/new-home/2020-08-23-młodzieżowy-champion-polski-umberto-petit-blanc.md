@@ -6,7 +6,7 @@ image: /img/75625417_1368609329986232_8587147282778947584_n.jpg
 galleryImages:
   - {}
 description: >-
-  Piorunek to synek Jaka i Lili, nasza duma, piękny reproduktor o cudownym
+  Piorun to synek Jaka i Lili, nasza duma, piękny reproduktor o cudownym
   usposobieniu :)
 ---
 
