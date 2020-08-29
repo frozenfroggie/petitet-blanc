@@ -22,3 +22,13 @@ Pomijając fakt, że szczenię po okresie akceptacji nowego domu należy uczyć 
 Proszę mi wierzyć, maluch będzie Wam wdzięczny za
  własny kąt, gdzie może się schować przed dziećmi i gdzie nie wolno go karać,
  ponieważ to jest jego azyl.
+
+
+
+![](/img/kojec1.jpg)
+
+![](/img/kojec2.jpg)
+
+![](/img/kojec3.jpg)
+
+![](/img/kojec4.jpg)
