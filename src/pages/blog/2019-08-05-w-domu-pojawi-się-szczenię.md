@@ -5,7 +5,7 @@ date: 2019-08-05T15:23:06.622Z
 description: |
   Pojawienie się szczenięcia w domu bywa prawdziwą sensacją! 
 featuredpost: true
-featuredimage: /img/aivi2.jpg
+featuredimage: /img/20190421_110901.jpg
 tags:
   - szczenięta
   - socjalizacja
