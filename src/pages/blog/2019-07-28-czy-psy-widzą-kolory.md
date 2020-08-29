@@ -9,7 +9,6 @@ featuredpost: true
 featuredimage: /img/kolor.jpg
 tags:
   - ciekawostki
-  - ''
 ---
 ![](/img/kolor.jpg)
 

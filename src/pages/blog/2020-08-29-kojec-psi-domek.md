@@ -9,7 +9,7 @@ featuredpost: true
 featuredimage: /img/72781753_2596816863714658_2165875037263888384_n.jpg
 tags:
   - Instrukcja obsługi szczeniaka
-  - Szczenięta
+  - szczenięta
   - Hodowla
 ---
 **Kojec jest niezbędny dla szczeniaka nawet, gdy zapewniacie mnie, że maluch nigdy nie będzie zostawał sam, bo w domu zawsze ktoś jest.**
