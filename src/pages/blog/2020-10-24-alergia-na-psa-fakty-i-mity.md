@@ -8,7 +8,6 @@ featuredimage: /img/pies-alergia.jpg
 tags:
   - alergia
 ---
-Alergia na psa – fakty i mity
 
 Na początku należy wyjaśnić pewne sierściowe nieporozumienie. Wbrew powszechnemu przekonaniu to nie sierść jest głównym winowajcom, jeżeli chodzi o uczulenie na psa. 
 
