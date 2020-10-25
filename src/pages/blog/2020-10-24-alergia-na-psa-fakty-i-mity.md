@@ -5,6 +5,8 @@ date: 2020-10-24T19:47:49.671Z
 description: 'Alergia '
 featuredpost: true
 featuredimage: /img/pies-alergia.jpg
+tags:
+  - alergia
 ---
 Alergia na psa – fakty i mity
 
