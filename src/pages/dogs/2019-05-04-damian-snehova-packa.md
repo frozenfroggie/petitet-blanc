@@ -5,13 +5,13 @@ image: /img/misiu.jpg
 officialName: DAMIAN Snehova Packa
 lineage: www.petitetblanc.eu
 homeName: Misiu
-gender: veteran
+gender: gone
 birthDate: ''
 achievements:
   - Champion
 galleryImages:
-  - description: ''
-    image: /img/misiu1.jpg
+  - image: /img/misiu1.jpg
+    description: ''
   - image: /img/misiu.jpg
   - image: /img/misiu2.jpg
   - image: /img/misiu3.jpg
