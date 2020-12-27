@@ -202,6 +202,11 @@ const Navbar = class extends React.Component {
                           WETERANY
                         </div>
                       </li>
+                      <li>
+                        <div className="navbar-item"  onClick={() => this.navigateTo('/dogs/gone', {gender: 'gone'})}>
+                          ODESZŁY OD NAS
+                        </div>
+                      </li>
                     </ul>
                   </CSSTransition>
                 </TransitionGroup>

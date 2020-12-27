@@ -68,6 +68,14 @@ class DogsIndexPage extends React.Component {
                       posts={posts}
                       dogToShow={this.state.dogToShow}
                       showDog={(idx, name) => this.showDog(idx, name)} />
+                    <DogsRoll
+                      path="/dogs/gone"
+                      gender="gone"
+                      location={this.props.location}
+                      goBack={this.goBack}
+                      posts={posts}
+                      dogToShow={this.state.dogToShow}
+                      showDog={(idx, name) => this.showDog(idx, name)} />
                   </Router>
                 </div>
               </div>
