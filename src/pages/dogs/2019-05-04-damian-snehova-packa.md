@@ -6,7 +6,7 @@ officialName: DAMIAN Snehova Packa
 lineage: www.petitetblanc.eu
 homeName: Misiu
 gender: gone
-birthDate: 2006-05-19T22:00:00.000Z
+birthDate: 2007-06-05T22:00:00.000Z
 achievements:
   - Champion
 galleryImages:
