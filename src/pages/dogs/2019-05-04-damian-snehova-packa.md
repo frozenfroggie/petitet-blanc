@@ -6,7 +6,7 @@ officialName: DAMIAN Snehova Packa
 lineage: www.petitetblanc.eu
 homeName: Misiu
 gender: gone
-birthDate: ''
+birthDate: 2006-05-19T22:00:00.000Z
 achievements:
   - Champion
 galleryImages:
@@ -16,5 +16,6 @@ galleryImages:
   - image: /img/misiu2.jpg
   - image: /img/misiu3.jpg
   - image: /img/misiu5.jpg
+description: 'Misiu odszedł od nas 8 sierpnia 2020 w wieku 13 lat. '
 ---
 
