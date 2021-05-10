@@ -6,7 +6,7 @@ officialName: DEOTYMA DALIA Od Bastera Mini FCI
 lineage: www.petitetblanc.eu
 homeName: Doti
 gender: gone
-birthDate: 2006-04-29T22:00:00.000Z
+birthDate: 2006-05-19T22:00:00.000Z
 achievements:
   - Champion
 galleryImages:
@@ -15,5 +15,6 @@ galleryImages:
   - image: /img/doti2.jpg
   - image: /img/doti4.jpg
   - image: /img/doti3.jpg
+description: 'Doti odeszła od nas 2 listopada 2020 w wieku 14 lat. '
 ---
 
